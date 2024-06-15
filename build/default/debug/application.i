@@ -21,6 +21,9 @@
 # 11 "./ECU_Layer/LED/ecu_led.h"
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 1
 # 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio_cfg.h" 1
+# 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\__at.h" 1 3
@@ -4233,7 +4236,7 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 1
 # 11 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h"
@@ -4668,14 +4671,14 @@ typedef signed int sint32;
 
 
 typedef uint8 std_ReturnType;
-# 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 14 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../../MCAL_Layer/device_config.h" 1
-# 14 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
-# 27 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 15 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 30 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h"
 typedef enum{
-    LOW = 0,
-    HIGH
+    GPIO_LOW = 0,
+    GPIO_HIGH
 }logic_t;
 
 typedef enum{
@@ -4714,44 +4717,67 @@ std_ReturnType gpio_pin_get_direction_status(const pin_config_t *_pin_config,dir
 std_ReturnType gpio_pin_write_logic(const pin_config_t *_pin_config,logic_t logic);
 std_ReturnType gpio_pin_read_logic(const pin_config_t *_pin_config,logic_t *logic);
 std_ReturnType gpio_pin_toggle_logic(const pin_config_t *_pin_config);
+std_ReturnType gpio_pin_initialize(const pin_config_t *_pin_config);
 
 
-std_ReturnType gpio_port_direction_intialize(const port_index_t port,uint8 direction);
-std_ReturnType gpio_port_get_direction_status(const port_index_t port,uint8 *direction_status);
+std_ReturnType gpio_port_direction_initialize(const port_index_t port,direction_t direction);
+std_ReturnType gpio_port_get_direction_status(const port_index_t port,direction_t *direction_status);
 std_ReturnType gpio_port_read_logic(const port_index_t port,uint8 *logic);
 std_ReturnType gpio_port_write_logic(const port_index_t port,uint8 logic);
 std_ReturnType gpio_port_toggle_logic(const port_index_t port);
 # 11 "./ECU_Layer/LED/ecu_led.h" 2
 # 11 "./application.h" 2
+# 23 "./application.h"
+void application_initialize();
 # 9 "application.c" 2
-# 18 "application.c"
-typedef union
-{
-    struct
-    {
-        unsigned SELF_LATC0 :1;
-        unsigned SELF_LATC1 :1;
-        unsigned SELF_LATC2 :1;
-        unsigned SELF_LATC3 :1;
-        unsigned SELF_LATC4 :1;
-        unsigned SELF_LATC5 :1;
-        unsigned SELF_LATC6 :1;
-        unsigned SELF_LATC7 :1;
-    };
-    uint8 LATC_REGISTER;
-}SELF_LATC;
+
+pin_config_t led1 ={
+    .pin = PIN0,
+    .port = PORTC_INDEX,
+    .direction = GPIO_DIRECTION_OUTPUT,
+    .logic = GPIO_LOW
+};
+pin_config_t led2 ={
+    .pin = PIN1,
+    .port = PORTC_INDEX,
+    .direction = GPIO_DIRECTION_OUTPUT,
+    .logic = GPIO_LOW
+};
+pin_config_t led3 ={
+    .pin = PIN2,
+    .port = PORTC_INDEX,
+    .direction = GPIO_DIRECTION_OUTPUT,
+    .logic = GPIO_LOW
+};
+
+pin_config_t btn_1 = {
+    .pin = PIN0,
+    .port = PORTD_INDEX,
+    .direction = GPIO_DIRECTION_INPUT,
+    .logic = GPIO_LOW
+};
+
+logic_t btn_status = GPIO_LOW;
+
+std_ReturnType ret = (std_ReturnType)0x00;
+direction_t portc_direction;
 
 int main() {
-    TRISC = 0x00;
-    ((volatile SELF_LATC *)(0xF8B))->LATC_REGISTER = 0x55;
-
-
-    while(1)
-    {
-    _delay((unsigned long)((2000)*(4000000/4000.0)));
-    ((volatile SELF_LATC *)(0xF8B))->SELF_LATC5 = 1;
-    _delay((unsigned long)((2000)*(4000000/4000.0)));
-    ((volatile SELF_LATC *)(0xF8B))->SELF_LATC5 = 0;
+    application_initialize();
+    while(1){
+        ret = gpio_port_get_direction_status(PORTC_INDEX,&portc_direction);
+        ret = gpio_port_write_logic(PORTC_INDEX,0xFF);
+        _delay((unsigned long)((1000)*(4000000/4000.0)));
+        ret = gpio_port_write_logic(PORTC_INDEX,GPIO_LOW);
+        _delay((unsigned long)((1000)*(4000000/4000.0)));
     }
     return (0);
+}
+void application_initialize(){
+
+
+
+
+    ret = gpio_port_direction_initialize(PORTC_INDEX,0x00);
+
 }

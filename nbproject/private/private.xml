@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/T:/Embedded%20Systems/Project/MCAL_Layer/compiler.h</file>
-            <file>file:/T:/Embedded%20Systems/Project/MCAL_Layer/GPIO/hal_gpio.h</file>
-            <file>file:/T:/Embedded%20Systems/Project/ECU_Layer/LED/ecu_led.h</file>
-            <file>file:/T:/Embedded%20Systems/Project/application.c</file>
-            <file>file:/T:/Embedded%20Systems/Project/MCAL_Layer/device_config.h</file>
-            <file>file:/T:/Embedded%20Systems/Project/MCAL_Layer/GPIO/hal_gpio.c</file>
-            <file>file:/T:/Embedded%20Systems/Project/MCAL_Layer/mcal_std_types.h</file>
-            <file>file:/T:/Embedded%20Systems/Project/ECU_Layer/LED/ecu_led.c</file>
-            <file>file:/T:/Embedded%20Systems/Project/MCAL_Layer/device_config.c</file>
-            <file>file:/T:/Embedded%20Systems/Project/MCAL_Layer/std_libraries.h</file>
-            <file>file:/T:/Embedded%20Systems/Project/application.h</file>
+            <file>file:/F:/Embedded%20Systems/Interfacing_Learning/MCAL_Layer/GPIO/hal_gpio.h</file>
+            <file>file:/F:/Embedded%20Systems/Interfacing_Learning/MCAL_Layer/GPIO/hal_gpio.c</file>
+            <file>file:/F:/Embedded%20Systems/Interfacing_Learning/MCAL_Layer/GPIO/hal_gpio_cfg.h</file>
+            <file>file:/F:/Embedded%20Systems/Interfacing_Learning/application.c</file>
         </group>
     </open-files>
 </project-private>

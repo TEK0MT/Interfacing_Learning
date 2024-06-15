@@ -15,6 +15,9 @@
 
 # 1 "MCAL_Layer/GPIO/hal_gpio.h" 1
 # 12 "MCAL_Layer/GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/GPIO/hal_gpio_cfg.h" 1
+# 12 "MCAL_Layer/GPIO/hal_gpio.h" 2
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\__at.h" 1 3
@@ -4227,7 +4230,7 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 12 "MCAL_Layer/GPIO/hal_gpio.h" 2
+# 13 "MCAL_Layer/GPIO/hal_gpio.h" 2
 
 # 1 "MCAL_Layer/GPIO/../mcal_std_types.h" 1
 # 11 "MCAL_Layer/GPIO/../mcal_std_types.h"
@@ -4662,14 +4665,14 @@ typedef signed int sint32;
 
 
 typedef uint8 std_ReturnType;
-# 13 "MCAL_Layer/GPIO/hal_gpio.h" 2
+# 14 "MCAL_Layer/GPIO/hal_gpio.h" 2
 
 # 1 "MCAL_Layer/GPIO/../../MCAL_Layer/device_config.h" 1
-# 14 "MCAL_Layer/GPIO/hal_gpio.h" 2
-# 27 "MCAL_Layer/GPIO/hal_gpio.h"
+# 15 "MCAL_Layer/GPIO/hal_gpio.h" 2
+# 30 "MCAL_Layer/GPIO/hal_gpio.h"
 typedef enum{
-    LOW = 0,
-    HIGH
+    GPIO_LOW = 0,
+    GPIO_HIGH
 }logic_t;
 
 typedef enum{
@@ -4708,10 +4711,11 @@ std_ReturnType gpio_pin_get_direction_status(const pin_config_t *_pin_config,dir
 std_ReturnType gpio_pin_write_logic(const pin_config_t *_pin_config,logic_t logic);
 std_ReturnType gpio_pin_read_logic(const pin_config_t *_pin_config,logic_t *logic);
 std_ReturnType gpio_pin_toggle_logic(const pin_config_t *_pin_config);
+std_ReturnType gpio_pin_initialize(const pin_config_t *_pin_config);
 
 
-std_ReturnType gpio_port_direction_intialize(const port_index_t port,uint8 direction);
-std_ReturnType gpio_port_get_direction_status(const port_index_t port,uint8 *direction_status);
+std_ReturnType gpio_port_direction_initialize(const port_index_t port,direction_t direction);
+std_ReturnType gpio_port_get_direction_status(const port_index_t port,direction_t *direction_status);
 std_ReturnType gpio_port_read_logic(const port_index_t port,uint8 *logic);
 std_ReturnType gpio_port_write_logic(const port_index_t port,uint8 logic);
 std_ReturnType gpio_port_toggle_logic(const port_index_t port);
@@ -4724,19 +4728,25 @@ volatile uint8 *lat_registers[] = {&LATA,&LATB,&LATC,&LATD,&LATE};
 
 volatile uint8 *port_registers[] = {&PORTA,&PORTB,&PORTC,&PORTD,&PORTE};
 
+
+
+
+
+
+
 std_ReturnType gpio_pin_direction_intialize(const pin_config_t *_pin_config){
     std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == _pin_config){
+    if(((void*)0) == _pin_config || _pin_config->pin > 8 - 1){
         ret = (std_ReturnType)0x00;
     }
     else{
     switch(_pin_config->direction)
     {
         case GPIO_DIRECTION_OUTPUT :
-            (*tris_registers[_pin_config->port] &= !((uint8)1<<_pin_config->pin));
+            (*tris_registers[_pin_config->port] &= ~((uint8)1<<_pin_config->pin));
             break;
         case GPIO_DIRECTION_INPUT :
-            (*tris_registers[_pin_config->port] != ((uint8)1<<_pin_config->pin));
+            (*tris_registers[_pin_config->port] |= ((uint8)1<<_pin_config->pin));
             break;
         default :
             ret = (std_ReturnType)0x00;
@@ -4744,36 +4754,51 @@ std_ReturnType gpio_pin_direction_intialize(const pin_config_t *_pin_config){
     }
     return ret;
 }
+# 49 "MCAL_Layer/GPIO/hal_gpio.c"
 std_ReturnType gpio_pin_get_direction_status(const pin_config_t *_pin_config,direction_t *dic_status){
     std_ReturnType ret = (std_ReturnType)0x01;
     if(((void*)0) == _pin_config || ((void*)0) == dic_status){
         ret = (std_ReturnType)0x00;
     }
     else{
-
+        *dic_status = ((*tris_registers[_pin_config->port] >> _pin_config->pin) & (uint8)1);
     }
     return ret;
 }
+# 68 "MCAL_Layer/GPIO/hal_gpio.c"
 std_ReturnType gpio_pin_write_logic(const pin_config_t *_pin_config,logic_t logic){
     std_ReturnType ret = (std_ReturnType)0x01;
     if(((void*)0) == _pin_config){
         ret = (std_ReturnType)0x00;
     }
     else{
+        switch(logic){
+            case GPIO_LOW :
+                (*lat_registers[_pin_config->port] &= ~((uint8)1<<_pin_config->pin));
+                break;
+            case GPIO_HIGH :
+                (*lat_registers[_pin_config->port] |= ((uint8)1<<_pin_config->pin));
+                break;
+            default:
+                break;
 
+        }
     }
     return ret;
 }
+# 97 "MCAL_Layer/GPIO/hal_gpio.c"
 std_ReturnType gpio_pin_read_logic(const pin_config_t *_pin_config,logic_t *logic){
     std_ReturnType ret = (std_ReturnType)0x01;
     if(((void*)0) == _pin_config || ((void*)0) == logic){
         ret = (std_ReturnType)0x00;
     }
     else{
+        *logic = ((*port_registers[_pin_config->port] >> _pin_config->pin) & (uint8)1);
 
     }
     return ret;
 }
+# 116 "MCAL_Layer/GPIO/hal_gpio.c"
 std_ReturnType gpio_pin_toggle_logic(const pin_config_t *_pin_config){
     std_ReturnType ret = (std_ReturnType)0x01;
     if(((void*)0) == _pin_config ){
@@ -4784,37 +4809,70 @@ std_ReturnType gpio_pin_toggle_logic(const pin_config_t *_pin_config){
     }
     return ret;
 }
-
-
-std_ReturnType gpio_port_direction_intialize(const port_index_t port,uint8 direction){
+# 134 "MCAL_Layer/GPIO/hal_gpio.c"
+std_ReturnType gpio_pin_initialize(const pin_config_t *_pin_config){
     std_ReturnType ret = (std_ReturnType)0x01;
-    return ret;
-}
-std_ReturnType gpio_port_get_direction_status(const port_index_t port,uint8 *direction_status){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == direction_status){
+    if(((void*)0) == _pin_config ){
         ret = (std_ReturnType)0x00;
     }
     else{
-
+        gpio_pin_direction_intialize(_pin_config);
+        gpio_pin_write_logic(_pin_config,_pin_config->logic);
     }
     return ret;
 }
+# 154 "MCAL_Layer/GPIO/hal_gpio.c"
+std_ReturnType gpio_port_direction_initialize(const port_index_t port,direction_t direction){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(port > 5 - 1){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        *tris_registers[port] = direction;
+    }
+    return ret;
+}
+# 173 "MCAL_Layer/GPIO/hal_gpio.c"
+std_ReturnType gpio_port_get_direction_status(const port_index_t port,direction_t *direction_status){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(((void*)0) == direction_status || port > 5 - 1){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        *direction_status = tris_registers[port];
+    }
+    return ret;
+}
+# 192 "MCAL_Layer/GPIO/hal_gpio.c"
 std_ReturnType gpio_port_read_logic(const port_index_t port,uint8 *logic){
     std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == logic){
+    if(((void*)0) == logic || port > 5 - 1){
         ret = (std_ReturnType)0x00;
     }
     else{
-
+        *logic = port_registers[port];
     }
     return ret;
 }
+# 211 "MCAL_Layer/GPIO/hal_gpio.c"
 std_ReturnType gpio_port_write_logic(const port_index_t port,uint8 logic){
     std_ReturnType ret = (std_ReturnType)0x01;
+    if(port > 5 - 1){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        *lat_registers[port] = logic;
+    }
     return ret;
 }
+# 229 "MCAL_Layer/GPIO/hal_gpio.c"
 std_ReturnType gpio_port_toggle_logic(const port_index_t port){
     std_ReturnType ret = (std_ReturnType)0x01;
+    if(port > 5 - 1){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        *lat_registers[port] ^= 0xFF;
+    }
     return ret;
 }
