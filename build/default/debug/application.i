@@ -4726,58 +4726,60 @@ std_ReturnType gpio_port_read_logic(const port_index_t port,uint8 *logic);
 std_ReturnType gpio_port_write_logic(const port_index_t port,uint8 logic);
 std_ReturnType gpio_port_toggle_logic(const port_index_t port);
 # 11 "./ECU_Layer/LED/ecu_led.h" 2
+
+# 1 "./ECU_Layer/LED/ecu_led_cfg.h" 1
+# 12 "./ECU_Layer/LED/ecu_led.h" 2
+
+
+
+
+
+
+
+
+typedef enum{
+    LED_OFF,
+    LED_ON
+}led_status_t;
+
+typedef struct{
+    uint8 port_name : 3;
+    uint8 pin_name : 3;
+    uint8 led_status : 1;
+    uint8 Reserved : 1;
+}led_t;
+
+
+std_ReturnType led_initialize(const led_t *led);
+std_ReturnType led_turn_on(const led_t *led);
+std_ReturnType led_turn_off(const led_t *led);
+std_ReturnType led_turn_toggle(const led_t *led);
 # 11 "./application.h" 2
 # 23 "./application.h"
 void application_initialize();
 # 9 "application.c" 2
 
-pin_config_t led1 ={
-    .pin = PIN0,
-    .port = PORTC_INDEX,
-    .direction = GPIO_DIRECTION_OUTPUT,
-    .logic = GPIO_LOW
-};
-pin_config_t led2 ={
-    .pin = PIN1,
-    .port = PORTC_INDEX,
-    .direction = GPIO_DIRECTION_OUTPUT,
-    .logic = GPIO_LOW
-};
-pin_config_t led3 ={
-    .pin = PIN2,
-    .port = PORTC_INDEX,
-    .direction = GPIO_DIRECTION_OUTPUT,
-    .logic = GPIO_LOW
-};
-
-pin_config_t btn_1 = {
-    .pin = PIN0,
-    .port = PORTD_INDEX,
-    .direction = GPIO_DIRECTION_INPUT,
-    .logic = GPIO_LOW
-};
-
-logic_t btn_status = GPIO_LOW;
+led_t led1 = {.port_name = PORTC_INDEX, .pin_name = PIN0, .led_status = LED_ON};
+led_t led2 = {.port_name = PORTC_INDEX, .pin_name = PIN1, .led_status = LED_ON};
+led_t led3 = {.port_name = PORTC_INDEX, .pin_name = PIN2, .led_status = LED_ON};
+led_t led4 = {.port_name = PORTC_INDEX, .pin_name = PIN3, .led_status = LED_ON};
 
 std_ReturnType ret = (std_ReturnType)0x00;
-direction_t portc_direction;
-
 int main() {
     application_initialize();
     while(1){
-        ret = gpio_port_get_direction_status(PORTC_INDEX,&portc_direction);
-        ret = gpio_port_write_logic(PORTC_INDEX,0xFF);
-        _delay((unsigned long)((1000)*(4000000/4000.0)));
-        ret = gpio_port_write_logic(PORTC_INDEX,GPIO_LOW);
-        _delay((unsigned long)((1000)*(4000000/4000.0)));
+        led_turn_toggle(&led1);
+        led_turn_toggle(&led2);
+        led_turn_toggle(&led3);
+        led_turn_toggle(&led4);
+        _delay((unsigned long)((500)*(4000000/4000.0)));
     }
     return (0);
 }
 void application_initialize(){
-
-
-
-
-    ret = gpio_port_direction_initialize(PORTC_INDEX,0x00);
+    ret = led_initialize(&led1);
+    ret = led_initialize(&led2);
+    ret = led_initialize(&led3);
+    ret = led_initialize(&led4);
 
 }

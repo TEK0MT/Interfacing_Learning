@@ -4805,7 +4805,7 @@ std_ReturnType gpio_pin_toggle_logic(const pin_config_t *_pin_config){
         ret = (std_ReturnType)0x00;
     }
     else{
-
+        (*lat_registers[_pin_config->port] ^= ((uint8)1<<_pin_config->pin));
     }
     return ret;
 }

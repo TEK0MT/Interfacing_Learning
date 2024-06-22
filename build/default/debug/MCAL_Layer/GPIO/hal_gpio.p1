@@ -770,6 +770,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL_Layer/GPIO/hal_gpio.c: 121:     else{
 [e :U 296 ]
 {
+"122
+[; ;MCAL_Layer/GPIO/hal_gpio.c: 122:         (*lat_registers[_pin_config->port] ^= ((uint8)1<<_pin_config->pin));
+[e =^ *U *U + &U _lat_registers * -> . *U __pin_config 0 `ux -> -> # *U &U _lat_registers `ui `ux -> << -> -> -> 1 `i `uc `i -> . *U __pin_config 1 `i `uc ]
 "123
 [; ;MCAL_Layer/GPIO/hal_gpio.c: 123:     }
 }

@@ -119,7 +119,7 @@ std_ReturnType gpio_pin_toggle_logic(const pin_config_t *_pin_config){
         ret = E_NOT_OK;
     }
     else{
-        
+        TOGGLE_BIT(*lat_registers[_pin_config->port],_pin_config->pin);
     }
     return ret;
 }

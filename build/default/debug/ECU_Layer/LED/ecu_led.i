@@ -4722,5 +4722,91 @@ std_ReturnType gpio_port_read_logic(const port_index_t port,uint8 *logic);
 std_ReturnType gpio_port_write_logic(const port_index_t port,uint8 logic);
 std_ReturnType gpio_port_toggle_logic(const port_index_t port);
 # 11 "ECU_Layer/LED/ecu_led.h" 2
+
+# 1 "ECU_Layer/LED/ecu_led_cfg.h" 1
+# 12 "ECU_Layer/LED/ecu_led.h" 2
+
+
+
+
+
+
+
+
+typedef enum{
+    LED_OFF,
+    LED_ON
+}led_status_t;
+
+typedef struct{
+    uint8 port_name : 3;
+    uint8 pin_name : 3;
+    uint8 led_status : 1;
+    uint8 Reserved : 1;
+}led_t;
+
+
+std_ReturnType led_initialize(const led_t *led);
+std_ReturnType led_turn_on(const led_t *led);
+std_ReturnType led_turn_off(const led_t *led);
+std_ReturnType led_turn_toggle(const led_t *led);
 # 7 "ECU_Layer/LED/ecu_led.c" 2
 
+
+
+
+
+
+std_ReturnType led_initialize(const led_t *led){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(led == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        pin_config_t pin_obj = {.port = led->port_name, .pin = led->pin_name,
+                                .direction = GPIO_DIRECTION_OUTPUT, .logic = led->led_status};
+        gpio_pin_initialize(&pin_obj);
+    }
+    return ret;
+}
+
+
+
+
+
+std_ReturnType led_turn_on(const led_t *led){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(led == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        pin_config_t pin_obj = {.port = led->port_name, .pin = led->pin_name,
+                                .direction = GPIO_DIRECTION_OUTPUT, .logic = led->led_status};
+        gpio_pin_write_logic(&pin_obj,GPIO_HIGH);
+    }
+    return ret;
+}
+std_ReturnType led_turn_off(const led_t *led){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(led == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        pin_config_t pin_obj = {.port = led->port_name, .pin = led->pin_name,
+                                .direction = GPIO_DIRECTION_OUTPUT, .logic = led->led_status};
+        gpio_pin_write_logic(&pin_obj,GPIO_LOW);
+    }
+    return ret;
+}
+std_ReturnType led_turn_toggle(const led_t *led){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(led == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        pin_config_t pin_obj = {.port = led->port_name, .pin = led->pin_name,
+                                .direction = GPIO_DIRECTION_OUTPUT, .logic = led->led_status};
+        gpio_pin_toggle_logic(&pin_obj);
+    }
+    return ret;
+}

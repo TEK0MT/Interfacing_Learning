@@ -7,53 +7,27 @@
 
 
 #include "application.h"
-pin_config_t led1 ={
-    .pin = PIN0,
-    .port = PORTC_INDEX,
-    .direction = GPIO_DIRECTION_OUTPUT,
-    .logic = GPIO_LOW
-};
-pin_config_t led2 ={
-    .pin = PIN1,
-    .port = PORTC_INDEX,
-    .direction = GPIO_DIRECTION_OUTPUT,
-    .logic = GPIO_LOW
-};
-pin_config_t led3 ={
-    .pin = PIN2,
-    .port = PORTC_INDEX,
-    .direction = GPIO_DIRECTION_OUTPUT,
-    .logic = GPIO_LOW
-};
-
-pin_config_t btn_1 = {
-    .pin = PIN0,
-    .port = PORTD_INDEX,
-    .direction = GPIO_DIRECTION_INPUT,
-    .logic = GPIO_LOW
-};
-
-logic_t btn_status = GPIO_LOW;
+led_t led1 = {.port_name = PORTC_INDEX, .pin_name = PIN0, .led_status = LED_ON};
+led_t led2 = {.port_name = PORTC_INDEX, .pin_name = PIN1, .led_status = LED_ON};
+led_t led3 = {.port_name = PORTC_INDEX, .pin_name = PIN2, .led_status = LED_ON};
+led_t led4 = {.port_name = PORTC_INDEX, .pin_name = PIN3, .led_status = LED_ON};
 
 std_ReturnType ret = E_NOT_OK;
-direction_t portc_direction;
-
 int main() {
     application_initialize();
     while(1){
-        ret = gpio_port_get_direction_status(PORTC_INDEX,&portc_direction);
-        ret = gpio_port_write_logic(PORTC_INDEX,0xFF);
-        __delay_ms(1000);
-        ret = gpio_port_write_logic(PORTC_INDEX,GPIO_LOW);
-        __delay_ms(1000);
+        led_turn_toggle(&led1);
+        led_turn_toggle(&led2);
+        led_turn_toggle(&led3);
+        led_turn_toggle(&led4);
+        __delay_ms(500);
     }
     return (EXIT_SUCCESS);
 }
 void application_initialize(){
-    /*ret = gpio_pin_initialize(&led1);
-    ret = gpio_pin_initialize(&led2);
-    ret = gpio_pin_initialize(&led3);
-    ret = gpio_pin_initialize(&btn_1);*/
-    ret = gpio_port_direction_initialize(PORTC_INDEX,0x00);
+    ret = led_initialize(&led1);
+    ret = led_initialize(&led2);
+    ret = led_initialize(&led3);
+    ret = led_initialize(&led4);
     
 }
