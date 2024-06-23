@@ -1,58 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"25 ./ECU_Layer/LED/ecu_led.h
-[; ;./ECU_Layer/LED/ecu_led.h: 25: typedef struct{
-[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . port_name pin_name led_status Reserved ]
-"10 application.c
-[; ;application.c: 10: led_t led1 = {.port_name = PORTC_INDEX, .pin_name = PIN0, .led_status = LED_ON};
-[c E2832 0 1 2 3 4 .. ]
-[n E2832 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-[c E2822 0 1 2 3 4 5 6 7 .. ]
-[n E2822 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
-[c E2874 0 1 .. ]
-[n E2874 . LED_OFF LED_ON  ]
-"59 ./ECU_Layer/button/../../MCAL_Layer/GPIO/hal_gpio.h
+"59 ECU_Layer/button/../../MCAL_Layer/GPIO/hal_gpio.h
+[; ;ECU_Layer/button/../../MCAL_Layer/GPIO/hal_gpio.h: 59: typedef struct{
 [s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S272 . port pin direction logic ]
-"13 application.c
-[; ;application.c: 13: button_t btn1 = {.pin.port=PORTC_INDEX, .pin.pin = PIN2, .pin.direction = GPIO_DIRECTION_INPUT, .pin.logic = GPIO_LOW,
-[c E2892 0 1 .. ]
-[n E2892 . BUTTON_PRESSED BUTTON_RELEASED  ]
-[c E2896 0 1 .. ]
-[n E2896 . BUTTON_ACTIVE_HIGH BUTTON_ACTIVE_LOW  ]
-"30 ./ECU_Layer/button/ecu_button.h
-[; ;./ECU_Layer/button/ecu_button.h: 30: typedef struct{
-[s S274 `S272 1 `E2892 1 `E2896 1 ]
-[n S274 . pin button_state connection ]
-"13 application.c
-[; ;application.c: 13: button_t btn1 = {.pin.port=PORTC_INDEX, .pin.pin = PIN2, .pin.direction = GPIO_DIRECTION_INPUT, .pin.logic = GPIO_LOW,
-[c E2818 0 1 .. ]
-[n E2818 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
+"8 ECU_Layer/button/ecu_button.c
+[; ;ECU_Layer/button/ecu_button.c: 8: std_ReturnType button_initialize(const button_t *btn)
+[c E2874 0 1 .. ]
+[n E2874 . BUTTON_PRESSED BUTTON_RELEASED  ]
+[c E2878 0 1 .. ]
+[n E2878 . BUTTON_ACTIVE_HIGH BUTTON_ACTIVE_LOW  ]
+"30 ECU_Layer/button/ecu_button.h
+[; ;ECU_Layer/button/ecu_button.h: 30: typedef struct{
+[s S273 `S272 1 `E2874 1 `E2878 1 ]
+[n S273 . pin button_state connection ]
+"66 ECU_Layer/button/../../MCAL_Layer/GPIO/hal_gpio.h
+[; ;ECU_Layer/button/../../MCAL_Layer/GPIO/hal_gpio.h: 66: std_ReturnType gpio_pin_direction_intialize(const pin_config_t *_pin_config);
+[v _gpio_pin_direction_intialize `(uc ~T0 @X0 0 ef1`*CS272 ]
+"21 ECU_Layer/button/ecu_button.c
+[; ;ECU_Layer/button/ecu_button.c: 21:     logic_t pin_logic = GPIO_LOW;
 [c E2814 0 1 .. ]
 [n E2814 . GPIO_LOW GPIO_HIGH  ]
-[p mainexit ]
-"24 ./application.h
-[; ;./application.h: 24: void application_initialize();
-[v _application_initialize `(v ~T0 @X0 0 e? ]
-"37 ./ECU_Layer/button/ecu_button.h
-[; ;./ECU_Layer/button/ecu_button.h: 37: std_ReturnType button_read_state(const button_t *btn,button_status_t *btn_state);
-[v _button_read_state `(uc ~T0 @X0 0 ef2`*CS274`*E2892 ]
-"34 ./ECU_Layer/LED/ecu_led.h
-[; ;./ECU_Layer/LED/ecu_led.h: 34: std_ReturnType led_turn_on(const led_t *led);
-[v _led_turn_on `(uc ~T0 @X0 0 ef1`*CS273 ]
-"35
-[; ;./ECU_Layer/LED/ecu_led.h: 35: std_ReturnType led_turn_off(const led_t *led);
-[v _led_turn_off `(uc ~T0 @X0 0 ef1`*CS273 ]
-[v F2784 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
-[v __delay `JF2784 ~T0 @X0 0 e ]
-[p i __delay ]
-"33 ./ECU_Layer/LED/ecu_led.h
-[; ;./ECU_Layer/LED/ecu_led.h: 33: std_ReturnType led_initialize(const led_t *led);
-[v _led_initialize `(uc ~T0 @X0 0 ef1`*CS273 ]
-"36 ./ECU_Layer/button/ecu_button.h
-[; ;./ECU_Layer/button/ecu_button.h: 36: std_ReturnType button_initialize(const button_t *btn);
-[v _button_initialize `(uc ~T0 @X0 0 ef1`*CS274 ]
+"69 ECU_Layer/button/../../MCAL_Layer/GPIO/hal_gpio.h
+[; ;ECU_Layer/button/../../MCAL_Layer/GPIO/hal_gpio.h: 69: std_ReturnType gpio_pin_read_logic(const pin_config_t *_pin_config,logic_t *logic);
+[v _gpio_pin_read_logic `(uc ~T0 @X0 0 ef2`*CS272`*E2814 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -464,174 +434,167 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"10 application.c
-[; ;application.c: 10: led_t led1 = {.port_name = PORTC_INDEX, .pin_name = PIN0, .led_status = LED_ON};
-[v _led1 `S273 ~T0 @X0 1 e ]
-[i _led1
-:U ..
-:U ..
--> . `E2832 2 `uc
--> . `E2822 0 `uc
--> . `E2874 1 `uc
-..
-..
-]
-"11
-[; ;application.c: 11: led_t led2 = {.port_name = PORTC_INDEX, .pin_name = PIN1, .led_status = LED_ON};
-[v _led2 `S273 ~T0 @X0 1 e ]
-[i _led2
-:U ..
-:U ..
--> . `E2832 2 `uc
--> . `E2822 1 `uc
--> . `E2874 1 `uc
-..
-..
-]
-"13
-[; ;application.c: 13: button_t btn1 = {.pin.port=PORTC_INDEX, .pin.pin = PIN2, .pin.direction = GPIO_DIRECTION_INPUT, .pin.logic = GPIO_LOW,
-[v _btn1 `S274 ~T0 @X0 1 e ]
-[i _btn1
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E2832 2 `uc
--> . `E2822 2 `uc
--> . `E2818 1 `uc
--> . `E2814 0 `uc
-..
-..
-. `E2892 1
-. `E2896 0
-..
-..
-]
-"15
-[; ;application.c: 15: button_t btn2 = {.pin.port=PORTD_INDEX, .pin.pin = PIN0, .pin.direction = GPIO_DIRECTION_INPUT, .pin.logic = GPIO_LOW,
-[v _btn2 `S274 ~T0 @X0 1 e ]
-[i _btn2
-:U ..
-:U ..
-:U ..
-:U ..
--> . `E2832 3 `uc
--> . `E2822 0 `uc
--> . `E2818 1 `uc
--> . `E2814 0 `uc
-..
-..
-. `E2892 1
-. `E2896 1
-..
-..
-]
-"18
-[; ;application.c: 18: std_ReturnType ret = (std_ReturnType)0x00;
-[v _ret `uc ~T0 @X0 1 e ]
-[i _ret
--> -> 0 `i `uc
-]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"19
-[; ;application.c: 19: int main() {
-[v _main `(i ~T0 @X0 1 ef ]
+"8 ECU_Layer/button/ecu_button.c
+[; ;ECU_Layer/button/ecu_button.c: 8: std_ReturnType button_initialize(const button_t *btn)
+[v _button_initialize `(uc ~T0 @X0 1 ef1`*CS273 ]
+"9
+[; ;ECU_Layer/button/ecu_button.c: 9: {
 {
-[e :U _main ]
+[e :U _button_initialize ]
+"8
+[; ;ECU_Layer/button/ecu_button.c: 8: std_ReturnType button_initialize(const button_t *btn)
+[v _btn `*CS273 ~T0 @X0 1 r1 ]
+"9
+[; ;ECU_Layer/button/ecu_button.c: 9: {
 [f ]
-"20
-[; ;application.c: 20:     application_initialize();
-[e ( _application_initialize ..  ]
-"21
-[; ;application.c: 21:     while(1){
-[e :U 277 ]
+"10
+[; ;ECU_Layer/button/ecu_button.c: 10:     std_ReturnType ret = (std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"11
+[; ;ECU_Layer/button/ecu_button.c: 11:     if(btn == ((void*)0)){
+[e $ ! == _btn -> -> -> 0 `i `*v `*CS273 275  ]
 {
-"22
-[; ;application.c: 22:         button_read_state(&btn1,&(btn1.button_state));
-[e ( _button_read_state (2 , -> &U _btn1 `*CS274 &U . _btn1 1 ]
-"23
-[; ;application.c: 23:         button_read_state(&btn2,&(btn2.button_state));
-[e ( _button_read_state (2 , -> &U _btn2 `*CS274 &U . _btn2 1 ]
-"24
-[; ;application.c: 24:         if(btn1.button_state == BUTTON_PRESSED){
-[e $ ! == -> . _btn1 1 `ui -> . `E2892 0 `ui 279  ]
-{
-"25
-[; ;application.c: 25:             ret = led_turn_on(&led1);
-[e = _ret ( _led_turn_on (1 -> &U _led1 `*CS273 ]
-"26
-[; ;application.c: 26:         }
+"12
+[; ;ECU_Layer/button/ecu_button.c: 12:         ret = (std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"13
+[; ;ECU_Layer/button/ecu_button.c: 13:     }
 }
-[e $U 280  ]
-"27
-[; ;application.c: 27:         else{
-[e :U 279 ]
+[e $U 276  ]
+"14
+[; ;ECU_Layer/button/ecu_button.c: 14:     else{
+[e :U 275 ]
 {
-"28
-[; ;application.c: 28:             ret = led_turn_off(&led1);
-[e = _ret ( _led_turn_off (1 -> &U _led1 `*CS273 ]
-"29
-[; ;application.c: 29:         }
-}
-[e :U 280 ]
-"30
-[; ;application.c: 30:         if(btn2.button_state == BUTTON_PRESSED){
-[e $ ! == -> . _btn2 1 `ui -> . `E2892 0 `ui 281  ]
-{
-"31
-[; ;application.c: 31:             ret = led_turn_off(&led2);
-[e = _ret ( _led_turn_off (1 -> &U _led2 `*CS273 ]
-"32
-[; ;application.c: 32:         }
-}
-[e $U 282  ]
-"33
-[; ;application.c: 33:         else{
-[e :U 281 ]
-{
-"34
-[; ;application.c: 34:             ret = led_turn_on(&led2);
-[e = _ret ( _led_turn_on (1 -> &U _led2 `*CS273 ]
-"35
-[; ;application.c: 35:         }
-}
-[e :U 282 ]
-"37
-[; ;application.c: 37:         _delay((unsigned long)((500)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"38
-[; ;application.c: 38:     }
+"15
+[; ;ECU_Layer/button/ecu_button.c: 15:         ret = gpio_pin_direction_intialize(&(btn->pin));
+[e = _ret ( _gpio_pin_direction_intialize (1 &U . *U _btn 0 ]
+"16
+[; ;ECU_Layer/button/ecu_button.c: 16:     }
 }
 [e :U 276 ]
-[e $U 277  ]
-[e :U 278 ]
-"39
-[; ;application.c: 39:     return (0);
-[e ) -> 0 `i ]
-[e $UE 275  ]
-"40
-[; ;application.c: 40: }
-[e :UE 275 ]
+"17
+[; ;ECU_Layer/button/ecu_button.c: 17:     return ret;
+[e ) _ret ]
+[e $UE 274  ]
+"18
+[; ;ECU_Layer/button/ecu_button.c: 18: }
+[e :UE 274 ]
 }
-"41
-[; ;application.c: 41: void application_initialize(){
-[v _application_initialize `(v ~T0 @X0 1 ef ]
+"19
+[; ;ECU_Layer/button/ecu_button.c: 19: std_ReturnType button_read_state(const button_t *btn,button_status_t *btn_state){
+[v _button_read_state `(uc ~T0 @X0 1 ef2`*CS273`*E2874 ]
 {
-[e :U _application_initialize ]
+[e :U _button_read_state ]
+[v _btn `*CS273 ~T0 @X0 1 r1 ]
+[v _btn_state `*E2874 ~T0 @X0 1 r2 ]
 [f ]
+"20
+[; ;ECU_Layer/button/ecu_button.c: 20:     std_ReturnType ret = (std_ReturnType)0x00;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 0 `i `uc ]
+"21
+[; ;ECU_Layer/button/ecu_button.c: 21:     logic_t pin_logic = GPIO_LOW;
+[v _pin_logic `E2814 ~T0 @X0 1 a ]
+[e = _pin_logic . `E2814 0 ]
+"22
+[; ;ECU_Layer/button/ecu_button.c: 22:     if(btn == ((void*)0)){
+[e $ ! == _btn -> -> -> 0 `i `*v `*CS273 278  ]
+{
+"23
+[; ;ECU_Layer/button/ecu_button.c: 23:         ret = (std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"24
+[; ;ECU_Layer/button/ecu_button.c: 24:     }
+}
+[e $U 279  ]
+"25
+[; ;ECU_Layer/button/ecu_button.c: 25:     else{
+[e :U 278 ]
+{
+"26
+[; ;ECU_Layer/button/ecu_button.c: 26:         gpio_pin_read_logic(&(btn->pin),&pin_logic);
+[e ( _gpio_pin_read_logic (2 , &U . *U _btn 0 &U _pin_logic ]
+"27
+[; ;ECU_Layer/button/ecu_button.c: 27:         if(btn->connection == BUTTON_ACTIVE_HIGH){
+[e $ ! == -> . *U _btn 2 `ui -> . `E2878 0 `ui 280  ]
+{
+"28
+[; ;ECU_Layer/button/ecu_button.c: 28:             if(pin_logic == GPIO_HIGH){
+[e $ ! == -> _pin_logic `ui -> . `E2814 1 `ui 281  ]
+{
+"29
+[; ;ECU_Layer/button/ecu_button.c: 29:                 *btn_state = BUTTON_PRESSED;
+[e = *U _btn_state . `E2874 0 ]
+"30
+[; ;ECU_Layer/button/ecu_button.c: 30:             }
+}
+[e $U 282  ]
+"31
+[; ;ECU_Layer/button/ecu_button.c: 31:             else{
+[e :U 281 ]
+{
+"32
+[; ;ECU_Layer/button/ecu_button.c: 32:                 *btn_state = BUTTON_RELEASED;
+[e = *U _btn_state . `E2874 1 ]
+"33
+[; ;ECU_Layer/button/ecu_button.c: 33:             }
+}
+[e :U 282 ]
+"34
+[; ;ECU_Layer/button/ecu_button.c: 34:         }
+}
+[e $U 283  ]
+"35
+[; ;ECU_Layer/button/ecu_button.c: 35:         else if(btn->connection == BUTTON_ACTIVE_LOW){
+[e :U 280 ]
+[e $ ! == -> . *U _btn 2 `ui -> . `E2878 1 `ui 284  ]
+{
+"36
+[; ;ECU_Layer/button/ecu_button.c: 36:             if(pin_logic == GPIO_HIGH){
+[e $ ! == -> _pin_logic `ui -> . `E2814 1 `ui 285  ]
+{
+"37
+[; ;ECU_Layer/button/ecu_button.c: 37:                 *btn_state = BUTTON_RELEASED;
+[e = *U _btn_state . `E2874 1 ]
+"38
+[; ;ECU_Layer/button/ecu_button.c: 38:             }
+}
+[e $U 286  ]
+"39
+[; ;ECU_Layer/button/ecu_button.c: 39:             else{
+[e :U 285 ]
+{
+"40
+[; ;ECU_Layer/button/ecu_button.c: 40:                 *btn_state = BUTTON_PRESSED;
+[e = *U _btn_state . `E2874 0 ]
+"41
+[; ;ECU_Layer/button/ecu_button.c: 41:             }
+}
+[e :U 286 ]
 "42
-[; ;application.c: 42:     ret = led_initialize(&led1);
-[e = _ret ( _led_initialize (1 -> &U _led1 `*CS273 ]
+[; ;ECU_Layer/button/ecu_button.c: 42:         }
+}
+[e $U 287  ]
 "43
-[; ;application.c: 43:     ret = led_initialize(&led2);
-[e = _ret ( _led_initialize (1 -> &U _led2 `*CS273 ]
+[; ;ECU_Layer/button/ecu_button.c: 43:         else{ }
+[e :U 284 ]
+{
+}
+[e :U 287 ]
+[e :U 283 ]
 "44
-[; ;application.c: 44:     ret = button_initialize(&btn1);
-[e = _ret ( _button_initialize (1 -> &U _btn1 `*CS274 ]
+[; ;ECU_Layer/button/ecu_button.c: 44:         ret = (std_ReturnType)0x01;
+[e = _ret -> -> 1 `i `uc ]
 "45
-[; ;application.c: 45:     ret = button_initialize(&btn2);
-[e = _ret ( _button_initialize (1 -> &U _btn2 `*CS274 ]
-"48
-[; ;application.c: 48: }
-[e :UE 283 ]
+[; ;ECU_Layer/button/ecu_button.c: 45:     }
+}
+[e :U 279 ]
+"46
+[; ;ECU_Layer/button/ecu_button.c: 46:     return ret;
+[e ) _ret ]
+[e $UE 277  ]
+"47
+[; ;ECU_Layer/button/ecu_button.c: 47: }
+[e :UE 277 ]
 }
