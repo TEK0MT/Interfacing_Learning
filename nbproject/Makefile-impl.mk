@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Interfacing_Learning
+PROJECTNAME=Interfacing_learning
 
 # Active Configuration
 DEFAULTCONF=default
