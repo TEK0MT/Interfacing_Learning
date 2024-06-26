@@ -11,6 +11,12 @@
         <logicalFolder name="LED" displayName="LED" projectFiles="true">
           <itemPath>ECU_Layer/LED/ecu_led.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="Motor_driver"
+                       displayName="Motor_driver"
+                       projectFiles="true">
+          <itemPath>ECU_Layer/Motor_driver/ecu_dc_motor.h</itemPath>
+          <itemPath>ECU_Layer/Motor_driver/ecu_dc_motor_cfg.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="Relay" displayName="Relay" projectFiles="true">
           <itemPath>ECU_Layer/Relay/ecu_relay.h</itemPath>
           <itemPath>ECU_Layer/Relay/ecu_relay_cfg.h</itemPath>
@@ -46,6 +52,11 @@
         </logicalFolder>
         <logicalFolder name="LED" displayName="LED" projectFiles="true">
           <itemPath>ECU_Layer/LED/ecu_led.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Motor_driver"
+                       displayName="Motor_driver"
+                       projectFiles="true">
+          <itemPath>ECU_Layer/Motor_driver/ecu_dc_motor.c</itemPath>
         </logicalFolder>
         <logicalFolder name="Relay" displayName="Relay" projectFiles="true">
           <itemPath>ECU_Layer/Relay/ecu_relay.c</itemPath>
