@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\PC\AppData\Local\Temp\xcAsdfs.\driver_tmp_3.o
+ C:\Users\PC\AppData\Local\Temp\xcAs8bc.\driver_tmp_3.o
  -Odist/default/debug\Interfacing_learning.debug.hex
  -logfile=dist/default/debug\Interfacing_learning.debug.hxl
  -addressing=1
@@ -9,17 +9,17 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\PC\AppData\Local\Temp\xcAsdfs.\driver_tmp_3.o)
-  1000h - 1429h		(C:\Users\PC\AppData\Local\Temp\xcAsdfs.\driver_tmp_3.o)
-  300000h - 30000Dh		(C:\Users\PC\AppData\Local\Temp\xcAsdfs.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\PC\AppData\Local\Temp\xcAs8bc.\driver_tmp_3.o)
+  1000h - 13F3h		(C:\Users\PC\AppData\Local\Temp\xcAs8bc.\driver_tmp_3.o)
+  300000h - 30000Dh		(C:\Users\PC\AppData\Local\Temp\xcAs8bc.\driver_tmp_3.o)
  Unused ranges:
   4h - FFFh
-  142Ah - 2FFFFFh
+  13F4h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\PC\AppData\Local\Temp\xcAsdfs.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\PC\AppData\Local\Temp\xcAs8bc.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -88,10 +88,7 @@
 000013C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000013D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000013E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000013F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001400 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001410 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001420 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
+000013F0 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00300000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
 00300010 | --

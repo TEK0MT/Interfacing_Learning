@@ -27,6 +27,11 @@ GPIO_DIRECTION_INPUT 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
+"25 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Motor_driver/ecu_dc_motor.c
+[e E2814 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
 "14 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Relay/ecu_relay.c
 [e E2818 . `uc
 GPIO_DIRECTION_OUTPUT 0
@@ -56,6 +61,10 @@ PORTD_INDEX 3
 PORTE_INDEX 4
 ]
 "10 T:\Embedded Systems\Interfacing_learning\application.c
+[e E2932 . `uc
+SEV_SEGMENT_ANODE 0
+SEV_SEGMENT_CATHOD 1
+]
 [e E2832 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
@@ -81,15 +90,24 @@ GPIO_DIRECTION_INPUT 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"25 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Motor_driver/ecu_dc_motor.c
+"8 T:\Embedded Systems\Interfacing_learning\ECU_Layer/7_SEGMENT/ecu_seven_segment.c
+[e E2874 . `uc
+SEV_SEGMENT_ANODE 0
+SEV_SEGMENT_CATHOD 1
+]
+"29
 [e E2814 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"16 T:\Embedded Systems\Interfacing_learning\application.c
+"22 T:\Embedded Systems\Interfacing_learning\application.c
 [v _main main `(i  1 e 2 0 ]
-"37
+"38
 [v _application_initialize application_initialize `(v  1 e 1 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
@@ -114,14 +132,10 @@ GPIO_HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"8 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Motor_driver/ecu_dc_motor.c
-[v _motor_initialize motor_initialize `(uc  1 e 1 0 ]
-"19
-[v _motor_turn_right motor_turn_right `(uc  1 e 1 0 ]
-"30
-[v _motor_turn_left motor_turn_left `(uc  1 e 1 0 ]
-"41
-[v _motor_stop motor_stop `(uc  1 e 1 0 ]
+"8 T:\Embedded Systems\Interfacing_learning\ECU_Layer/7_SEGMENT/ecu_seven_segment.c
+[v _sev_seg_initialize sev_seg_initialize `(uc  1 e 1 0 ]
+"22
+[v _sev_seg_write_number sev_seg_write_number `(uc  1 e 1 0 ]
 "21 T:\Embedded Systems\Interfacing_learning\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "68
@@ -138,11 +152,13 @@ GPIO_HIGH 1
 `uc 1 logic 1 0 :1:7 
 ]
 "10 T:\Embedded Systems\Interfacing_learning\application.c
-[s S345 . 2 `[2]S24 1 dc_motor_pin 2 0 ]
-[v _motor1 motor1 `S345  1 e 2 0 ]
-"12
-[v _motor2 motor2 `S345  1 e 2 0 ]
-"15
+[s S376 . 5 `[4]S24 1 pins 4 0 `E2932 1 type 1 4 ]
+[v _seven seven `S376  1 e 5 0 ]
+"16
+[v _pin0 pin0 `S24  1 e 1 0 ]
+"17
+[v _pin1 pin1 `S24  1 e 1 0 ]
+"19
 [v _ret ret `uc  1 e 1 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -180,86 +196,72 @@ GPIO_HIGH 1
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "13
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"16 T:\Embedded Systems\Interfacing_learning\application.c
+"22 T:\Embedded Systems\Interfacing_learning\application.c
 [v _main main `(i  1 e 2 0 ]
 {
+"37
+} 0
+"22 T:\Embedded Systems\Interfacing_learning\ECU_Layer/7_SEGMENT/ecu_seven_segment.c
+[v _sev_seg_write_number sev_seg_write_number `(uc  1 e 1 0 ]
+{
+"23
+[v sev_seg_write_number@ret ret `uc  1 a 1 10 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"22
+[s S376 . 5 `[4]S24 1 pins 4 0 `E2932 1 type 1 4 ]
+[v sev_seg_write_number@seg seg `*.30CS376  1 p 1 8 ]
+[v sev_seg_write_number@number number `uc  1 p 1 9 ]
 "36
 } 0
-"19 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Motor_driver/ecu_dc_motor.c
-[v _motor_turn_right motor_turn_right `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S345 . 2 `[2]S24 1 dc_motor_pin 2 0 ]
-[v motor_turn_right@motor motor `*.30CS345  1 p 1 7 ]
-"29
-} 0
-"30
-[v _motor_turn_left motor_turn_left `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S345 . 2 `[2]S24 1 dc_motor_pin 2 0 ]
-[v motor_turn_left@motor motor `*.30CS345  1 p 1 7 ]
-"40
-} 0
-"41
-[v _motor_stop motor_stop `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S345 . 2 `[2]S24 1 dc_motor_pin 2 0 ]
-[v motor_stop@motor motor `*.30CS345  1 p 1 7 ]
-"51
-} 0
-"37 T:\Embedded Systems\Interfacing_learning\application.c
+"38 T:\Embedded Systems\Interfacing_learning\application.c
 [v _application_initialize application_initialize `(v  1 e 1 0 ]
 {
-"40
+"43
 } 0
-"8 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Motor_driver/ecu_dc_motor.c
-[v _motor_initialize motor_initialize `(uc  1 e 1 0 ]
+"8 T:\Embedded Systems\Interfacing_learning\ECU_Layer/7_SEGMENT/ecu_seven_segment.c
+[v _sev_seg_initialize sev_seg_initialize `(uc  1 e 1 0 ]
 {
 "9
-[v motor_initialize@ret ret `uc  1 a 1 9 ]
+[v sev_seg_initialize@ret ret `uc  1 a 1 11 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "8
-[s S345 . 2 `[2]S24 1 dc_motor_pin 2 0 ]
-[v motor_initialize@motor motor `*.30CS345  1 p 1 8 ]
-"18
+[s S376 . 5 `[4]S24 1 pins 4 0 `E2932 1 type 1 4 ]
+[v sev_seg_initialize@seg seg `*.30CS376  1 p 1 10 ]
+"21
 } 0
 "134 T:\Embedded Systems\Interfacing_learning\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
 {
+"135
+[v gpio_pin_initialize@ret ret `uc  1 a 1 9 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[v gpio_pin_initialize@_pin_config _pin_config `*.30CS24  1 p 1 7 ]
+"134
+[v gpio_pin_initialize@_pin_config _pin_config `*.30CS24  1 p 1 8 ]
 "144
 } 0
 "68
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
 {
+"69
+[v gpio_pin_write_logic@ret ret `uc  1 a 1 7 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
+"68
 [v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
 [v gpio_pin_write_logic@logic logic `E2814  1 p 1 1 ]
 "87
