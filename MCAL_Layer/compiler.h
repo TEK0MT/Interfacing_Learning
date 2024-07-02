@@ -10,6 +10,7 @@
 /*Section : includes */
 #include <xc.h>
 /* Section : Macro Declarations */
+#define _XTAL_FREQ 8000000UL
 
 
 /* Section : Macro Functions Declarations */

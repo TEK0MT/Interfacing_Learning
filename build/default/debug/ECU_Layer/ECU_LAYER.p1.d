@@ -1,6 +1,5 @@
-build/default/debug/application.p1:  \
-application.c  \
-application.h  \
+build/default/debug/ECU_Layer/ECU_LAYER.p1:  \
+ECU_Layer/ECU_LAYER.c  \
 ECU_Layer/ECU_LAYER.h  \
 ECU_Layer/LED/ecu_led.h  \
 ECU_Layer/LED/../../MCAL_Layer/GPIO/hal_gpio.h  \
