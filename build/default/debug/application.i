@@ -4841,7 +4841,40 @@ typedef struct{
 std_ReturnType keypad_initialize(const keypad_t *_keypad_obj);
 std_ReturnType keypad_read_value(const keypad_t *_keypad_obj,uint8 *value);
 # 15 "./ECU_Layer/ECU_LAYER.h" 2
-# 25 "./ECU_Layer/ECU_LAYER.h"
+
+# 1 "./ECU_Layer/LCD/ecu_lcd.h" 1
+# 11 "./ECU_Layer/LCD/ecu_lcd.h"
+# 1 "./ECU_Layer/LCD/ecu_lcd_cfg.h" 1
+# 11 "./ECU_Layer/LCD/ecu_lcd.h" 2
+# 46 "./ECU_Layer/LCD/ecu_lcd.h"
+typedef struct{
+    pin_config_t rs;
+    pin_config_t enable;
+    pin_config_t data_pins[8];
+}lcd_8bits_t;
+
+typedef struct{
+    pin_config_t rs;
+    pin_config_t enable;
+    pin_config_t data_pins[4];
+}lcd_4bits_t;
+
+std_ReturnType lcd_8bit_initialize(const lcd_8bits_t *lcd);
+std_ReturnType lcd_8bit_send_command(const lcd_8bits_t *lcd,uint8 command);
+std_ReturnType lcd_8bit_send_char(const lcd_8bits_t *lcd,uint8 _char);
+std_ReturnType lcd_8bit_send_char_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 _char);
+std_ReturnType lcd_8bit_send_string(const lcd_8bits_t *lcd,uint8 *str);
+std_ReturnType lcd_8bit_send_string_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 *str);
+
+
+std_ReturnType lcd_4bit_initialize(const lcd_4bits_t *lcd);
+std_ReturnType lcd_4bit_send_command(const lcd_4bits_t *lcd,uint8 command);
+std_ReturnType lcd_4bit_send_char(const lcd_4bits_t *lcd,uint8 _char);
+std_ReturnType lcd_4bit_send_char_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 _char);
+std_ReturnType lcd_4bit_send_string(const lcd_4bits_t *lcd,uint8 *str);
+std_ReturnType lcd_4bit_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *str);
+# 16 "./ECU_Layer/ECU_LAYER.h" 2
+# 26 "./ECU_Layer/ECU_LAYER.h"
 std_ReturnType Ecu_initialize(void);
 # 11 "./application.h" 2
 
@@ -4854,6 +4887,8 @@ std_ReturnType Ecu_initialize(void);
 
 extern keypad_t keypad1;
 extern led_t led1;
+extern lcd_8bits_t lcd1;
+extern lcd_4bits_t lcd2;
 
 
 void application_initialize();
@@ -4864,33 +4899,11 @@ std_ReturnType ret = (std_ReturnType)0x00;
 uint8 value = 0 ;
 int main() {
     application_initialize();
-    while(1){
-        ret = keypad_read_value(&keypad1,&value);
-        if(value == '1'){
-            led_turn_on(&led1);
-            _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-            led_turn_off(&led1);
-            _delay((unsigned long)((1000)*(8000000UL/4000.0)));
-        }
-        else if(value == '2'){
-            led_turn_on(&led1);
-            _delay((unsigned long)((500)*(8000000UL/4000.0)));
-            led_turn_off(&led1);
-            _delay((unsigned long)((500)*(8000000UL/4000.0)));
-        }
-        else if(value == '3'){
-            led_turn_on(&led1);
-            _delay((unsigned long)((100)*(8000000UL/4000.0)));
-            led_turn_off(&led1);
-            _delay((unsigned long)((100)*(8000000UL/4000.0)));
-        }
-        else if(value == '4'){
-            led_turn_on(&led1);
-        }
-        else if(value == '5'){
-            led_turn_off(&led1);
-        }
+    lcd_8bit_send_string_pos(&lcd1,3,5,"Teko");
+    lcd_4bit_send_string_pos(&lcd2,2,15,"TEKOOOO");
 
+
+    while(1){
     }
     return (0);
 }

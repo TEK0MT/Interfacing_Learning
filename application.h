@@ -18,6 +18,8 @@
 /* Section : Data Type Declarations */
 extern keypad_t keypad1;
 extern led_t led1;
+extern lcd_8bits_t lcd1;
+extern lcd_4bits_t lcd2;
 
 /* Section : Function Declarations */
 void application_initialize();

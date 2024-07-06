@@ -13,6 +13,7 @@
 #include "Motor_driver/ecu_dc_motor.h"
 #include "7_SEGMENT/ecu_seven_segment.h"
 #include "Keypad/Keypad.h"
+#include "LCD/ecu_lcd.h"
 /* Section : Macro Declarations */
 
 /* Section : Macro Functions Declarations */

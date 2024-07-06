@@ -15,6 +15,10 @@
         <logicalFolder name="Keypad" displayName="Keypad" projectFiles="true">
           <itemPath>ECU_Layer/Keypad/Keypad.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="LCD" displayName="LCD" projectFiles="true">
+          <itemPath>ECU_Layer/LCD/ecu_lcd.h</itemPath>
+          <itemPath>ECU_Layer/LCD/ecu_lcd_cfg.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="LED" displayName="LED" projectFiles="true">
           <itemPath>ECU_Layer/LED/ecu_led.h</itemPath>
         </logicalFolder>
@@ -63,6 +67,9 @@
         </logicalFolder>
         <logicalFolder name="Keypad" displayName="Keypad" projectFiles="true">
           <itemPath>ECU_Layer/Keypad/Keypad.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="LCD" displayName="LCD" projectFiles="true">
+          <itemPath>ECU_Layer/LCD/ecu_lcd.c</itemPath>
         </logicalFolder>
         <logicalFolder name="LED" displayName="LED" projectFiles="true">
           <itemPath>ECU_Layer/LED/ecu_led.c</itemPath>
