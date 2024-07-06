@@ -4,68 +4,73 @@
 [d chip 18F4620 ]
 [d frameptr 4065 ]
 "8 T:\Embedded Systems\Interfacing_learning\ECU_Layer/7_SEGMENT/ecu_seven_segment.c
-[e E2874 . `uc
+[e E3041 . `uc
 SEV_SEGMENT_ANODE 0
 SEV_SEGMENT_CATHOD 1
 ]
 "29
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "8 T:\Embedded Systems\Interfacing_learning\ECU_Layer/button/ecu_button.c
-[e E2874 . `uc
+[e E3041 . `uc
 BUTTON_PRESSED 0
 BUTTON_RELEASED 1
 ]
-[e E2878 . `uc
+[e E3045 . `uc
 BUTTON_ACTIVE_HIGH 0
 BUTTON_ACTIVE_LOW 1
 ]
 "21
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "58 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Keypad/Keypad.c
-[e E2814 . `uc
+[e E2981 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"53 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LCD/ecu_lcd.c
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "19 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LED/ecu_led.c
-[e E2818 . `uc
+[e E2985 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "38
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "25 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Motor_driver/ecu_dc_motor.c
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "14 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Relay/ecu_relay.c
-[e E2818 . `uc
+[e E2985 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "28
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "8 T:\Embedded Systems\Interfacing_learning\ECU_Layer/ECU_LAYER.c
-[e E2832 . `uc
+[e E2999 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
 PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-[e E2822 . `uc
+[e E2989 . `uc
 PIN0 0
 PIN1 1
 PIN2 2
@@ -75,45 +80,40 @@ PIN5 5
 PIN6 6
 PIN7 7
 ]
-[e E2818 . `uc
+[e E2985 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "38
-[e E2874 . `uc
+[e E3041 . `uc
 LED_OFF 0
 LED_ON 1
 ]
 "37 T:\Embedded Systems\Interfacing_learning\MCAL_Layer/GPIO/hal_gpio.c
-[e E2818 . `uc
+[e E2985 . `uc
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
 "68
-[e E2814 . `uc
+[e E2981 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "154
-[e E2832 . `uc
+[e E2999 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
 PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-"51 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LCD/ecu_lcd.c
-[e E2814 . `uc
-GPIO_LOW 0
-GPIO_HIGH 1
-]
-"13 T:\Embedded Systems\Interfacing_learning\application.c
+"22 T:\Embedded Systems\Interfacing_learning\application.c
 [v _main main `(i  1 e 2 0 ]
-"23
+"36
 [v _application_initialize application_initialize `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -127,6 +127,10 @@ GPIO_HIGH 1
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
+"3 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\memset.c
+[v _memset memset `(*.2v  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -141,42 +145,32 @@ GPIO_HIGH 1
 [v ___omul __omul `(uo  1 e 8 0 ]
 "40 T:\Embedded Systems\Interfacing_learning\ECU_Layer/ECU_LAYER.c
 [v _Ecu_initialize Ecu_initialize `(uc  1 e 1 0 ]
-"26 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Keypad/Keypad.c
-[v _keypad_initialize keypad_initialize `(uc  1 e 1 0 ]
-"18 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LCD/ecu_lcd.c
+"19 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LCD/ecu_lcd.c
 [v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
-"44
+"45
 [v _lcd_8bit_send_command lcd_8bit_send_command `(uc  1 e 1 0 ]
-"57
+"62
 [v _lcd_8bit_send_char lcd_8bit_send_char `(uc  1 e 1 0 ]
-"82
+"90
 [v _lcd_8bit_send_string lcd_8bit_send_string `(uc  1 e 1 0 ]
-"94
+"102
 [v _lcd_8bit_send_string_pos lcd_8bit_send_string_pos `(uc  1 e 1 0 ]
-"118
-[v _lcd_4bit_initialize lcd_4bit_initialize `(uc  1 e 1 0 ]
-"145
+"170
 [v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
-"159
+"184
 [v _lcd_4bit_send_char lcd_4bit_send_char `(uc  1 e 1 0 ]
-"186
+"211
 [v _lcd_4bit_send_string lcd_4bit_send_string `(uc  1 e 1 0 ]
-"198
-[v _lcd_4bit_send_string_pos lcd_4bit_send_string_pos `(uc  1 e 1 0 ]
-"219
-[v _lcd_send_8bits lcd_send_8bits `(uc  1 s 1 lcd_send_8bits ]
-"233
+"286
 [v _lcd_send_4bits lcd_send_4bits `(uc  1 s 1 lcd_send_4bits ]
-"246
+"300
 [v _enable_signal_8bits enable_signal_8bits `(uc  1 s 1 enable_signal_8bits ]
-"258
+"312
 [v _enable_signal_4bits enable_signal_4bits `(uc  1 s 1 enable_signal_4bits ]
-"270
+"324
 [v _lcd_8bits_set_cursor lcd_8bits_set_cursor `(uc  1 s 1 lcd_8bits_set_cursor ]
-"285
+"339
 [v _lcd_4bits_set_cursor lcd_4bits_set_cursor `(uc  1 s 1 lcd_4bits_set_cursor ]
-"13 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LED/ecu_led.c
-[v _led_initialize led_initialize `(uc  1 e 1 0 ]
 "21 T:\Embedded Systems\Interfacing_learning\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "68
@@ -224,22 +218,9 @@ GPIO_HIGH 1
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"8 T:\Embedded Systems\Interfacing_learning\ECU_Layer/ECU_LAYER.c
-[s S117 . 8 `[4]S24 1 rows 4 0 `[4]S24 1 coloumns 4 4 ]
-[v _keypad1 keypad1 `S117  1 e 8 0 ]
-"19
-[s S364 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
-[v _lcd1 lcd1 `S364  1 e 10 0 ]
-"30
-[s S368 . 6 `S24 1 rs 1 0 `S24 1 enable 1 1 `[4]S24 1 data_pins 4 2 ]
-[v _lcd2 lcd2 `S368  1 e 6 0 ]
-[s S151 . 1 `uc 1 port_name 1 0 :3:0 
-`uc 1 pin_name 1 0 :3:3 
-`uc 1 led_status 1 0 :1:6 
-`uc 1 Reserved 1 0 :1:7 
-]
-"38
-[v _led1 led1 `S151  1 e 1 0 ]
+"19 T:\Embedded Systems\Interfacing_learning\ECU_Layer/ECU_LAYER.c
+[s S156 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
+[v _lcd1 lcd1 `S156  1 e 10 0 ]
 "9 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Keypad/Keypad.c
 [v _keypad_values keypad_values `[4][4]uc  1 e 16 0 ]
 "9 T:\Embedded Systems\Interfacing_learning\MCAL_Layer/GPIO/hal_gpio.c
@@ -248,216 +229,91 @@ GPIO_HIGH 1
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "13
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"13 T:\Embedded Systems\Interfacing_learning\application.c
+"22 T:\Embedded Systems\Interfacing_learning\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"22
+"35
 } 0
-"94 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LCD/ecu_lcd.c
-[v _lcd_8bit_send_string_pos lcd_8bit_send_string_pos `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S364 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
-[v lcd_8bit_send_string_pos@lcd lcd `*.30CS364  1 p 1 20 ]
-[v lcd_8bit_send_string_pos@Row Row `uc  1 p 1 21 ]
-[v lcd_8bit_send_string_pos@coloumns coloumns `uc  1 p 1 22 ]
-[v lcd_8bit_send_string_pos@str str `*.31uc  1 p 1 23 ]
-"107
-} 0
-"270
-[v _lcd_8bits_set_cursor lcd_8bits_set_cursor `(uc  1 s 1 lcd_8bits_set_cursor ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S364 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
-[v lcd_8bits_set_cursor@lcd lcd `*.30CS364  1 p 1 16 ]
-[v lcd_8bits_set_cursor@Rows Rows `uc  1 p 1 17 ]
-[v lcd_8bits_set_cursor@coloumns coloumns `uc  1 p 1 18 ]
-"284
-} 0
-"82
+"90 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LCD/ecu_lcd.c
 [v _lcd_8bit_send_string lcd_8bit_send_string `(uc  1 e 1 0 ]
 {
-"83
-[v lcd_8bit_send_string@ret ret `uc  1 a 1 19 ]
+"91
+[v lcd_8bit_send_string@ret ret `uc  1 a 1 18 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"82
-[s S364 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
-[v lcd_8bit_send_string@lcd lcd `*.30CS364  1 p 1 17 ]
-[v lcd_8bit_send_string@str str `*.31uc  1 p 1 18 ]
-"93
+"90
+[s S156 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
+[v lcd_8bit_send_string@lcd lcd `*.30CS156  1 p 1 15 ]
+[v lcd_8bit_send_string@str str `*.35uc  1 p 2 16 ]
+"101
 } 0
-"57
+"62
 [v _lcd_8bit_send_char lcd_8bit_send_char `(uc  1 e 1 0 ]
 {
-"58
-[v lcd_8bit_send_char@ret ret `uc  1 a 1 16 ]
-"59
-[v lcd_8bit_send_char@counter counter `uc  1 a 1 15 ]
+"64
+[v lcd_8bit_send_char@counter counter `uc  1 a 1 14 ]
+"63
+[v lcd_8bit_send_char@ret ret `uc  1 a 1 13 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"57
-[s S364 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
-[v lcd_8bit_send_char@lcd lcd `*.30CS364  1 p 1 13 ]
-[v lcd_8bit_send_char@_char _char `uc  1 p 1 14 ]
-"69
+"62
+[s S156 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
+[v lcd_8bit_send_char@lcd lcd `*.30CS156  1 p 1 9 ]
+[v lcd_8bit_send_char@_char _char `uc  1 p 1 10 ]
+"76
 } 0
-"198
-[v _lcd_4bit_send_string_pos lcd_4bit_send_string_pos `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S368 . 6 `S24 1 rs 1 0 `S24 1 enable 1 1 `[4]S24 1 data_pins 4 2 ]
-[v lcd_4bit_send_string_pos@lcd lcd `*.30CS368  1 p 1 20 ]
-[v lcd_4bit_send_string_pos@Row Row `uc  1 p 1 21 ]
-[v lcd_4bit_send_string_pos@coloumn coloumn `uc  1 p 1 22 ]
-[v lcd_4bit_send_string_pos@str str `*.31uc  1 p 1 23 ]
-"208
-} 0
-"285
-[v _lcd_4bits_set_cursor lcd_4bits_set_cursor `(uc  1 s 1 lcd_4bits_set_cursor ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S368 . 6 `S24 1 rs 1 0 `S24 1 enable 1 1 `[4]S24 1 data_pins 4 2 ]
-[v lcd_4bits_set_cursor@lcd lcd `*.30CS368  1 p 1 17 ]
-[v lcd_4bits_set_cursor@Rows Rows `uc  1 p 1 18 ]
-[v lcd_4bits_set_cursor@coloumns coloumns `uc  1 p 1 19 ]
-"300
-} 0
-"186
-[v _lcd_4bit_send_string lcd_4bit_send_string `(uc  1 e 1 0 ]
-{
-"187
-[v lcd_4bit_send_string@ret ret `uc  1 a 1 19 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"186
-[s S368 . 6 `S24 1 rs 1 0 `S24 1 enable 1 1 `[4]S24 1 data_pins 4 2 ]
-[v lcd_4bit_send_string@lcd lcd `*.30CS368  1 p 1 17 ]
-[v lcd_4bit_send_string@str str `*.31uc  1 p 1 18 ]
-"197
-} 0
-"159
-[v _lcd_4bit_send_char lcd_4bit_send_char `(uc  1 e 1 0 ]
-{
-"160
-[v lcd_4bit_send_char@ret ret `uc  1 a 1 16 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"159
-[s S368 . 6 `S24 1 rs 1 0 `S24 1 enable 1 1 `[4]S24 1 data_pins 4 2 ]
-[v lcd_4bit_send_char@lcd lcd `*.30CS368  1 p 1 14 ]
-[v lcd_4bit_send_char@_char _char `uc  1 p 1 15 ]
-"172
-} 0
-"23 T:\Embedded Systems\Interfacing_learning\application.c
+"36 T:\Embedded Systems\Interfacing_learning\application.c
 [v _application_initialize application_initialize `(v  1 e 1 0 ]
 {
-"25
+"38
 } 0
 "40 T:\Embedded Systems\Interfacing_learning\ECU_Layer/ECU_LAYER.c
 [v _Ecu_initialize Ecu_initialize `(uc  1 e 1 0 ]
 {
 "45
 } 0
-"13 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LED/ecu_led.c
-[v _led_initialize led_initialize `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"19
-[v led_initialize@pin_obj pin_obj `S24  1 a 1 12 ]
-[s S151 . 1 `uc 1 port_name 1 0 :3:0 
-`uc 1 pin_name 1 0 :3:3 
-`uc 1 led_status 1 0 :1:6 
-`uc 1 Reserved 1 0 :1:7 
-]
-"13
-[v led_initialize@led led `*.30CS151  1 p 1 10 ]
-"18
-[v led_initialize@F2895 F2895 `S24  1 s 1 F2895 ]
-"24
-} 0
-"18 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LCD/ecu_lcd.c
+"19 T:\Embedded Systems\Interfacing_learning\ECU_Layer/LCD/ecu_lcd.c
 [v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
 {
+"21
+[v lcd_8bit_initialize@counter counter `uc  1 a 1 18 ]
 "20
-[v lcd_8bit_initialize@counter counter `uc  1 a 1 19 ]
-"19
-[v lcd_8bit_initialize@ret ret `uc  1 a 1 18 ]
+[v lcd_8bit_initialize@ret ret `uc  1 a 1 17 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"18
-[s S364 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
-[v lcd_8bit_initialize@lcd lcd `*.30CS364  1 p 1 16 ]
-"43
-} 0
+"19
+[s S156 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
+[v lcd_8bit_initialize@lcd lcd `*.30CS156  1 p 1 15 ]
 "44
+} 0
+"45
 [v _lcd_8bit_send_command lcd_8bit_send_command `(uc  1 e 1 0 ]
 {
+"48
+[v lcd_8bit_send_command@counter counter `uc  1 a 1 14 ]
 "46
-[v lcd_8bit_send_command@counter counter `uc  1 a 1 15 ]
+[v lcd_8bit_send_command@ret ret `uc  1 a 1 13 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"44
-[s S364 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
-[v lcd_8bit_send_command@lcd lcd `*.30CS364  1 p 1 13 ]
-[v lcd_8bit_send_command@command command `uc  1 p 1 14 ]
-"56
+"45
+[s S156 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
+[v lcd_8bit_send_command@lcd lcd `*.30CS156  1 p 1 9 ]
+[v lcd_8bit_send_command@command command `uc  1 p 1 10 ]
+"61
 } 0
-"219
-[v _lcd_send_8bits lcd_send_8bits `(uc  1 s 1 lcd_send_8bits ]
-{
-"221
-[v lcd_send_8bits@counter counter `uc  1 a 1 12 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"219
-[s S364 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
-[v lcd_send_8bits@lcd lcd `*.30CS364  1 p 1 8 ]
-[v lcd_send_8bits@command command `uc  1 p 1 9 ]
-"232
-} 0
-"246
+"300
 [v _enable_signal_8bits enable_signal_8bits `(uc  1 s 1 enable_signal_8bits ]
 {
 [s S24 . 1 `uc 1 port 1 0 :3:0 
@@ -465,88 +321,9 @@ GPIO_HIGH 1
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-[s S364 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
-[v enable_signal_8bits@lcd lcd `*.30CS364  1 p 1 8 ]
-"257
-} 0
-"118
-[v _lcd_4bit_initialize lcd_4bit_initialize `(uc  1 e 1 0 ]
-{
-"120
-[v lcd_4bit_initialize@counter counter `uc  1 a 1 20 ]
-"119
-[v lcd_4bit_initialize@ret ret `uc  1 a 1 19 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"118
-[s S368 . 6 `S24 1 rs 1 0 `S24 1 enable 1 1 `[4]S24 1 data_pins 4 2 ]
-[v lcd_4bit_initialize@lcd lcd `*.30CS368  1 p 1 17 ]
-"144
-} 0
-"145
-[v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
-{
-"146
-[v lcd_4bit_send_command@ret ret `uc  1 a 1 16 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"145
-[s S368 . 6 `S24 1 rs 1 0 `S24 1 enable 1 1 `[4]S24 1 data_pins 4 2 ]
-[v lcd_4bit_send_command@lcd lcd `*.30CS368  1 p 1 14 ]
-[v lcd_4bit_send_command@command command `uc  1 p 1 15 ]
-"158
-} 0
-"233
-[v _lcd_send_4bits lcd_send_4bits `(uc  1 s 1 lcd_send_4bits ]
-{
-"235
-[v lcd_send_4bits@counter counter `uc  1 a 1 13 ]
-"234
-[v lcd_send_4bits@ret ret `uc  1 a 1 12 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"233
-[s S368 . 6 `S24 1 rs 1 0 `S24 1 enable 1 1 `[4]S24 1 data_pins 4 2 ]
-[v lcd_send_4bits@lcd lcd `*.30CS368  1 p 1 8 ]
-[v lcd_send_4bits@command command `uc  1 p 1 9 ]
-"245
-} 0
-"258
-[v _enable_signal_4bits enable_signal_4bits `(uc  1 s 1 enable_signal_4bits ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S368 . 6 `S24 1 rs 1 0 `S24 1 enable 1 1 `[4]S24 1 data_pins 4 2 ]
-[v enable_signal_4bits@lcd lcd `*.30CS368  1 p 1 8 ]
-"269
-} 0
-"26 T:\Embedded Systems\Interfacing_learning\ECU_Layer/Keypad/Keypad.c
-[v _keypad_initialize keypad_initialize `(uc  1 e 1 0 ]
-{
-"28
-[v keypad_initialize@row_counter row_counter `uc  1 a 1 12 ]
-[v keypad_initialize@coloumns_conter coloumns_conter `uc  1 a 1 11 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"26
-[s S117 . 8 `[4]S24 1 rows 4 0 `[4]S24 1 coloumns 4 4 ]
-[v keypad_initialize@_keypad_obj _keypad_obj `*.30CS117  1 p 1 10 ]
-"41
+[s S156 . 10 `S24 1 rs 1 0 `S24 1 enable 1 1 `[8]S24 1 data_pins 8 2 ]
+[v enable_signal_8bits@lcd lcd `*.30CS156  1 p 1 8 ]
+"311
 } 0
 "134 T:\Embedded Systems\Interfacing_learning\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
@@ -574,7 +351,7 @@ GPIO_HIGH 1
 ]
 "68
 [v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
-[v gpio_pin_write_logic@logic logic `E2814  1 p 1 1 ]
+[v gpio_pin_write_logic@logic logic `E2981  1 p 1 1 ]
 "87
 } 0
 "21

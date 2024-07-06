@@ -19,6 +19,7 @@
 extern keypad_t keypad1;
 extern led_t led1;
 extern lcd_8bits_t lcd1;
+extern lcd_8bits_t lcd3;
 extern lcd_4bits_t lcd2;
 
 /* Section : Function Declarations */

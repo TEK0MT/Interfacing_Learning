@@ -77,4 +77,3 @@ std_ReturnType gpio_port_read_logic(const port_index_t port,uint8 *logic);
 std_ReturnType gpio_port_write_logic(const port_index_t port,uint8 logic);
 std_ReturnType gpio_port_toggle_logic(const port_index_t port);
 #endif	/* HAL_GPIO_H */
-

@@ -16,7 +16,7 @@ keypad_t keypad1 = {.rows[0].port = PORTC_INDEX , .rows[0].pin = PIN0,.rows[0].l
 };
 
 
-lcd_8bits_t lcd1 = {.rs.port = PORTC_INDEX,.rs.pin = PIN6,.rs.logic = GPIO_LOW,.rs.logic=GPIO_DIRECTION_OUTPUT,
+lcd_8bits_t lcd1 = {.rs.port = PORTC_INDEX,.rs.pin = PIN5,.rs.logic = GPIO_LOW,.rs.logic=GPIO_DIRECTION_OUTPUT,
                     .enable.port = PORTC_INDEX,.enable.pin = PIN7,.enable.logic = GPIO_LOW,.enable.logic=GPIO_DIRECTION_OUTPUT,
                     .data_pins[0].port = PORTD_INDEX,.data_pins[0].pin = PIN0,.data_pins[0].logic=GPIO_LOW,.data_pins[0].direction=GPIO_DIRECTION_OUTPUT,
                     .data_pins[1].port = PORTD_INDEX,.data_pins[1].pin = PIN1,.data_pins[1].logic=GPIO_LOW,.data_pins[1].direction=GPIO_DIRECTION_OUTPUT,
@@ -38,8 +38,8 @@ lcd_4bits_t lcd2 = {.rs.port = PORTC_INDEX,.rs.pin = PIN0,.rs.logic = GPIO_LOW,.
 led_t led1 = {.port_name = PORTD_INDEX,.pin_name = PIN0,.led_status = LED_OFF};
 
 std_ReturnType Ecu_initialize(void){
-    keypad_initialize(&keypad1);
-    led_initialize(&led1);
+    //keypad_initialize(&keypad1);
+   // led_initialize(&led1);
     lcd_8bit_initialize(&lcd1);
-    lcd_4bit_initialize(&lcd2);
+    //lcd_4bit_initialize(&lcd2);
 }

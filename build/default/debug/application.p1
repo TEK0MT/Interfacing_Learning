@@ -1,31 +1,21 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"25 ./application.h
-[; ;./application.h: 25: void application_initialize();
+"26 ./application.h
+[; ;./application.h: 26: void application_initialize();
 [v _application_initialize `(v ~T0 @X0 0 e? ]
 "59 ./ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h
-[s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S272 . port pin direction logic ]
+[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . port pin direction logic ]
 "46 ./ECU_Layer/LCD/ecu_lcd.h
 [; ;./ECU_Layer/LCD/ecu_lcd.h: 46: typedef struct{
-[s S279 `S272 1 `S272 1 `S272 -> 8 `i ]
-[n S279 . rs enable data_pins ]
-"63
-[; ;./ECU_Layer/LCD/ecu_lcd.h: 63: std_ReturnType lcd_8bit_send_string_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 *str);
-[v _lcd_8bit_send_string_pos `(uc ~T0 @X0 0 ef4`*CS279`uc`uc`*uc ]
+[s S280 `S273 1 `S273 1 `S273 -> 8 `i ]
+[n S280 . rs enable data_pins ]
+"62
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 62: std_ReturnType lcd_8bit_send_string(const lcd_8bits_t *lcd,uint8 *str);
+[v _lcd_8bit_send_string `(uc ~T0 @X0 0 ef2`*CS280`*uc ]
 "21 ./application.h
 [; ;./application.h: 21: extern lcd_8bits_t lcd1;
-[v _lcd1 `S279 ~T0 @X0 0 e ]
-"52 ./ECU_Layer/LCD/ecu_lcd.h
-[; ;./ECU_Layer/LCD/ecu_lcd.h: 52: typedef struct{
-[s S280 `S272 1 `S272 1 `S272 -> 4 `i ]
-[n S280 . rs enable data_pins ]
-"71
-[; ;./ECU_Layer/LCD/ecu_lcd.h: 71: std_ReturnType lcd_4bit_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *str);
-[v _lcd_4bit_send_string_pos `(uc ~T0 @X0 0 ef4`*CS280`uc`uc`*uc ]
-"22 ./application.h
-[; ;./application.h: 22: extern lcd_4bits_t lcd2;
-[v _lcd2 `S280 ~T0 @X0 0 e ]
+[v _lcd1 `S280 ~T0 @X0 0 e ]
 "26 ./ECU_Layer/ECU_LAYER.h
 [; ;./ECU_Layer/ECU_LAYER.h: 26: std_ReturnType Ecu_initialize(void);
 [v _Ecu_initialize `(uc ~T0 @X0 0 ef ]
@@ -447,57 +437,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "12
-[; ;application.c: 12: uint8 value = 0 ;
-[v _value `uc ~T0 @X0 1 e ]
-[i _value
+[; ;application.c: 12:     uint8 customChar[] = {
+[v _customChar `uc ~T0 @X0 -> 8 `i e ]
+[i _customChar
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 27 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
 -> -> 0 `i `uc
+..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"13
-[; ;application.c: 13: int main() {
+"22
+[; ;application.c: 22: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"14
-[; ;application.c: 14:     application_initialize();
+"24
+[; ;application.c: 24:     application_initialize();
 [e ( _application_initialize ..  ]
-"15
-[; ;application.c: 15:     lcd_8bit_send_string_pos(&lcd1,3,5,"Teko");
-[e ( _lcd_8bit_send_string_pos (4 , , , -> &U _lcd1 `*CS279 -> -> 3 `i `uc -> -> 5 `i `uc :s 1C ]
-"16
-[; ;application.c: 16:     lcd_4bit_send_string_pos(&lcd2,2,15,"TEKOOOO");
-[e ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd2 `*CS280 -> -> 2 `i `uc -> -> 15 `i `uc :s 2C ]
-"19
-[; ;application.c: 19:     while(1){
-[e :U 283 ]
-{
-"20
-[; ;application.c: 20:     }
-}
-[e :U 282 ]
-[e $U 283  ]
+"27
+[; ;application.c: 27:     lcd_8bit_send_string(&lcd1,"kk");
+[e ( _lcd_8bit_send_string (2 , -> &U _lcd1 `*CS280 :s 1C ]
+"28
+[; ;application.c: 28:     while(1){
 [e :U 284 ]
-"21
-[; ;application.c: 21:     return (0);
-[e ) -> 0 `i ]
-[e $UE 281  ]
-"22
-[; ;application.c: 22: }
-[e :UE 281 ]
+{
+"33
+[; ;application.c: 33:     }
 }
-"23
-[; ;application.c: 23: void application_initialize(){
+[e :U 283 ]
+[e $U 284  ]
+[e :U 285 ]
+"34
+[; ;application.c: 34:     return (0);
+[e ) -> 0 `i ]
+[e $UE 282  ]
+"35
+[; ;application.c: 35: }
+[e :UE 282 ]
+}
+"36
+[; ;application.c: 36: void application_initialize(){
 [v _application_initialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _application_initialize ]
 [f ]
-"24
-[; ;application.c: 24:     ret = Ecu_initialize();
+"37
+[; ;application.c: 37:     ret = Ecu_initialize();
 [e = _ret ( _Ecu_initialize ..  ]
-"25
-[; ;application.c: 25: }
-[e :UE 285 ]
+"38
+[; ;application.c: 38: }
+[e :UE 286 ]
 }
-[a 1C 84 101 107 111 0 ]
-[a 2C 84 69 75 79 79 79 79 0 ]
+[a 1C 107 107 0 ]
