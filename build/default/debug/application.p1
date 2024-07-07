@@ -1,7 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"26 ./application.h
-[; ;./application.h: 26: void application_initialize();
+"77 ./ECU_Layer/LCD/ecu_lcd.h
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 77: std_ReturnType convert_uint8_to_string(uint8 value, uint8 *str);
+[v _convert_uint8_to_string `(uc ~T0 @X0 0 ef2`uc`*uc ]
+"96 ./application.h
+[; ;./application.h: 96: void application_initialize();
 [v _application_initialize `(v ~T0 @X0 0 e? ]
 "59 ./ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h
 [s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -430,20 +433,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6715
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6715: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"11 application.c
-[; ;application.c: 11: std_ReturnType ret = (std_ReturnType)0x00;
-[v _ret `uc ~T0 @X0 1 e ]
-[i _ret
--> -> 0 `i `uc
-]
-"12
-[; ;application.c: 12:     uint8 customChar[] = {
-[v _customChar `uc ~T0 @X0 -> 8 `i e ]
+"25 ./application.h
+[; ;./application.h: 25:   const uint8 customChar[] = {
+[v _customChar `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar
 :U ..
 -> -> 14 `i `uc
 -> -> 10 `i `uc
--> -> 27 `i `uc
+-> -> 17 `i `uc
 -> -> 17 `i `uc
 -> -> 17 `i `uc
 -> -> 17 `i `uc
@@ -451,23 +448,131 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
+"35
+[; ;./application.h: 35: const uint8 customChar2[] = {
+[v _customChar2 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar2
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"45
+[; ;./application.h: 45: const const uint8 customChar3[] = {
+[v _customChar3 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar3
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"55
+[; ;./application.h: 55: const uint8 customChar4[] = {
+[v _customChar4 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar4
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"65
+[; ;./application.h: 65: const uint8 customChar5[] = {
+[v _customChar5 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar5
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"75
+[; ;./application.h: 75: const uint8 customChar6[] = {
+[v _customChar6 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar6
+:U ..
+-> -> 14 `i `uc
+-> -> 14 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"85
+[; ;./application.h: 85: const uint8 customChar7[] = {
+[v _customChar7 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar7
+:U ..
+-> -> 4 `i `uc
+-> -> 10 `i `uc
+-> -> 4 `i `uc
+-> -> 4 `i `uc
+-> -> 4 `i `uc
+-> -> 14 `i `uc
+-> -> 21 `i `uc
+-> -> 14 `i `uc
+..
+]
+"11 application.c
+[; ;application.c: 11: std_ReturnType ret = (std_ReturnType)0x00;
+[v _ret `uc ~T0 @X0 1 e ]
+[i _ret
+-> -> 0 `i `uc
+]
+"12
+[; ;application.c: 12:     uint8 text[4];
+[v _text `uc ~T0 @X0 -> 4 `i e ]
+"13
+[; ;application.c: 13:     uint8 value = 243;
+[v _value `uc ~T0 @X0 1 e ]
+[i _value
+-> -> 243 `i `uc
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"22
-[; ;application.c: 22: int main() {
+"15
+[; ;application.c: 15: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"24
-[; ;application.c: 24:     application_initialize();
+"17
+[; ;application.c: 17:     convert_uint8_to_string(value,text);
+[e ( _convert_uint8_to_string (2 , _value &U _text ]
+"18
+[; ;application.c: 18:     application_initialize();
 [e ( _application_initialize ..  ]
-"27
-[; ;application.c: 27:     lcd_8bit_send_string(&lcd1,"kk");
-[e ( _lcd_8bit_send_string (2 , -> &U _lcd1 `*CS280 :s 1C ]
-"28
-[; ;application.c: 28:     while(1){
+"21
+[; ;application.c: 21:     while(1){
 [e :U 284 ]
 {
+"29
+[; ;application.c: 29:         lcd_8bit_send_string(&lcd1,text);
+[e ( _lcd_8bit_send_string (2 , -> &U _lcd1 `*CS280 &U _text ]
 "33
 [; ;application.c: 33:     }
 }
@@ -495,4 +600,3 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;application.c: 38: }
 [e :UE 286 ]
 }
-[a 1C 107 107 0 ]

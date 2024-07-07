@@ -9,24 +9,24 @@
 #include "application.h"
 
 std_ReturnType ret = E_NOT_OK;
-    uint8 customChar[] = {
-  0x0E,
-  0x0A,
-  0x1B,
-  0x11,
-  0x11,
-  0x11,
-  0x1F,
-  0x00
-};
+    uint8 text[4];
+    uint8 value = 243;
+
 int main() {
 
+    convert_uint8_to_string(value,text);
     application_initialize();
-        
-        //lcd_8bit_custom_character(&lcd3,1,10,customChar,1);
-    lcd_8bit_send_string(&lcd1,"kk");
+    
+    
     while(1){
-        
+        /*lcd_8bit_custom_character(&lcd1,1,20,customChar,0);
+        lcd_8bit_custom_character(&lcd1,1,20,customChar2,0);
+        lcd_8bit_custom_character(&lcd1,1,20,customChar3,0);
+        lcd_8bit_custom_character(&lcd1,1,20,customChar4,0);
+        lcd_8bit_custom_character(&lcd1,1,20,customChar5,0);
+        lcd_8bit_custom_character(&lcd1,1,20,customChar6,0);
+        lcd_8bit_custom_character(&lcd1,2,15,customChar7,1);*/
+        lcd_8bit_send_string(&lcd1,text);
         
         //counter++;
         

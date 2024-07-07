@@ -68,13 +68,12 @@ std_ReturnType lcd_8bit_send_char(const lcd_8bits_t *lcd,uint8 _char){
     else{
         ret = gpio_pin_write_logic(&(lcd->rs),GPIO_HIGH);
         for(counter = ZERO_INIT;counter < 8;counter++){
-            ret = gpio_pin_write_logic(&(lcd->data_pins[counter]),((_char >> counter) & (uint8)0x01));
+            ret = gpio_pin_write_logic(&(lcd->data_pins[counter]),(_char >> counter) & (uint8)0x01);
         }
         enable_signal_8bits(lcd);
     }
     return ret;
 }
-/********//**/
 std_ReturnType lcd_8bit_send_char_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 _char){
     std_ReturnType ret = E_OK;
     if(NULL == lcd){
@@ -112,7 +111,7 @@ std_ReturnType lcd_8bit_send_string_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 c
     }
     return ret;
 }
-std_ReturnType lcd_8bit_custom_character(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,const uint8 chr[],uint8 mempos){
+std_ReturnType lcd_8bit_custom_character(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos){
     std_ReturnType ret = E_OK;
     uint8 counter = ZERO_INIT;
     if(NULL == lcd){
@@ -121,10 +120,10 @@ std_ReturnType lcd_8bit_custom_character(const lcd_8bits_t *lcd,uint8 Row,uint8 
     else{
         
         ret = lcd_8bit_send_command(lcd,(_LCD_CGRAM_START + (mempos*8)));
-        for(counter = 0;counter < 8;counter++){
+        for(counter = 0;counter <= 7;counter++){
         ret = lcd_8bit_send_char(lcd,chr[counter]);
         }
-        ret = lcd_8bit_send_string_pos(lcd,Row,coloumns,mempos);
+        ret = lcd_8bit_send_char_pos(lcd,Row,coloumns,mempos);
         
     }
     return ret;
@@ -276,7 +275,7 @@ static std_ReturnType lcd_send_8bits(const lcd_8bits_t *lcd,uint8 command){
         ret = E_NOT_OK;
     }
     else{
-        for(counter = ZERO_INIT;counter < 8;counter++){
+        for(counter = ZERO_INIT;counter < 8;++counter){
             ret = gpio_pin_write_logic(&(lcd->data_pins[counter]),(command >> counter) & (uint8)0x01);
         }
         

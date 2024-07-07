@@ -4924,7 +4924,7 @@ std_ReturnType lcd_8bit_send_char(const lcd_8bits_t *lcd,uint8 _char);
 std_ReturnType lcd_8bit_send_char_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 _char);
 std_ReturnType lcd_8bit_send_string(const lcd_8bits_t *lcd,uint8 *str);
 std_ReturnType lcd_8bit_send_string_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 *str);
-std_ReturnType lcd_8bit_custom_character(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,const uint8 chr[],uint8 mempos);
+std_ReturnType lcd_8bit_custom_character(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos);
 
 
 std_ReturnType lcd_4bit_initialize(const lcd_4bits_t *lcd);
@@ -4958,30 +4958,100 @@ extern lcd_8bits_t lcd1;
 extern lcd_8bits_t lcd3;
 extern lcd_4bits_t lcd2;
 
-
-void application_initialize();
-# 9 "application.c" 2
-
-
-std_ReturnType ret = (std_ReturnType)0x00;
-    uint8 customChar[] = {
+  const uint8 customChar[] = {
   0x0E,
   0x0A,
-  0x1B,
+  0x11,
   0x11,
   0x11,
   0x11,
   0x1F,
   0x00
 };
+const uint8 customChar2[] = {
+  0x0E,
+  0x0A,
+  0x11,
+  0x11,
+  0x11,
+  0x1F,
+  0x1F,
+  0x00
+};
+const const uint8 customChar3[] = {
+  0x0E,
+  0x0A,
+  0x11,
+  0x11,
+  0x1F,
+  0x1F,
+  0x1F,
+  0x00
+};
+const uint8 customChar4[] = {
+  0x0E,
+  0x0A,
+  0x11,
+  0x1F,
+  0x1F,
+  0x1F,
+  0x1F,
+  0x00
+};
+const uint8 customChar5[] = {
+  0x0E,
+  0x0A,
+  0x1F,
+  0x1F,
+  0x1F,
+  0x1F,
+  0x1F,
+  0x00
+};
+const uint8 customChar6[] = {
+  0x0E,
+  0x0E,
+  0x1F,
+  0x1F,
+  0x1F,
+  0x1F,
+  0x1F,
+  0x00
+};
+const uint8 customChar7[] = {
+  0x04,
+  0x0A,
+  0x04,
+  0x04,
+  0x04,
+  0x0E,
+  0x15,
+  0x0E
+};
+
+void application_initialize();
+# 9 "application.c" 2
+
+
+std_ReturnType ret = (std_ReturnType)0x00;
+    uint8 text[4];
+    uint8 value = 243;
+
 int main() {
 
+    convert_uint8_to_string(value,text);
     application_initialize();
 
 
-    lcd_8bit_send_string(&lcd1,"kk");
     while(1){
 
+
+
+
+
+
+
+        lcd_8bit_send_string(&lcd1,text);
 
 
 

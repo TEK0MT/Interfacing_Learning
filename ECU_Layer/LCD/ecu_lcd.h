@@ -61,7 +61,7 @@ std_ReturnType lcd_8bit_send_char(const lcd_8bits_t *lcd,uint8 _char);
 std_ReturnType lcd_8bit_send_char_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 _char);
 std_ReturnType lcd_8bit_send_string(const lcd_8bits_t *lcd,uint8 *str);
 std_ReturnType lcd_8bit_send_string_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 *str);
-std_ReturnType lcd_8bit_custom_character(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,const uint8 chr[],uint8 mempos);
+std_ReturnType lcd_8bit_custom_character(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos);
 
 
 std_ReturnType lcd_4bit_initialize(const lcd_4bits_t *lcd);
