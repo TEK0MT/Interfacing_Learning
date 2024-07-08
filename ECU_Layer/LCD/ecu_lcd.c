@@ -230,18 +230,34 @@ std_ReturnType lcd_4bit_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 c
     }
     return ret;
 }
-
+std_ReturnType lcd_4bit_custom_character(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos){
+    std_ReturnType ret = E_OK;
+    uint8 counter = ZERO_INIT;
+    if(NULL == lcd){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+        ret = lcd_4bit_send_command(lcd,(_LCD_CGRAM_START + (mempos*8)));
+        for(counter = 0;counter <= 7;counter++){
+        ret = lcd_4bit_send_char(lcd,chr[counter]);
+        }
+        ret = lcd_4bit_send_char_pos(lcd,Row,coloumns,mempos);
+        
+    }
+    return ret;
+}
                                         /*Conversion functions*/
 /***************************************************************************************************/
 
-std_ReturnType convert_uint8_to_string(uint8 value, uint8 *str){
+std_ReturnType convert_uint8_to_string(uint8 value,const uint8 *str){
     std_ReturnType ret = E_OK;
     if(NULL == str){
         ret = E_NOT_OK;
     }
     else{    
         memset((char *)str, '\0', 4);
-        sprintf(str, "%i", value);
+        sprintf((uint8 *)str, "%u", (uint8)value);
     }
     return ret;
 }
