@@ -9,6 +9,7 @@
 #define	APPLICATION_H
 /*Section : includes */
 #include "ECU_Layer/ECU_LAYER.h"
+#include "MCAL_Layer/Interrupt/mcal_external_interrupt.h"
 /* Section : Macro Declarations */
 
 
@@ -18,6 +19,8 @@
 /* Section : Data Type Declarations */
 extern keypad_t keypad1;
 extern led_t led1;
+extern led_t led2;
+extern led_t led3;
 extern lcd_8bits_t lcd1;
 extern lcd_8bits_t lcd3;
 extern lcd_4bits_t lcd2;

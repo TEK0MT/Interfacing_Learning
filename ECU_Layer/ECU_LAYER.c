@@ -16,7 +16,7 @@
 };
 
 */
-lcd_8bits_t lcd1 = {.rs.port = PORTC_INDEX,.rs.pin = PIN5,.rs.logic = GPIO_LOW,.rs.logic=GPIO_DIRECTION_OUTPUT,
+/*lcd_8bits_t lcd1 = {.rs.port = PORTC_INDEX,.rs.pin = PIN5,.rs.logic = GPIO_LOW,.rs.logic=GPIO_DIRECTION_OUTPUT,
                     .enable.port = PORTC_INDEX,.enable.pin = PIN7,.enable.logic = GPIO_LOW,.enable.logic=GPIO_DIRECTION_OUTPUT,
                     .data_pins[0].port = PORTD_INDEX,.data_pins[0].pin = PIN0,.data_pins[0].logic=GPIO_LOW,.data_pins[0].direction=GPIO_DIRECTION_OUTPUT,
                     .data_pins[1].port = PORTD_INDEX,.data_pins[1].pin = PIN1,.data_pins[1].logic=GPIO_LOW,.data_pins[1].direction=GPIO_DIRECTION_OUTPUT,
@@ -25,7 +25,7 @@ lcd_8bits_t lcd1 = {.rs.port = PORTC_INDEX,.rs.pin = PIN5,.rs.logic = GPIO_LOW,.
                     .data_pins[4].port = PORTD_INDEX,.data_pins[4].pin = PIN4,.data_pins[4].logic=GPIO_LOW,.data_pins[4].direction=GPIO_DIRECTION_OUTPUT,
                     .data_pins[5].port = PORTD_INDEX,.data_pins[5].pin = PIN5,.data_pins[5].logic=GPIO_LOW,.data_pins[5].direction=GPIO_DIRECTION_OUTPUT,
                     .data_pins[6].port = PORTD_INDEX,.data_pins[6].pin = PIN6,.data_pins[6].logic=GPIO_LOW,.data_pins[6].direction=GPIO_DIRECTION_OUTPUT,
-                    .data_pins[7].port = PORTD_INDEX,.data_pins[7].pin = PIN7,.data_pins[7].logic=GPIO_LOW,.data_pins[7].direction=GPIO_DIRECTION_OUTPUT};
+                    .data_pins[7].port = PORTD_INDEX,.data_pins[7].pin = PIN7,.data_pins[7].logic=GPIO_LOW,.data_pins[7].direction=GPIO_DIRECTION_OUTPUT};*/
 
 /*lcd_4bits_t lcd2 = {.rs.port = PORTC_INDEX,.rs.pin = PIN0,.rs.logic = GPIO_LOW,.rs.logic=GPIO_DIRECTION_OUTPUT,
                     .enable.port = PORTC_INDEX,.enable.pin = PIN1,.enable.logic = GPIO_LOW,.enable.logic=GPIO_DIRECTION_OUTPUT,
@@ -35,11 +35,15 @@ lcd_8bits_t lcd1 = {.rs.port = PORTC_INDEX,.rs.pin = PIN5,.rs.logic = GPIO_LOW,.
                     .data_pins[3].port = PORTC_INDEX,.data_pins[3].pin = PIN5,.data_pins[3].logic=GPIO_LOW,.data_pins[3].direction=GPIO_DIRECTION_OUTPUT
 };
 */
-led_t led1 = {.port_name = PORTD_INDEX,.pin_name = PIN0,.led_status = LED_OFF};
+led_t led1 = {.port_name = PORTC_INDEX,.pin_name = PIN0,.led_status = LED_OFF};
+led_t led2 = {.port_name = PORTC_INDEX,.pin_name = PIN1,.led_status = LED_OFF};
+led_t led3 = {.port_name = PORTC_INDEX,.pin_name = PIN2,.led_status = LED_OFF};
 
 std_ReturnType Ecu_initialize(void){
     //keypad_initialize(&keypad1);
-   // led_initialize(&led1);
-    lcd_8bit_initialize(&lcd1);
+    led_initialize(&led1);
+    led_initialize(&led2);
+    led_initialize(&led3);
+    //lcd_8bit_initialize(&lcd1);
     //lcd_4bit_initialize(&lcd2);
 }

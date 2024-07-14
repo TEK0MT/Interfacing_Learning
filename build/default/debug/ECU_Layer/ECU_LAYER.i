@@ -4940,23 +4940,16 @@ std_ReturnType convert_uint32_to_string(uint32 value,uint8 *str);
 # 26 "ECU_Layer/ECU_LAYER.h"
 std_ReturnType Ecu_initialize(void);
 # 7 "ECU_Layer/ECU_LAYER.c" 2
-# 19 "ECU_Layer/ECU_LAYER.c"
-lcd_8bits_t lcd1 = {.rs.port = PORTC_INDEX,.rs.pin = PIN5,.rs.logic = GPIO_LOW,.rs.logic=GPIO_DIRECTION_OUTPUT,
-                    .enable.port = PORTC_INDEX,.enable.pin = PIN7,.enable.logic = GPIO_LOW,.enable.logic=GPIO_DIRECTION_OUTPUT,
-                    .data_pins[0].port = PORTD_INDEX,.data_pins[0].pin = PIN0,.data_pins[0].logic=GPIO_LOW,.data_pins[0].direction=GPIO_DIRECTION_OUTPUT,
-                    .data_pins[1].port = PORTD_INDEX,.data_pins[1].pin = PIN1,.data_pins[1].logic=GPIO_LOW,.data_pins[1].direction=GPIO_DIRECTION_OUTPUT,
-                    .data_pins[2].port = PORTD_INDEX,.data_pins[2].pin = PIN2,.data_pins[2].logic=GPIO_LOW,.data_pins[2].direction=GPIO_DIRECTION_OUTPUT,
-                    .data_pins[3].port = PORTD_INDEX,.data_pins[3].pin = PIN3,.data_pins[3].logic=GPIO_LOW,.data_pins[3].direction=GPIO_DIRECTION_OUTPUT,
-                    .data_pins[4].port = PORTD_INDEX,.data_pins[4].pin = PIN4,.data_pins[4].logic=GPIO_LOW,.data_pins[4].direction=GPIO_DIRECTION_OUTPUT,
-                    .data_pins[5].port = PORTD_INDEX,.data_pins[5].pin = PIN5,.data_pins[5].logic=GPIO_LOW,.data_pins[5].direction=GPIO_DIRECTION_OUTPUT,
-                    .data_pins[6].port = PORTD_INDEX,.data_pins[6].pin = PIN6,.data_pins[6].logic=GPIO_LOW,.data_pins[6].direction=GPIO_DIRECTION_OUTPUT,
-                    .data_pins[7].port = PORTD_INDEX,.data_pins[7].pin = PIN7,.data_pins[7].logic=GPIO_LOW,.data_pins[7].direction=GPIO_DIRECTION_OUTPUT};
 # 38 "ECU_Layer/ECU_LAYER.c"
-led_t led1 = {.port_name = PORTD_INDEX,.pin_name = PIN0,.led_status = LED_OFF};
+led_t led1 = {.port_name = PORTC_INDEX,.pin_name = PIN0,.led_status = LED_OFF};
+led_t led2 = {.port_name = PORTC_INDEX,.pin_name = PIN1,.led_status = LED_OFF};
+led_t led3 = {.port_name = PORTC_INDEX,.pin_name = PIN2,.led_status = LED_OFF};
 
 std_ReturnType Ecu_initialize(void){
 
+    led_initialize(&led1);
+    led_initialize(&led2);
+    led_initialize(&led3);
 
-    lcd_8bit_initialize(&lcd1);
 
 }
