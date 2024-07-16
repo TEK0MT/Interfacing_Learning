@@ -4797,8 +4797,15 @@ typedef enum{
 void INT0_ISR(void);
 void INT1_ISR(void);
 void INT2_ISR(void);
+void RB4_ISR(uint8 n);
+void RB5_ISR(uint8 n);
+void RB6_ISR(uint8 n);
+void RB7_ISR(uint8 n);
 # 7 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c" 2
-# 19 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c"
+
+
+static volatile uint8 RB4_F = 1,RB5_F = 1,RB6_F = 1,RB7_F = 1;
+# 38 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c"
 void __attribute__((picinterrupt(("")))) InterruptMangaer(){
     if((INTCONbits.INT0IE == 1) && (INTCONbits.INT0IF == 1)){
         INT0_ISR();
@@ -4812,6 +4819,45 @@ void __attribute__((picinterrupt(("")))) InterruptMangaer(){
     else{ }
     if((1 == INTCON3bits.INT2IE) && (1 == INTCON3bits.INT2IF)){
         INT2_ISR();
+    }
+    else{ }
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB4 == GPIO_HIGH) && (RB4_F == 1)){
+        RB4_F = 0;
+        RB4_ISR(0);
+    }
+    else{ }
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB4 == GPIO_LOW) && (RB4_F == 0)){
+        RB4_F = 1;
+        RB4_ISR(1);
+    }
+    else{ }
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB5 == GPIO_HIGH) && (RB5_F == 1)){
+        RB5_F = 0;
+        RB5_ISR(0);
+    }
+    else{ }
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB5 == GPIO_LOW) && (RB5_F == 0)){
+        RB5_F = 1;
+        RB5_ISR(1);
+    }
+    else{ }
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB6 == GPIO_HIGH) && (RB6_F == 1)){
+        RB6_F = 0;
+        RB6_ISR(0);
+    }
+    else{ }
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB6 == GPIO_LOW) && (RB6_F == 0)){
+        RB6_F = 1;
+        RB4_ISR(1);
+    }
+    else{ }
+    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB7 == GPIO_HIGH) && (RB7_F == 1)){
+        RB7_F = 0;
+        RB7_ISR(0);
+    }
+    else{ }if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB7 == GPIO_HIGH) && (RB7_F == 0)){
+        RB7_F = 0;
+        RB7_ISR(1);
     }
     else{ }
 }

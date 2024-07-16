@@ -10,6 +10,16 @@ static void (*INT0_INTERRUPTHANDLER)(void) = NULL;
 static void (*INT1_INTERRUPTHANDLER)(void) = NULL;
 static void (*INT2_INTERRUPTHANDLER)(void) = NULL;
 
+
+static void (*RB4_INTERRUPTHANDLERHIGH)(void) = NULL;
+static void (*RB4_INTERRUPTHANDLERLOW)(void) = NULL;
+static void (*RB5_INTERRUPTHANDLERHIGH)(void) = NULL;
+static void (*RB5_INTERRUPTHANDLERLOW)(void) = NULL;
+static void (*RB6_INTERRUPTHANDLERHIGH)(void) = NULL;
+static void (*RB6_INTERRUPTHANDLERLOW)(void) = NULL;
+static void (*RB7_INTERRUPTHANDLERHIGH)(void) = NULL;
+static void (*RB7_INTERRUPTHANDLERLOW)(void) = NULL;
+
 static std_ReturnType INT0_INTERRUPT_HANDLER(void(*Interrupt_Handler)(void));
 static std_ReturnType INT1_INTERRUPT_HANDLER(void(*Interrupt_Handler)(void));
 static std_ReturnType INT2_INTERRUPT_HANDLER(void(*Interrupt_Handler)(void));
@@ -34,6 +44,7 @@ std_ReturnType Interrupt_INTx_Init(const interrupt_Intx_t *int_obj){
         ret = Interrupt_INTx_Edge_Src(int_obj);
         ret = Interrupt_INTx_Pin_Init(int_obj);
         ret = Set_Interrupt_Handler(int_obj);
+        ret = Interrupt_INTx_Priority(int_obj);
         ret = Interrupt_INTx_Enable(int_obj);
     }
     return ret;
@@ -81,8 +92,105 @@ void INT2_ISR(void){
     }
 }
 
+void RB4_ISR(uint8 n){
+    /*The INT0 external Interrupt occured (must be cleared)*/
+    ONCHANGE_INTERRUPT_CLEAR_FLAG();
+    /*Code*/
+    
+    /*Call back interrupt function*/
+    if(!n){
+    if(RB4_INTERRUPTHANDLERHIGH){
+        RB4_INTERRUPTHANDLERHIGH();
+    }
+    else{
+        /*Nothing*/
+    }
+    }
+    else if(n){
+        if(RB4_INTERRUPTHANDLERLOW){
+        RB4_INTERRUPTHANDLERLOW();
+    }
+    else{
+        /*Nothing*/
+    }
+    }
+    else{/*Nothing*/}
+        ONCHANGE_INTERRUPT_CLEAR_FLAG();
+    }
 
+void RB5_ISR(uint8 n){
+    /*The INT0 external Interrupt occured (must be cleared)*/
+    ONCHANGE_INTERRUPT_CLEAR_FLAG();
+    /*Code*/
+    
+    /*Call back interrupt function*/
+    if(!n){
+    if(RB5_INTERRUPTHANDLERHIGH){
+        RB5_INTERRUPTHANDLERHIGH();
+    }
+    else{
+        /*Nothing*/
+    }
+    }
+    else if(n){
+        if(RB5_INTERRUPTHANDLERLOW){
+        RB5_INTERRUPTHANDLERLOW();
+    }
+    else{
+        /*Nothing*/
+    }
+    }
+    else{/*Nothing*/}
+}
+void RB6_ISR(uint8 n){
+    /*The INT0 external Interrupt occured (must be cleared)*/
+    ONCHANGE_INTERRUPT_CLEAR_FLAG();
+    /*Code*/
+    
+    /*Call back interrupt function*/
+    if(!n){
+    if(RB6_INTERRUPTHANDLERHIGH){
+        RB6_INTERRUPTHANDLERHIGH();
+    }
+    else{
+        /*Nothing*/
+    }
+    }
+    else if(n){
+        if(RB6_INTERRUPTHANDLERLOW){
+        RB6_INTERRUPTHANDLERLOW();
+    }
+    else{
+        /*Nothing*/
+    }
+    }
+    else{/*Nothing*/}
+}
 
+void RB7_ISR(uint8 n){
+    /*The INT0 external Interrupt occured (must be cleared)*/
+    ONCHANGE_INTERRUPT_CLEAR_FLAG();
+    /*Code*/
+    
+    /*Call back interrupt function*/
+   if(!n){
+    if(RB7_INTERRUPTHANDLERHIGH){
+        RB7_INTERRUPTHANDLERHIGH();
+    }
+    else{
+        /*Nothing*/
+    }
+    }
+    else if(n){
+        if(RB7_INTERRUPTHANDLERLOW){
+        RB7_INTERRUPTHANDLERLOW();
+    }
+    else{
+        /*Nothing*/
+    }
+    }
+    else{/*Nothing*/}
+}
 
 std_ReturnType Interrupt_INTx_DeInit(const interrupt_Intx_t *int_obj){
     std_ReturnType ret = E_OK;
@@ -90,13 +198,71 @@ std_ReturnType Interrupt_INTx_DeInit(const interrupt_Intx_t *int_obj){
         ret = E_NOT_OK;
     }
     else{
-        ret = Interrupt_INTx_Disable(int_obj);
+        Interrupt_INTx_Disable(int_obj);
+        
     }
     return ret;
 }
 
-std_ReturnType Interrupt_RBx_Init(const interrupt_Intx_t *int_obj);
-std_ReturnType Interrupt_RBx_DeInit(const interrupt_Rbx_t *int_obj);
+std_ReturnType Interrupt_RBx_Init(const interrupt_Rbx_t *int_obj){
+    std_ReturnType ret = E_OK;
+    if(int_obj == NULL){
+        ret = E_NOT_OK;
+    }
+    else{
+        ONCHANGE_INTERRUPT_DISABLE();
+        ONCHANGE_INTERRUPT_CLEAR_FLAG();
+        #if INETRRUPT_PRIORITY
+        INTERRUPT_PRIORITY_ENABLED();
+        if(int_obj->priority == LOW_PRIORITY){
+        INTERRUPT_LOW_PRIORITY_INTERRUPT_ENABLED();
+         ONCHANGE_INTERRUPT_LOW_PRIORITY();   
+        }
+        else if(int_obj->priority == HIGH_PRIORITY){
+            ONCHANGE_INTERRUPT_HIGH_PRIORITY();
+        }
+        else{/*Nothing*/}
+        #else
+         INTERRUPT_GLOBAL_INTERRUPT_ENABLED();
+         INTERRUPT_PERIPHERAL_ENABLED();
+        
+        #endif
+         ret = gpio_pin_direction_intialize(&(int_obj->pin));
+         switch(int_obj->pin.pin){
+             case PIN4 : 
+                 RB4_INTERRUPTHANDLERHIGH = int_obj->EXT_INTERRUPT_HANDLER_HIGH;
+                 RB4_INTERRUPTHANDLERLOW = int_obj->EXT_INTERRUPT_HANDLER_LOW;
+                 
+                 break;
+             case PIN5 :
+                 RB5_INTERRUPTHANDLERHIGH = int_obj->EXT_INTERRUPT_HANDLER_HIGH;
+                 RB5_INTERRUPTHANDLERLOW = int_obj->EXT_INTERRUPT_HANDLER_LOW;
+                 break;
+             case PIN6 : 
+                 RB6_INTERRUPTHANDLERHIGH = int_obj->EXT_INTERRUPT_HANDLER_HIGH;
+                 RB6_INTERRUPTHANDLERLOW = int_obj->EXT_INTERRUPT_HANDLER_LOW;
+                 break;
+             case PIN7 : 
+                 RB7_INTERRUPTHANDLERHIGH = int_obj->EXT_INTERRUPT_HANDLER_HIGH;
+                 RB7_INTERRUPTHANDLERLOW = int_obj->EXT_INTERRUPT_HANDLER_LOW;
+                 break;
+             default :
+                 ret = E_NOT_OK;
+         }
+        ONCHANGE_INTERRUPT_ENABLE();
+    }
+    return ret;
+}
+std_ReturnType Interrupt_RBx_DeInit(const interrupt_Rbx_t *int_obj){
+    std_ReturnType ret = E_OK;
+    if(int_obj == NULL){
+        ret = E_NOT_OK;
+    }
+    else{
+        ONCHANGE_INTERRUPT_DISABLE();
+    }
+    return ret;
+}
 
 
 
@@ -109,18 +275,46 @@ static std_ReturnType Interrupt_INTx_Enable(const interrupt_Intx_t *int_obj){
     else{
         switch(int_obj->intx){
             case INTX0:
+                #if INETRRUPT_PRIORITY
+                 INTERRUPT_HIGH_PRIORITY_INTERRUPT_ENABLED();
+                 #else
+                INTERRUPT_GLOBAL_INTERRUPT_ENABLED();
                 INTERRUPT_GLOBAL_INTERRUPT_ENABLED();
                 INTERRUPT_PERIPHERAL_ENABLED();
+                #endif
                 INTERRUPT_EXTERNAL_INT0_ENBABLE(); 
                 break;
             case INTX1:
+                #if INETRRUPT_PRIORITY
+                INTERRUPT_PRIORITY_ENABLED();
+                   if(int_obj->priority == LOW_PRIORITY){
+                    INTERRUPT_LOW_PRIORITY_INTERRUPT_ENABLED();
+                }
+                else if(int_obj->priority == HIGH_PRIORITY){
+                    INTERRUPT_HIGH_PRIORITY_INTERRUPT_ENABLED();
+                }
+                else{/*NOTHING*/}
+                #else
                 INTERRUPT_GLOBAL_INTERRUPT_ENABLED();
                 INTERRUPT_PERIPHERAL_ENABLED();
+                #endif
                 INTERRUPT_EXTERNAL_INT1_ENBABLE();
+                
                 break;
             case INTX2:
+                #if INETRRUPT_PRIORITY
+                INTERRUPT_PRIORITY_ENABLED();
+                if(int_obj->priority == LOW_PRIORITY){
+                    INTERRUPT_LOW_PRIORITY_INTERRUPT_ENABLED();
+                }
+                else if(int_obj->priority == HIGH_PRIORITY){
+                    INTERRUPT_HIGH_PRIORITY_INTERRUPT_ENABLED();
+                }
+                else{/*NOTHING*/}
+                #else
                 INTERRUPT_GLOBAL_INTERRUPT_ENABLED();
                 INTERRUPT_PERIPHERAL_ENABLED();
+                #endif
                 INTERRUPT_EXTERNAL_INT2_ENBABLE(); 
                 break;
             default :

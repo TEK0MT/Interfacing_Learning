@@ -4823,7 +4823,7 @@ typedef struct{
 std_ReturnType Interrupt_INTx_Init(const interrupt_Intx_t *int_obj);
 std_ReturnType Interrupt_INTx_DeInit(const interrupt_Intx_t *int_obj);
 
-std_ReturnType Interrupt_RBx_Init(const interrupt_Intx_t *int_obj);
+std_ReturnType Interrupt_RBx_Init(const interrupt_Rbx_t *int_obj);
 std_ReturnType Interrupt_RBx_DeInit(const interrupt_Rbx_t *int_obj);
 # 7 "MCAL_Layer/Interrupt/mcal_external_interrupt.c" 2
 
@@ -4831,6 +4831,16 @@ std_ReturnType Interrupt_RBx_DeInit(const interrupt_Rbx_t *int_obj);
 static void (*INT0_INTERRUPTHANDLER)(void) = ((void*)0);
 static void (*INT1_INTERRUPTHANDLER)(void) = ((void*)0);
 static void (*INT2_INTERRUPTHANDLER)(void) = ((void*)0);
+
+
+static void (*RB4_INTERRUPTHANDLERHIGH)(void) = ((void*)0);
+static void (*RB4_INTERRUPTHANDLERLOW)(void) = ((void*)0);
+static void (*RB5_INTERRUPTHANDLERHIGH)(void) = ((void*)0);
+static void (*RB5_INTERRUPTHANDLERLOW)(void) = ((void*)0);
+static void (*RB6_INTERRUPTHANDLERHIGH)(void) = ((void*)0);
+static void (*RB6_INTERRUPTHANDLERLOW)(void) = ((void*)0);
+static void (*RB7_INTERRUPTHANDLERHIGH)(void) = ((void*)0);
+static void (*RB7_INTERRUPTHANDLERLOW)(void) = ((void*)0);
 
 static std_ReturnType INT0_INTERRUPT_HANDLER(void(*Interrupt_Handler)(void));
 static std_ReturnType INT1_INTERRUPT_HANDLER(void(*Interrupt_Handler)(void));
@@ -4856,6 +4866,7 @@ std_ReturnType Interrupt_INTx_Init(const interrupt_Intx_t *int_obj){
         ret = Interrupt_INTx_Edge_Src(int_obj);
         ret = Interrupt_INTx_Pin_Init(int_obj);
         ret = Set_Interrupt_Handler(int_obj);
+        ret = Interrupt_INTx_Priority(int_obj);
         ret = Interrupt_INTx_Enable(int_obj);
     }
     return ret;
@@ -4903,8 +4914,105 @@ void INT2_ISR(void){
     }
 }
 
+void RB4_ISR(uint8 n){
+
+    (INTCONbits.RBIF = 0);
 
 
+
+    if(!n){
+    if(RB4_INTERRUPTHANDLERHIGH){
+        RB4_INTERRUPTHANDLERHIGH();
+    }
+    else{
+
+    }
+    }
+    else if(n){
+        if(RB4_INTERRUPTHANDLERLOW){
+        RB4_INTERRUPTHANDLERLOW();
+    }
+    else{
+
+    }
+    }
+    else{ }
+        (INTCONbits.RBIF = 0);
+    }
+
+void RB5_ISR(uint8 n){
+
+    (INTCONbits.RBIF = 0);
+
+
+
+    if(!n){
+    if(RB5_INTERRUPTHANDLERHIGH){
+        RB5_INTERRUPTHANDLERHIGH();
+    }
+    else{
+
+    }
+    }
+    else if(n){
+        if(RB5_INTERRUPTHANDLERLOW){
+        RB5_INTERRUPTHANDLERLOW();
+    }
+    else{
+
+    }
+    }
+    else{ }
+}
+void RB6_ISR(uint8 n){
+
+    (INTCONbits.RBIF = 0);
+
+
+
+    if(!n){
+    if(RB6_INTERRUPTHANDLERHIGH){
+        RB6_INTERRUPTHANDLERHIGH();
+    }
+    else{
+
+    }
+    }
+    else if(n){
+        if(RB6_INTERRUPTHANDLERLOW){
+        RB6_INTERRUPTHANDLERLOW();
+    }
+    else{
+
+    }
+    }
+    else{ }
+}
+
+void RB7_ISR(uint8 n){
+
+    (INTCONbits.RBIF = 0);
+
+
+
+   if(!n){
+    if(RB7_INTERRUPTHANDLERHIGH){
+        RB7_INTERRUPTHANDLERHIGH();
+    }
+    else{
+
+    }
+    }
+    else if(n){
+        if(RB7_INTERRUPTHANDLERLOW){
+        RB7_INTERRUPTHANDLERLOW();
+    }
+    else{
+
+    }
+    }
+    else{ }
+}
 
 std_ReturnType Interrupt_INTx_DeInit(const interrupt_Intx_t *int_obj){
     std_ReturnType ret = (std_ReturnType)0x01;
@@ -4912,13 +5020,61 @@ std_ReturnType Interrupt_INTx_DeInit(const interrupt_Intx_t *int_obj){
         ret = (std_ReturnType)0x00;
     }
     else{
-        ret = Interrupt_INTx_Disable(int_obj);
+        Interrupt_INTx_Disable(int_obj);
+
     }
     return ret;
 }
 
-std_ReturnType Interrupt_RBx_Init(const interrupt_Intx_t *int_obj);
-std_ReturnType Interrupt_RBx_DeInit(const interrupt_Rbx_t *int_obj);
+std_ReturnType Interrupt_RBx_Init(const interrupt_Rbx_t *int_obj){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(int_obj == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        (INTCONbits.RBIE = 0);
+        (INTCONbits.RBIF = 0);
+# 226 "MCAL_Layer/Interrupt/mcal_external_interrupt.c"
+         (INTCONbits.GIEH = 1);
+         (INTCONbits.PEIE = 1);
+
+
+         ret = gpio_pin_direction_intialize(&(int_obj->pin));
+         switch(int_obj->pin.pin){
+             case PIN4 :
+                 RB4_INTERRUPTHANDLERHIGH = int_obj->EXT_INTERRUPT_HANDLER_HIGH;
+                 RB4_INTERRUPTHANDLERLOW = int_obj->EXT_INTERRUPT_HANDLER_LOW;
+
+                 break;
+             case PIN5 :
+                 RB5_INTERRUPTHANDLERHIGH = int_obj->EXT_INTERRUPT_HANDLER_HIGH;
+                 RB5_INTERRUPTHANDLERLOW = int_obj->EXT_INTERRUPT_HANDLER_LOW;
+                 break;
+             case PIN6 :
+                 RB6_INTERRUPTHANDLERHIGH = int_obj->EXT_INTERRUPT_HANDLER_HIGH;
+                 RB6_INTERRUPTHANDLERLOW = int_obj->EXT_INTERRUPT_HANDLER_LOW;
+                 break;
+             case PIN7 :
+                 RB7_INTERRUPTHANDLERHIGH = int_obj->EXT_INTERRUPT_HANDLER_HIGH;
+                 RB7_INTERRUPTHANDLERLOW = int_obj->EXT_INTERRUPT_HANDLER_LOW;
+                 break;
+             default :
+                 ret = (std_ReturnType)0x00;
+         }
+        (INTCONbits.RBIE = 1);
+    }
+    return ret;
+}
+std_ReturnType Interrupt_RBx_DeInit(const interrupt_Rbx_t *int_obj){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(int_obj == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        (INTCONbits.RBIE = 0);
+    }
+    return ret;
+}
 
 
 
@@ -4931,18 +5087,28 @@ static std_ReturnType Interrupt_INTx_Enable(const interrupt_Intx_t *int_obj){
     else{
         switch(int_obj->intx){
             case INTX0:
+
+
+
+                (INTCONbits.GIEH = 1);
                 (INTCONbits.GIEH = 1);
                 (INTCONbits.PEIE = 1);
+
                 (INTCONbits.INT0IE = 1);
                 break;
             case INTX1:
+# 298 "MCAL_Layer/Interrupt/mcal_external_interrupt.c"
                 (INTCONbits.GIEH = 1);
                 (INTCONbits.PEIE = 1);
+
                 (INTCON3bits.INT1IE = 1);
+
                 break;
             case INTX2:
+# 315 "MCAL_Layer/Interrupt/mcal_external_interrupt.c"
                 (INTCONbits.GIEH = 1);
                 (INTCONbits.PEIE = 1);
+
                 (INTCON3bits.INT2IE = 1);
                 break;
             default :

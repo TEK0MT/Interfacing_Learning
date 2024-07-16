@@ -22,5 +22,9 @@
 void INT0_ISR(void);
 void INT1_ISR(void);
 void INT2_ISR(void);
+void RB4_ISR(uint8 n);
+void RB5_ISR(uint8 n);
+void RB6_ISR(uint8 n);
+void RB7_ISR(uint8 n);
 #endif	/* MCAL_INTERRUPT_MANAGER_H */
 

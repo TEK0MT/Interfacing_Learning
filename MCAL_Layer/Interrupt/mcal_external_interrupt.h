@@ -88,7 +88,7 @@ typedef struct{
 std_ReturnType Interrupt_INTx_Init(const interrupt_Intx_t *int_obj);
 std_ReturnType Interrupt_INTx_DeInit(const interrupt_Intx_t *int_obj);
 
-std_ReturnType Interrupt_RBx_Init(const interrupt_Intx_t *int_obj);
+std_ReturnType Interrupt_RBx_Init(const interrupt_Rbx_t *int_obj);
 std_ReturnType Interrupt_RBx_DeInit(const interrupt_Rbx_t *int_obj);
 #endif	/* MCAL_EXTERNAL_INTERRUPT_H */
 
