@@ -29,7 +29,7 @@ static std_ReturnType Interrupt_INTx_Disable(const interrupt_Intx_t *int_obj);
 static std_ReturnType Interrupt_INTx_Clear_Flag(const interrupt_Intx_t *int_obj);
 static std_ReturnType Interrupt_INTx_Edge_Src(const interrupt_Intx_t *int_obj);
 static std_ReturnType Interrupt_INTx_Pin_Init(const interrupt_Intx_t *int_obj);
-static std_ReturnType Interrupt_INTx_Priority(const interrupt_Intx_t *int_obj);
+//static std_ReturnType Interrupt_INTx_Priority(const interrupt_Intx_t *int_obj);
 static std_ReturnType Set_Interrupt_Handler(const interrupt_Intx_t *int_obj);
 
 
@@ -44,7 +44,7 @@ std_ReturnType Interrupt_INTx_Init(const interrupt_Intx_t *int_obj){
         ret = Interrupt_INTx_Edge_Src(int_obj);
         ret = Interrupt_INTx_Pin_Init(int_obj);
         ret = Set_Interrupt_Handler(int_obj);
-        ret = Interrupt_INTx_Priority(int_obj);
+//        ret = Interrupt_INTx_Priority(int_obj);
         ret = Interrupt_INTx_Enable(int_obj);
     }
     return ret;

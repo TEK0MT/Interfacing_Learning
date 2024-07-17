@@ -10,6 +10,7 @@
 /*Section : includes */
 #include "ECU_Layer/ECU_LAYER.h"
 #include "MCAL_Layer/Interrupt/mcal_external_interrupt.h"
+#include "MCAL_Layer/EEPROM/hal_eeprom.h"
 /* Section : Macro Declarations */
 
 

@@ -4991,6 +4991,12 @@ std_ReturnType Interrupt_RBx_Init(const interrupt_Rbx_t *int_obj);
 std_ReturnType Interrupt_RBx_DeInit(const interrupt_Rbx_t *int_obj);
 # 12 "./application.h" 2
 
+# 1 "./MCAL_Layer/EEPROM/hal_eeprom.h" 1
+# 31 "./MCAL_Layer/EEPROM/hal_eeprom.h"
+std_ReturnType WRITE_DATA_EEPROM(uint16 add,uint8 data);
+std_ReturnType READ_DATA_EEPROM(uint16 add,uint8 *data);
+# 13 "./application.h" 2
+
 
 
 
@@ -5080,50 +5086,40 @@ const uint8 customChar7[] = {
 void application_initialize();
 # 9 "application.c" 2
 
-void int0_isr(void){
-    led_turn_toggle(&led1);
-    _delay((unsigned long)((500)*(8000000/4000.0)));
-}
-void int1_isr(void){
-    led_turn_toggle(&led2);
-        _delay((unsigned long)((500)*(8000000/4000.0)));
+volatile uint8 counter = 0;
 
-}
-void int2_isr(void){
-    led_turn_toggle(&led3);
-
-        _delay((unsigned long)((500)*(8000000/4000.0)));
-
-}
-void RB4_isr(void){
-    led_turn_toggle(&led1);
-    _delay((unsigned long)((500)*(8000000/4000.0)));
+void isr(){
+    if(counter == 0){
+        counter++;
+    }
+    else{
+        counter = 0;
+    }
+    WRITE_DATA_EEPROM(0x3FF,counter);
 }
 
 
-
-
-interrupt_Rbx_t rb4 = {.EXT_INTERRUPT_HANDLER_HIGH = RB4_isr,.EXT_INTERRUPT_HANDLER_LOW = ((void*)0),.priority = HIGH_PRIORITY,.pin.port = PORTB_INDEX,.pin.pin = PIN4,.pin.logic = GPIO_LOW,.pin.direction = GPIO_DIRECTION_INPUT};
-
-
-
+interrupt_Intx_t int0 = {.EXT_INTERRUPT_HANDLER = isr,.intx = INTX0,.edge = Rising_Edge,.priority = HIGH_PRIORITY,.pin.port = PORTB_INDEX,.pin.pin = PIN0,.pin.logic = GPIO_DIRECTION_INPUT,.pin.logic = GPIO_LOW};
 
 std_ReturnType ret = (std_ReturnType)0x00;
 
 int main() {
 
     application_initialize();
-
-
-
-    Interrupt_RBx_Init(&rb4);
-
-
+    Interrupt_INTx_Init(&int0);
+    READ_DATA_EEPROM(0x3FF,&counter);
 
     while(1){
-
-
-
+        if(!counter){
+            led_turn_toggle(&led1);
+            led_turn_off(&led2);
+            _delay((unsigned long)((250)*(8000000/4000.0)));
+        }
+        else{
+            led_turn_toggle(&led2);
+            led_turn_off(&led1);
+            _delay((unsigned long)((500)*(8000000/4000.0)));
+        }
 
     }
     return (0);
