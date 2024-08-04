@@ -7,41 +7,15 @@
 
 
 #include "application.h"
-volatile uint8 counter = 0;
-
-void isr(){
-    if(counter == 0){
-        counter++;
-    }
-    else{
-        counter = 0;
-    }
-    WRITE_DATA_EEPROM(0x3FF,counter);
-}
-
-
-interrupt_Intx_t int0 = {.EXT_INTERRUPT_HANDLER = isr,.intx = INTX0,.edge = Rising_Edge,.priority = HIGH_PRIORITY,.pin.port = PORTB_INDEX,.pin.pin = PIN0,.pin.logic = GPIO_DIRECTION_INPUT,.pin.logic = GPIO_LOW};
-
 std_ReturnType ret = E_NOT_OK;
-
+adc_config_t adc1 = {.channel = CHANNEL0,.voltage_refrence = 0,.time = FOSC_DIV_16,.tad = TAD12,.result_format = RIGHT_JUSTIFIED};
+uint16 value = 0;
 int main() {
-
-    application_initialize();
-    Interrupt_INTx_Init(&int0);
-    READ_DATA_EEPROM(0x3FF,&counter);
+ADC_Init(&adc1);
+    
     
     while(1){
-        if(!counter){
-            led_turn_toggle(&led1);
-            led_turn_off(&led2);
-            __delay_ms(250);
-        }
-        else{
-            led_turn_toggle(&led2);
-            led_turn_off(&led1);
-            __delay_ms(500);
-        }
-        
+        ADC_Get_Conversion_Blocking(&adc1,CHANNEL0,&value);
     }
     return (EXIT_SUCCESS);
 }
