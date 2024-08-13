@@ -88,6 +88,12 @@ typedef enum{
 }ADC_RESULT_FORMAT;
 
 typedef struct{
+    #if ADC_INTERRUPT
+    void (*adc_isr)(void);
+    #if INETRRUPT_PRIORITY
+    interrupt_priority priority;
+#endif
+#endif
     ADC_CONVERSION_TIME time;
     ADC_ACQUISITION tad;
     SELECT_ADC_CHANNEL channel;
@@ -103,5 +109,6 @@ std_ReturnType ADC_Start_Conversion(const adc_config_t *adc);
 std_ReturnType ADC_ISConversion_Done(const adc_config_t *adc ,uint8 *status);
 std_ReturnType ADC_Get_Conversion_Result(const adc_config_t *adc ,uint16 *result);
 std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t *adc ,SELECT_ADC_CHANNEL channel,uint16 *result);
+std_ReturnType ADC_Start_Conversion_Interrupt(const adc_config_t *adc ,SELECT_ADC_CHANNEL channel);
 #endif	/* HAV_ADC_H */
 

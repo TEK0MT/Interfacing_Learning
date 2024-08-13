@@ -4791,7 +4791,7 @@ std_ReturnType gpio_port_toggle_logic(const port_index_t port);
 typedef enum{
     LOW_PRIORITY = 0,
     HIGH_PRIORITY
-}intx_priority;
+}interrupt_priority;
 # 11 "MCAL_Layer/Interrupt/mcal_external_interrupt.h" 2
 # 62 "MCAL_Layer/Interrupt/mcal_external_interrupt.h"
 typedef enum{
@@ -4810,14 +4810,14 @@ typedef struct{
     pin_config_t pin;
     intx_src intx;
     intx_edge edge;
-    intx_priority priority;
+    interrupt_priority priority;
 }interrupt_Intx_t;
 
 typedef struct{
     void (*EXT_INTERRUPT_HANDLER_HIGH)(void);
     void (*EXT_INTERRUPT_HANDLER_LOW)(void);
     pin_config_t pin;
-    intx_priority priority;
+    interrupt_priority priority;
 }interrupt_Rbx_t;
 
 std_ReturnType Interrupt_INTx_Init(const interrupt_Intx_t *int_obj);

@@ -75,14 +75,14 @@ typedef struct{
     pin_config_t pin;
     intx_src intx;
     intx_edge edge;
-    intx_priority priority;
+    interrupt_priority priority;
 }interrupt_Intx_t;
 
 typedef struct{
     void (*EXT_INTERRUPT_HANDLER_HIGH)(void);
     void (*EXT_INTERRUPT_HANDLER_LOW)(void);
     pin_config_t pin;
-    intx_priority priority;
+    interrupt_priority priority;
 }interrupt_Rbx_t;
 /* Section : Function Declarations */
 std_ReturnType Interrupt_INTx_Init(const interrupt_Intx_t *int_obj);

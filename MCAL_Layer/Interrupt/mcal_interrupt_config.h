@@ -42,7 +42,7 @@
 typedef enum{
     LOW_PRIORITY = 0,
     HIGH_PRIORITY
-}intx_priority;
+}interrupt_priority;
 
 
 /* Section : Function Declarations */

@@ -20,11 +20,27 @@ std_ReturnType ADC_Init(const adc_config_t *adc ){
     }
     else{
         ADC_DISABLE();
+        ADC_INTERRUPT_DISABLE();
         CLEAR_ADC_STATUS();
         USE_INTERNAL_VOLTAGE();
         ADCON2bits.ADCS = adc->time;
         ADCON2bits.ACQT = adc->tad;
         ADCON0bits.CHS = adc->channel;
+        #if ADC_INTERRUPT
+        INTERRUPT_GLOBAL_INTERRUPT_ENABLED();
+        INTERRUPT_PERIPHERAL_ENABLED();
+        ADC_INTERRUPT_ENABLE();
+        #if INETRRUPT_PRIORITY
+        switch(priority){
+            case LOW_PRIORITY :
+                ADC_LOW_PRIORITY();
+                break;
+            case HIGH_PRIORITY :
+                ADC_HIGH_PRIORITY();
+                break;
+        }
+        #endif
+        #endif
         ADC_Configure_Port(adc->channel);
         ADC_Select_Voltage_Refrence(adc,adc->voltage_refrence);
         ADC_Select_result_format(adc,adc->result_format);
@@ -103,6 +119,19 @@ std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t *adc ,SELECT_ADC_C
         ret = ADC_Start_Conversion(adc);
         while(ADCON0bits.GO_nDONE);
         ret = ADC_Get_Conversion_Result(adc,result);
+    }
+    return ret;
+}
+
+std_ReturnType ADC_Start_Conversion_Interrupt(const adc_config_t *adc ,SELECT_ADC_CHANNEL channel){
+    std_ReturnType ret = E_OK;
+    if(adc == NULL){
+        ret = E_NOT_OK;
+    }
+    else{
+        CLEAR_ADC_STATUS();
+        ADC_Select_Channel(adc,channel);
+        ADC_Start_Conversion(adc);
     }
     return ret;
 }

@@ -4783,6 +4783,17 @@ std_ReturnType gpio_port_toggle_logic(const port_index_t port);
 # 10 "MCAL_Layer/ADC/hal_adc.h" 2
 
 # 1 "MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h" 1
+# 11 "MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h"
+# 1 "MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h" 1
+# 13 "MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/ADC/../Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 13 "MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h" 2
+# 42 "MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h"
+typedef enum{
+    LOW_PRIORITY = 0,
+    HIGH_PRIORITY
+}interrupt_priority;
+# 11 "MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h" 2
 # 11 "MCAL_Layer/ADC/hal_adc.h" 2
 # 47 "MCAL_Layer/ADC/hal_adc.h"
 typedef enum{
@@ -4829,6 +4840,12 @@ typedef enum{
 }ADC_RESULT_FORMAT;
 
 typedef struct{
+
+    void (*adc_isr)(void);
+
+
+
+
     ADC_CONVERSION_TIME time;
     ADC_ACQUISITION tad;
     SELECT_ADC_CHANNEL channel;
@@ -4844,6 +4861,7 @@ std_ReturnType ADC_Start_Conversion(const adc_config_t *adc);
 std_ReturnType ADC_ISConversion_Done(const adc_config_t *adc ,uint8 *status);
 std_ReturnType ADC_Get_Conversion_Result(const adc_config_t *adc ,uint16 *result);
 std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t *adc ,SELECT_ADC_CHANNEL channel,uint16 *result);
+std_ReturnType ADC_Start_Conversion_Interrupt(const adc_config_t *adc ,SELECT_ADC_CHANNEL channel);
 # 7 "MCAL_Layer/ADC/hal_adc.c" 2
 
 
@@ -4861,11 +4879,17 @@ std_ReturnType ADC_Init(const adc_config_t *adc ){
     }
     else{
         (ADCON0bits.ADON = 0);;
+        (PIE1bits.ADIE = 0);
         (ADCON0bits.GO_nDONE = 0);;
         do{ ADCON1bits.VCFG1 = 0; ADCON1bits.VCFG0 = 0; }while(0);;
         ADCON2bits.ADCS = adc->time;
         ADCON2bits.ACQT = adc->tad;
         ADCON0bits.CHS = adc->channel;
+
+        (INTCONbits.GIEH = 1);
+        (INTCONbits.PEIE = 1);
+        (PIE1bits.ADIE = 1);
+# 44 "MCAL_Layer/ADC/hal_adc.c"
         ADC_Configure_Port(adc->channel);
         ADC_Select_Voltage_Refrence(adc,adc->voltage_refrence);
         ADC_Select_result_format(adc,adc->result_format);
@@ -4944,6 +4968,19 @@ std_ReturnType ADC_Get_Conversion_Blocking(const adc_config_t *adc ,SELECT_ADC_C
         ret = ADC_Start_Conversion(adc);
         while(ADCON0bits.GO_nDONE);
         ret = ADC_Get_Conversion_Result(adc,result);
+    }
+    return ret;
+}
+
+std_ReturnType ADC_Start_Conversion_Interrupt(const adc_config_t *adc ,SELECT_ADC_CHANNEL channel){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(adc == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        (ADCON0bits.GO_nDONE = 0);;
+        ADC_Select_Channel(adc,channel);
+        ADC_Start_Conversion(adc);
     }
     return ret;
 }

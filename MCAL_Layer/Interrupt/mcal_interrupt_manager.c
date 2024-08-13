@@ -89,5 +89,9 @@ void __interrupt() InterruptMangaer(){
         RB7_ISR(1);  
     }
     else{ /* Nothing */ }
+    if((INTCONbits.TMR0IE == 1) && (INTCONbits.TMR0IF == 1)){
+        TMR0_ISR();
+    }
+    else{/* Nothing */}
 }
 #endif

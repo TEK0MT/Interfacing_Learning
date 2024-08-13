@@ -4791,7 +4791,7 @@ std_ReturnType gpio_port_toggle_logic(const port_index_t port);
 typedef enum{
     LOW_PRIORITY = 0,
     HIGH_PRIORITY
-}intx_priority;
+}interrupt_priority;
 # 11 "MCAL_Layer/Interrupt/mcal_interrupt_manager.h" 2
 # 22 "MCAL_Layer/Interrupt/mcal_interrupt_manager.h"
 void INT0_ISR(void);
@@ -4801,6 +4801,7 @@ void RB4_ISR(uint8 n);
 void RB5_ISR(uint8 n);
 void RB6_ISR(uint8 n);
 void RB7_ISR(uint8 n);
+void TMR0_ISR(void);
 # 7 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c" 2
 
 
@@ -4858,6 +4859,10 @@ void __attribute__((picinterrupt(("")))) InterruptMangaer(){
     else{ }if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB7 == GPIO_HIGH) && (RB7_F == 0)){
         RB7_F = 0;
         RB7_ISR(1);
+    }
+    else{ }
+    if((INTCONbits.TMR0IE == 1) && (INTCONbits.TMR0IF == 1)){
+        TMR0_ISR();
     }
     else{ }
 }

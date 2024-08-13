@@ -7,4 +7,6 @@ MCAL_Layer/ADC/../GPIO/../mcal_std_types.h  \
 MCAL_Layer/ADC/../GPIO/../std_libraries.h  \
 MCAL_Layer/ADC/../GPIO/../compiler.h  \
 MCAL_Layer/ADC/../GPIO/../../MCAL_Layer/device_config.h  \
-MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h 
+MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h  \
+MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h  \
+MCAL_Layer/ADC/../Interrupt/mcal_interrupt_gen_cfg.h 

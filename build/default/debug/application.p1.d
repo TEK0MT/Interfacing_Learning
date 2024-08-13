@@ -24,4 +24,6 @@ MCAL_Layer/Interrupt/mcal_interrupt_config.h  \
 MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h  \
 MCAL_Layer/EEPROM/hal_eeprom.h  \
 MCAL_Layer/ADC/hal_adc.h  \
-MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h 
+MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h  \
+MCAL_Layer/TIMERS/TIMER0/hal_timer0.h  \
+MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_manager.h 

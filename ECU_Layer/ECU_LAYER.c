@@ -42,8 +42,8 @@ led_t led3 = {.port_name = PORTC_INDEX,.pin_name = PIN2,.led_status = LED_OFF};
 std_ReturnType Ecu_initialize(void){
     //keypad_initialize(&keypad1);
     led_initialize(&led1);
-    led_initialize(&led2);
-    led_initialize(&led3);
+   /* led_initialize(&led2);
+    led_initialize(&led3);*/
     //lcd_8bit_initialize(&lcd1);
     //lcd_4bit_initialize(&lcd2);
 }

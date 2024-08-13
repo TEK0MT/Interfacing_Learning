@@ -4792,7 +4792,7 @@ std_ReturnType gpio_port_toggle_logic(const port_index_t port);
 typedef enum{
     LOW_PRIORITY = 0,
     HIGH_PRIORITY
-}intx_priority;
+}interrupt_priority;
 # 13 "MCAL_Layer/EEPROM/hal_eeprom.h" 2
 # 31 "MCAL_Layer/EEPROM/hal_eeprom.h"
 std_ReturnType WRITE_DATA_EEPROM(uint16 add,uint8 data);

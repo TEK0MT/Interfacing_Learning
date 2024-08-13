@@ -8,14 +8,18 @@
 
 #include "application.h"
 std_ReturnType ret = E_NOT_OK;
-adc_config_t adc1 = {.channel = CHANNEL0,.voltage_refrence = 0,.time = FOSC_DIV_16,.tad = TAD12,.result_format = RIGHT_JUSTIFIED};
+void isr(void){
+    led_turn_toggle(&led1);
+}
+timer0_t timer = {.TIMER0_HANDLER = isr,.mode = TIMER0_TIMER_MODE,.edge = TIMER0_RISING_EDGE_SELECT,.size = TIMER_16BIT,.prescaler = TRM_PRESCALER_ON,.prescaler_val = PRESCALER_DIV_32,.prevalue = 3036};
 uint16 value = 0;
 int main() {
-ADC_Init(&adc1);
+    application_initialize();
+    TIMER0_INIT(&timer);
     
     
     while(1){
-        ADC_Get_Conversion_Blocking(&adc1,CHANNEL0,&value);
+        TIMER0_Read_Value(&timer,&value);
     }
     return (EXIT_SUCCESS);
 }

@@ -14,6 +14,8 @@
 //#define INETRRUPT_PRIORITY              INTERRUPT_ENABLED
 #define EXTERNAL_INETRRUPT              INTERRUPT_ENABLED
 #define EXTERNAL_ONCHANGE_INETRRUPT     INTERRUPT_ENABLED
+#define ADC_INTERRUPT                   INTERRUPT_ENABLED
+#define TIMER0_INTERRUPT                INTERRUPT_ENABLED
 /* Section : Macro Functions Declarations */
 
 
