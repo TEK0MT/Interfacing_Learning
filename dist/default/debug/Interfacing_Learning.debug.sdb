@@ -172,19 +172,8 @@ PIN7 7
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"14 D:\Embedded Systems\Interfacing_Learning\application.c
-[e E3320 . `uc
-PRESCALER_DIV_2 0
-PRESCALER_DIV_4 1
-PRESCALER_DIV_8 2
-PRECALER_DIV_16 3
-PRESCALER_DIV_32 4
-PRESCALER_DIV_64 5
-PRESCALER_DIV_128 6
-PRESCALER_DIV_256 7
-]
 "18 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER0/hal_timer0.c
-[e E3057 . `uc
+[e E3058 . `uc
 PRESCALER_DIV_2 0
 PRESCALER_DIV_4 1
 PRESCALER_DIV_8 2
@@ -316,11 +305,7 @@ PRESCALER_DIV_256 7
 [v _Set_Interrupt_Handler Set_Interrupt_Handler `(uc  1 s 1 Set_Interrupt_Handler ]
 "38 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/Interrupt/mcal_interrupt_manager.c
 [v _InterruptMangaer InterruptMangaer `IIH(v  1 e 1 0 ]
-"18 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER0/hal_timer0.c
-[v _TIMER0_INIT TIMER0_INIT `(uc  1 e 1 0 ]
-"78
-[v _TIMER0_Read_Value TIMER0_Read_Value `(uc  1 e 1 0 ]
-"94
+"94 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER0/hal_timer0.c
 [v _TIMER0_Size_SELECT TIMER0_Size_SELECT `(uc  1 s 1 TIMER0_Size_SELECT ]
 "111
 [v _TIMER0_MODE_SELECT TIMER0_MODE_SELECT `(uc  1 s 1 TIMER0_MODE_SELECT ]
@@ -328,14 +313,23 @@ PRESCALER_DIV_256 7
 [v _TIMER0_PRESCALER_CFG TIMER0_PRESCALER_CFG `(uc  1 s 1 TIMER0_PRESCALER_CFG ]
 "153
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+"20 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER1/hal_timer1.c
+[v _TIMER1_INIT TIMER1_INIT `(uc  1 e 1 0 ]
+"84
+[v _TIMER1_Read_Value TIMER1_Read_Value `(uc  1 e 1 0 ]
+"99
+[v _TIMER1_MODE_SELECT TIMER1_MODE_SELECT `(uc  1 s 1 TIMER1_MODE_SELECT ]
+"120
+[v _TIMER1_SIZE_SELECT TIMER1_SIZE_SELECT `(uc  1 s 1 TIMER1_SIZE_SELECT ]
+"141
+[v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
 "10 D:\Embedded Systems\Interfacing_Learning\application.c
 [v _ret ret `uc  1 e 1 0 ]
-[s S1791 . 8 `*.37(v 1 TIMER0_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
+[s S1998 . 6 `*.37(v 1 TIMER1_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
 `uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 edge 1 5 :1:0 
-`uc 1 prescaler 1 6 `E3320 1 prescaler_val 1 7 ]
+`us 1 prevalue 2 3 `uc 1 prescaler_val 1 5 ]
 "14
-[v _timer timer `S1791  1 e 8 0 ]
+[v _timer timer `S1998  1 e 6 0 ]
 "15
 [v _value value `us  1 e 2 0 ]
 "1380 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4620.h
@@ -511,6 +505,22 @@ PRESCALER_DIV_256 7
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "2046
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S1759 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+"2596
+[s S1768 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[u S1772 . 1 `S1759 1 . 1 0 `S1768 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES1772  1 e 1 @3998 ]
 [s S1085 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
@@ -534,7 +544,36 @@ PRESCALER_DIV_256 7
 [v _EEADR EEADR `VEuc  1 e 1 @4009 ]
 "3013
 [v _EEADRH EEADRH `VEuc  1 e 1 @4010 ]
-[s S1860 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2052 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_T1SYNC 1 0 :1:2 
+]
+"5257
+[s S2055 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 T1RUN 1 0 :1:6 
+`uc 1 RD16 1 0 :1:7 
+]
+[s S2063 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S2069 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SOSCEN 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 T1RD16 1 0 :1:7 
+]
+[u S2074 . 1 `S2052 1 . 1 0 `S2055 1 . 1 0 `S2063 1 . 1 0 `S2069 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES2074  1 e 1 @4045 ]
+"5334
+[v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
+"5341
+[v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
+[s S1852 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -542,14 +581,14 @@ PRESCALER_DIV_256 7
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "5878
-[s S1867 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S1859 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 T016BIT 1 0 :1:6 
 ]
-[u S1873 . 1 `S1860 1 . 1 0 `S1867 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES1873  1 e 1 @4053 ]
+[u S1865 . 1 `S1852 1 . 1 0 `S1859 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES1865  1 e 1 @4053 ]
 "5940
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "5947
@@ -639,6 +678,10 @@ PRESCALER_DIV_256 7
 [v _ISR_TIMER0 ISR_TIMER0 `*.37(v  1 s 2 ISR_TIMER0 ]
 "16
 [v _preload preload `us  1 s 2 preload ]
+"11 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER1/hal_timer1.c
+[v _preval preval `us  1 s 2 preval ]
+"13
+[v _TMR1_HANDLER TMR1_HANDLER `*.37(v  1 s 2 TMR1_HANDLER ]
 "16 D:\Embedded Systems\Interfacing_Learning\application.c
 [v _main main `(i  1 e 2 0 ]
 {
@@ -663,14 +706,14 @@ PRESCALER_DIV_256 7
 `uc 1 logic 1 0 :1:7 
 ]
 "19
-[v led_initialize@pin_obj pin_obj `S24  1 a 1 11 ]
+[v led_initialize@pin_obj pin_obj `S24  1 a 1 12 ]
 [s S457 . 1 `uc 1 port_name 1 0 :3:0 
 `uc 1 pin_name 1 0 :3:3 
 `uc 1 led_status 1 0 :1:6 
 `uc 1 Reserved 1 0 :1:7 
 ]
 "13
-[v led_initialize@led led `*.30CS457  1 p 1 9 ]
+[v led_initialize@led led `*.30CS457  1 p 1 10 ]
 "18
 [v led_initialize@F3062 F3062 `S24  1 s 1 F3062 ]
 "24
@@ -679,21 +722,21 @@ PRESCALER_DIV_256 7
 [v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
 {
 "135
-[v gpio_pin_initialize@ret ret `uc  1 a 1 8 ]
+[v gpio_pin_initialize@ret ret `uc  1 a 1 9 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "134
-[v gpio_pin_initialize@_pin_config _pin_config `*.30CS24  1 p 1 7 ]
+[v gpio_pin_initialize@_pin_config _pin_config `*.30CS24  1 p 1 8 ]
 "144
 } 0
 "68
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
 {
 "69
-[v gpio_pin_write_logic@ret ret `uc  1 a 1 14 ]
+[v gpio_pin_write_logic@ret ret `uc  1 a 1 7 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
@@ -708,81 +751,69 @@ PRESCALER_DIV_256 7
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 {
 "22
-[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 5 ]
+[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 6 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "21
-[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 14 ]
+[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
 "40
 } 0
-"78 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER0/hal_timer0.c
-[v _TIMER0_Read_Value TIMER0_Read_Value `(uc  1 e 1 0 ]
+"84 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER1/hal_timer1.c
+[v _TIMER1_Read_Value TIMER1_Read_Value `(uc  1 e 1 0 ]
 {
-"81
-[v TIMER0_Read_Value@high_reg high_reg `uc  1 a 1 5 ]
-"80
-[v TIMER0_Read_Value@low_reg low_reg `uc  1 a 1 4 ]
-[s S1791 . 8 `*.37(v 1 TIMER0_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
+"86
+[v TIMER1_Read_Value@h_val h_val `uc  1 a 1 8 ]
+"85
+[v TIMER1_Read_Value@l_val l_val `uc  1 a 1 7 ]
+"87
+[v TIMER1_Read_Value@ret ret `uc  1 a 1 6 ]
+[s S1998 . 6 `*.37(v 1 TIMER1_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
 `uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 edge 1 5 :1:0 
-`uc 1 prescaler 1 6 `E3320 1 prescaler_val 1 7 ]
-"78
-[v TIMER0_Read_Value@timer timer `*.30CS1791  1 p 1 0 ]
-[v TIMER0_Read_Value@var var `*.30us  1 p 1 1 ]
-"91
+`us 1 prevalue 2 3 `uc 1 prescaler_val 1 5 ]
+"84
+[v TIMER1_Read_Value@timer timer `*.30CS1998  1 p 1 0 ]
+[v TIMER1_Read_Value@val val `*.30us  1 p 1 1 ]
+"97
 } 0
-"18
-[v _TIMER0_INIT TIMER0_INIT `(uc  1 e 1 0 ]
+"20
+[v _TIMER1_INIT TIMER1_INIT `(uc  1 e 1 0 ]
 {
-[s S1791 . 8 `*.37(v 1 TIMER0_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
+[s S1998 . 6 `*.37(v 1 TIMER1_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
 `uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 edge 1 5 :1:0 
-`uc 1 prescaler 1 6 `E3320 1 prescaler_val 1 7 ]
-[v TIMER0_INIT@timer timer `*.30CS1791  1 p 1 1 ]
-"53
+`us 1 prevalue 2 3 `uc 1 prescaler_val 1 5 ]
+[v TIMER1_INIT@timer timer `*.30CS1998  1 p 1 1 ]
+"55
 } 0
-"94
-[v _TIMER0_Size_SELECT TIMER0_Size_SELECT `(uc  1 s 1 TIMER0_Size_SELECT ]
+"120
+[v _TIMER1_SIZE_SELECT TIMER1_SIZE_SELECT `(uc  1 s 1 TIMER1_SIZE_SELECT ]
 {
-[s S1791 . 8 `*.37(v 1 TIMER0_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
+[s S1998 . 6 `*.37(v 1 TIMER1_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
 `uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 edge 1 5 :1:0 
-`uc 1 prescaler 1 6 `E3320 1 prescaler_val 1 7 ]
-[v TIMER0_Size_SELECT@timer timer `*.30CS1791  1 p 1 14 ]
-"109
+`us 1 prevalue 2 3 `uc 1 prescaler_val 1 5 ]
+[v TIMER1_SIZE_SELECT@timer timer `*.30CS1998  1 p 1 0 ]
+"139
 } 0
-"134
-[v _TIMER0_PRESCALER_CFG TIMER0_PRESCALER_CFG `(uc  1 s 1 TIMER0_PRESCALER_CFG ]
+"99
+[v _TIMER1_MODE_SELECT TIMER1_MODE_SELECT `(uc  1 s 1 TIMER1_MODE_SELECT ]
 {
-[s S1791 . 8 `*.37(v 1 TIMER0_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
+[s S1998 . 6 `*.37(v 1 TIMER1_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
 `uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 edge 1 5 :1:0 
-`uc 1 prescaler 1 6 `E3320 1 prescaler_val 1 7 ]
-[v TIMER0_PRESCALER_CFG@timer timer `*.30CS1791  1 p 1 14 ]
-"151
-} 0
-"111
-[v _TIMER0_MODE_SELECT TIMER0_MODE_SELECT `(uc  1 s 1 TIMER0_MODE_SELECT ]
-{
-[s S1791 . 8 `*.37(v 1 TIMER0_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
-`uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 edge 1 5 :1:0 
-`uc 1 prescaler 1 6 `E3320 1 prescaler_val 1 7 ]
-[v TIMER0_MODE_SELECT@timer timer `*.30CS1791  1 p 1 14 ]
-"133
+`us 1 prevalue 2 3 `uc 1 prescaler_val 1 5 ]
+[v TIMER1_MODE_SELECT@timer timer `*.30CS1998  1 p 1 0 ]
+"118
 } 0
 "38 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/Interrupt/mcal_interrupt_manager.c
 [v _InterruptMangaer InterruptMangaer `IIH(v  1 e 1 0 ]
 {
-"96
+"100
 } 0
-"153 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER0/hal_timer0.c
-[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+"141 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER1/hal_timer1.c
+[v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
 {
-"163
+"149
 } 0
 "11 D:\Embedded Systems\Interfacing_Learning\application.c
 [v _isr isr `(v  1 e 1 0 ]
@@ -820,6 +851,11 @@ PRESCALER_DIV_256 7
 ]
 [v gpio_pin_toggle_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
 "125
+} 0
+"153 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER0/hal_timer0.c
+[v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
+{
+"163
 } 0
 "170 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/Interrupt/mcal_external_interrupt.c
 [v _RB7_ISR RB7_ISR `(v  1 e 1 0 ]

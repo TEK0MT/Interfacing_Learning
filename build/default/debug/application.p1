@@ -6,28 +6,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36
 [; ;./ECU_Layer/LED/ecu_led.h: 36: std_ReturnType led_turn_toggle(const led_t *led);
 [v _led_turn_toggle `(uc ~T0 @X0 0 ef1`*CS274 ]
-"24 ./application.h
-[; ;./application.h: 24: extern led_t led1;
+"25 ./application.h
+[; ;./application.h: 25: extern led_t led1;
 [v _led1 `S274 ~T0 @X0 0 e ]
-[v F3332 `(v ~T0 @X0 0 tf ]
-"14 application.c
-[; ;application.c: 14: timer0_t timer = {.TIMER0_HANDLER = isr,.mode = 1,.edge = 1,.size = 1,.prescaler = 1,.prescaler_val = PRESCALER_DIV_32,.prevalue = 3036};
-[c E3320 0 1 2 3 4 5 6 7 .. ]
-[n E3320 . PRESCALER_DIV_2 PRESCALER_DIV_4 PRESCALER_DIV_8 PRECALER_DIV_16 PRESCALER_DIV_32 PRESCALER_DIV_64 PRESCALER_DIV_128 PRESCALER_DIV_256  ]
-"55 ./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h
-[; ;./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h: 55: typedef struct{
-[s S285 `*F3332 1 :1 `uc 1 :1 `uc 1 `us 1 :1 `uc 1 `uc 1 `E3320 1 ]
-[n S285 . TIMER0_HANDLER mode size prevalue edge prescaler prescaler_val ]
+[v F3353 `(v ~T0 @X0 0 tf ]
+"45 ./MCAL_Layer/TIMERS/TIMER1/hal_timer1.h
+[; ;./MCAL_Layer/TIMERS/TIMER1/hal_timer1.h: 45:     typedef struct{
+[s S286 `*F3353 1 :1 `uc 1 :1 `uc 1 `us 1 `uc 1 ]
+[n S286 . TIMER1_HANDLER mode size prevalue prescaler_val ]
 [p mainexit ]
-"102 ./application.h
-[; ;./application.h: 102: void application_initialize();
+"103 ./application.h
+[; ;./application.h: 103: void application_initialize();
 [v _application_initialize `(v ~T0 @X0 0 e? ]
-"72 ./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h
-[; ;./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h: 72: std_ReturnType TIMER0_INIT(const timer0_t *timer);
-[v _TIMER0_INIT `(uc ~T0 @X0 0 ef1`*CS285 ]
-"75
-[; ;./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h: 75: std_ReturnType TIMER0_Read_Value(const timer0_t *timer,uint16 *var);
-[v _TIMER0_Read_Value `(uc ~T0 @X0 0 ef2`*CS285`*us ]
+"61 ./MCAL_Layer/TIMERS/TIMER1/hal_timer1.h
+[; ;./MCAL_Layer/TIMERS/TIMER1/hal_timer1.h: 61: std_ReturnType TIMER1_INIT(const timer1_t *timer);
+[v _TIMER1_INIT `(uc ~T0 @X0 0 ef1`*CS286 ]
+"64
+[; ;./MCAL_Layer/TIMERS/TIMER1/hal_timer1.h: 64: std_ReturnType TIMER1_Read_Value(const timer1_t *timer,uint16 *val);
+[v _TIMER1_Read_Value `(uc ~T0 @X0 0 ef2`*CS286`*us ]
 "26 ./ECU_Layer/ECU_LAYER.h
 [; ;./ECU_Layer/ECU_LAYER.h: 26: std_ReturnType Ecu_initialize(void);
 [v _Ecu_initialize `(uc ~T0 @X0 0 ef ]
@@ -305,8 +301,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "6715
 [; <" TOSU equ 0FFFh ;# ">
-"31 ./application.h
-[; ;./application.h: 31:   const uint8 customChar[] = {
+"32 ./application.h
+[; ;./application.h: 32:   const uint8 customChar[] = {
 [v _customChar `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar
 :U ..
@@ -320,8 +316,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"41
-[; ;./application.h: 41: const uint8 customChar2[] = {
+"42
+[; ;./application.h: 42: const uint8 customChar2[] = {
 [v _customChar2 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar2
 :U ..
@@ -335,8 +331,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"51
-[; ;./application.h: 51: const const uint8 customChar3[] = {
+"52
+[; ;./application.h: 52: const const uint8 customChar3[] = {
 [v _customChar3 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar3
 :U ..
@@ -350,8 +346,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"61
-[; ;./application.h: 61: const uint8 customChar4[] = {
+"62
+[; ;./application.h: 62: const uint8 customChar4[] = {
 [v _customChar4 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar4
 :U ..
@@ -365,8 +361,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"71
-[; ;./application.h: 71: const uint8 customChar5[] = {
+"72
+[; ;./application.h: 72: const uint8 customChar5[] = {
 [v _customChar5 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar5
 :U ..
@@ -380,8 +376,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"81
-[; ;./application.h: 81: const uint8 customChar6[] = {
+"82
+[; ;./application.h: 82: const uint8 customChar6[] = {
 [v _customChar6 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar6
 :U ..
@@ -395,8 +391,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"91
-[; ;./application.h: 91: const uint8 customChar7[] = {
+"92
+[; ;./application.h: 92: const uint8 customChar7[] = {
 [v _customChar7 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar7
 :U ..
@@ -427,21 +423,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _led_turn_toggle (1 -> &U _led1 `*CS274 ]
 "13
 [; ;application.c: 13: }
-[e :UE 286 ]
+[e :UE 287 ]
 }
 "14
-[; ;application.c: 14: timer0_t timer = {.TIMER0_HANDLER = isr,.mode = 1,.edge = 1,.size = 1,.prescaler = 1,.prescaler_val = PRESCALER_DIV_32,.prevalue = 3036};
-[v _timer `S285 ~T0 @X0 1 e ]
+[; ;application.c: 14: timer1_t timer = {.TIMER1_HANDLER = isr,.mode = 0x00,.size = 0x01,.prescaler_val = 0x03,.prevalue = 15536};
+[v _timer `S286 ~T0 @X0 1 e ]
 [i _timer
 :U ..
 :U ..
 &U _isr
+-> -> 0 `i `uc
 -> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 3036 `i `us
--> -> 1 `i `uc
--> -> 1 `i `uc
-. `E3320 4
+-> -> 15536 `i `us
+-> -> 3 `i `uc
 ..
 ..
 ]
@@ -462,28 +456,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;application.c: 17:     application_initialize();
 [e ( _application_initialize ..  ]
 "18
-[; ;application.c: 18:     TIMER0_INIT(&timer);
-[e ( _TIMER0_INIT (1 -> &U _timer `*CS285 ]
+[; ;application.c: 18:     TIMER1_INIT(&timer);
+[e ( _TIMER1_INIT (1 -> &U _timer `*CS286 ]
 "21
 [; ;application.c: 21:     while(1){
-[e :U 289 ]
+[e :U 290 ]
 {
 "22
-[; ;application.c: 22:         TIMER0_Read_Value(&timer,&value);
-[e ( _TIMER0_Read_Value (2 , -> &U _timer `*CS285 &U _value ]
+[; ;application.c: 22:         TIMER1_Read_Value(&timer,&value);
+[e ( _TIMER1_Read_Value (2 , -> &U _timer `*CS286 &U _value ]
 "23
 [; ;application.c: 23:     }
 }
-[e :U 288 ]
-[e $U 289  ]
-[e :U 290 ]
+[e :U 289 ]
+[e $U 290  ]
+[e :U 291 ]
 "24
 [; ;application.c: 24:     return (0);
 [e ) -> 0 `i ]
-[e $UE 287  ]
+[e $UE 288  ]
 "25
 [; ;application.c: 25: }
-[e :UE 287 ]
+[e :UE 288 ]
 }
 "26
 [; ;application.c: 26: void application_initialize(){
@@ -496,5 +490,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ret ( _Ecu_initialize ..  ]
 "28
 [; ;application.c: 28: }
-[e :UE 291 ]
+[e :UE 292 ]
 }

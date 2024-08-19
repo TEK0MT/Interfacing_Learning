@@ -5082,6 +5082,7 @@ void RB5_ISR(uint8 n);
 void RB6_ISR(uint8 n);
 void RB7_ISR(uint8 n);
 void TMR0_ISR(void);
+void TMR1_ISR(void);
 # 12 "./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h" 2
 # 43 "./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h"
 typedef enum{
@@ -5118,6 +5119,30 @@ std_ReturnType TIMER0_DEINIT(const timer0_t *timer);
 std_ReturnType TIMER0_Write_Value(const timer0_t *timer,uint16 var);
 std_ReturnType TIMER0_Read_Value(const timer0_t *timer,uint16 *var);
 # 15 "./application.h" 2
+
+# 1 "./MCAL_Layer/TIMERS/TIMER1/hal_timer1.h" 1
+# 45 "./MCAL_Layer/TIMERS/TIMER1/hal_timer1.h"
+    typedef struct{
+
+    void (* TIMER1_HANDLER)(void);
+
+
+
+
+
+    uint8 mode :1;
+    uint8 size :1;
+    uint16 prevalue;
+    uint8 prescaler_val;
+}timer1_t;
+
+
+
+std_ReturnType TIMER1_INIT(const timer1_t *timer);
+std_ReturnType TIMER1_DEINIT(const timer1_t *timer);
+std_ReturnType TIMER1_Write_Value(const timer1_t *timer,uint16 val);
+std_ReturnType TIMER1_Read_Value(const timer1_t *timer,uint16 *val);
+# 16 "./application.h" 2
 
 
 
@@ -5212,15 +5237,15 @@ std_ReturnType ret = (std_ReturnType)0x00;
 void isr(void){
     led_turn_toggle(&led1);
 }
-timer0_t timer = {.TIMER0_HANDLER = isr,.mode = 1,.edge = 1,.size = 1,.prescaler = 1,.prescaler_val = PRESCALER_DIV_32,.prevalue = 3036};
+timer1_t timer = {.TIMER1_HANDLER = isr,.mode = 0x00,.size = 0x01,.prescaler_val = 0x03,.prevalue = 15536};
 uint16 value = 0;
 int main() {
     application_initialize();
-    TIMER0_INIT(&timer);
+    TIMER1_INIT(&timer);
 
 
     while(1){
-        TIMER0_Read_Value(&timer,&value);
+        TIMER1_Read_Value(&timer,&value);
     }
     return (0);
 }

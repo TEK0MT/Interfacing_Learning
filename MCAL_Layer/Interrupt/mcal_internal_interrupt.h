@@ -31,7 +31,30 @@
 
 #if INETRRUPT_PRIORITY
 #define TIMER0_HIGH_PRIORITY()             (INTCON2bits.TMR0IP = 1)
-#define TIMER1_LOW_PRIORITY()             (INTCON2bits.TMR0IP = 0)
+#define TIMER0_LOW_PRIORITY()             (INTCON2bits.TMR0IP = 0)
+#endif
+#endif
+
+
+#if TIMER1_INTERRUPT == INTERRUPT_ENABLED
+#define TIMER1_INTERRUPT_ENABLE()       (PIE1bits.TMR1IE = 1)
+#define TIMER1_INTERRUPT_DISABLE()       (PIE1bits.TMR1IE = 0)
+#define TIMER1_CLEAR_FLAG()       (PIR1bits.TMR1IF = 0)
+
+#if INETRRUPT_PRIORITY
+#define TIMER1_HIGH_PRIORITY()             (IPR1bits.TMR1IP = 1)
+#define TIMER1_LOW_PRIORITY()             (IPR1bits.TMR1IP = 0)
+#endif
+#endif
+
+#if TIMER2_INTERRUPT == INTERRUPT_ENABLED
+#define TIMER2_INTERRUPT_ENABLE()       (PIE1bits.TMR2IE = 1)
+#define TIMER2_INTERRUPT_DISABLE()       (PIE1bits.TMR2IE = 0)
+#define TIMER2_CLEAR_FLAG()       (PIR1bits.TMR2IF = 0)
+
+#if INETRRUPT_PRIORITY
+#define TIMER2_HIGH_PRIORITY()             (IPR1bits.TMR2IP = 1)
+#define TIMER2_LOW_PRIORITY()             (IPR1bits.TMR2IP = 0)
 #endif
 #endif
 /* Section : Data Type Declarations */

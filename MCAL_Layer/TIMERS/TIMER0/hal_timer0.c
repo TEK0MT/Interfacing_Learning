@@ -97,10 +97,10 @@ static std_ReturnType TIMER0_Size_SELECT(const timer0_t *timer){
         ret = E_NOT_OK;
     }
     else{
-        if(timer->size == TIMER_16BIT){
+        if(timer->size == TIMER0_16BIT){
             TIMER0_16BIT_MODE();
         }
-        else if(timer->size == TIMER_8BIT){
+        else if(timer->size == TIMER0_8BIT){
             TIMER0_8BIT_MODE();
         }
         else{ret = E_NOT_OK;}

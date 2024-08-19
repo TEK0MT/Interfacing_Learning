@@ -12,8 +12,8 @@
 #include "../../Interrupt/mcal_interrupt_manager.h"
 #include "../../Interrupt/mcal_internal_interrupt.h"
 /* Section : Macro Declarations */
-#define TIMER_16BIT  1
-#define TIMER_8BIT  0
+#define TIMER0_16BIT  1
+#define TIMER0_8BIT  0
 
 #define TRM_PRESCALER_ON  1
 #define TRM_PRESCALER_OFF  0
