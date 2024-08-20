@@ -97,5 +97,10 @@ void __interrupt() InterruptMangaer(){
         TMR1_ISR();
     }
     else{/* Nothing */}
+    
+    if((T2CONbits.TMR2ON = 1) && (PIR1bits.TMR2IF = 1)){
+        TMR2_ISR();
+    }
+    else{/* Nothing */}
 }
 #endif

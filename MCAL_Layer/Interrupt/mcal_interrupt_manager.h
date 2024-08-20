@@ -28,5 +28,6 @@ void RB6_ISR(uint8 n);
 void RB7_ISR(uint8 n);
 void TMR0_ISR(void);
 void TMR1_ISR(void);
+void TMR2_ISR(void);
 #endif	/* MCAL_INTERRUPT_MANAGER_H */
 

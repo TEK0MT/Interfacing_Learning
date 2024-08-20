@@ -65,7 +65,7 @@ std_ReturnType TIMER1_DEINIT(const timer1_t *timer){
         #if TIMER1_INTERRUPT
     TIMER1_INTERRUPT_DISABLE();
     #endif
-    TIMER1_ENABLE();
+    
     }
     return ret;
 }

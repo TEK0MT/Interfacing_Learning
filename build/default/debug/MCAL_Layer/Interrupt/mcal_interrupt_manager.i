@@ -4803,6 +4803,7 @@ void RB6_ISR(uint8 n);
 void RB7_ISR(uint8 n);
 void TMR0_ISR(void);
 void TMR1_ISR(void);
+void TMR2_ISR(void);
 # 7 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c" 2
 
 
@@ -4868,6 +4869,11 @@ void __attribute__((picinterrupt(("")))) InterruptMangaer(){
     else{ }
     if((PIE1bits.TMR1IE = 1) && (PIR1bits.TMR1IF = 1)){
         TMR1_ISR();
+    }
+    else{ }
+
+    if((T2CONbits.TMR2ON = 1) && (PIR1bits.TMR2IF = 1)){
+        TMR2_ISR();
     }
     else{ }
 }

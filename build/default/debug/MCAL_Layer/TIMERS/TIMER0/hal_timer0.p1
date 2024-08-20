@@ -1,13 +1,13 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3089 `(v ~T0 @X0 0 tf ]
-[v F3070 `(v ~T0 @X0 0 tf ]
+[v F3090 `(v ~T0 @X0 0 tf ]
+[v F3071 `(v ~T0 @X0 0 tf ]
 "18 MCAL_Layer/TIMERS/TIMER0/hal_timer0.c
 [; ;MCAL_Layer/TIMERS/TIMER0/hal_timer0.c: 18: std_ReturnType TIMER0_INIT(const timer0_t *timer){
-[c E3058 0 1 2 3 4 5 6 7 .. ]
-[n E3058 . PRESCALER_DIV_2 PRESCALER_DIV_4 PRESCALER_DIV_8 PRECALER_DIV_16 PRESCALER_DIV_32 PRESCALER_DIV_64 PRESCALER_DIV_128 PRESCALER_DIV_256  ]
+[c E3059 0 1 2 3 4 5 6 7 .. ]
+[n E3059 . PRESCALER_DIV_2 PRESCALER_DIV_4 PRESCALER_DIV_8 PRECALER_DIV_16 PRESCALER_DIV_32 PRESCALER_DIV_64 PRESCALER_DIV_128 PRESCALER_DIV_256  ]
 "55 MCAL_Layer/TIMERS/TIMER0/hal_timer0.h
 [; ;MCAL_Layer/TIMERS/TIMER0/hal_timer0.h: 55: typedef struct{
-[s S274 `*F3070 1 :1 `uc 1 :1 `uc 1 `us 1 :1 `uc 1 `uc 1 `E3058 1 ]
+[s S274 `*F3071 1 :1 `uc 1 :1 `uc 1 `us 1 :1 `uc 1 `uc 1 `E3059 1 ]
 [n S274 . TIMER0_HANDLER mode size prevalue edge prescaler prescaler_val ]
 "5862 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5862:     struct {
@@ -58,7 +58,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6406
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 6406: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS257 ~T0 @X0 0 e@4082 ]
-[v F3126 `(v ~T0 @X0 0 tf ]
+[v F3127 `(v ~T0 @X0 0 tf ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -472,7 +472,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "10 MCAL_Layer/TIMERS/TIMER0/hal_timer0.c
 [; ;MCAL_Layer/TIMERS/TIMER0/hal_timer0.c: 10: static void(*ISR_TIMER0)(void);
-[v _ISR_TIMER0 `*F3089 ~T0 @X0 1 s ]
+[v _ISR_TIMER0 `*F3090 ~T0 @X0 1 s ]
 "16
 [; ;MCAL_Layer/TIMERS/TIMER0/hal_timer0.c: 16: static uint16 preload = 0;
 [v _preload `us ~T0 @X0 1 s ]
@@ -959,7 +959,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR0L -> _preload `uc ]
 "157
 [; ;MCAL_Layer/TIMERS/TIMER0/hal_timer0.c: 157:     if(ISR_TIMER0){
-[e $ ! != _ISR_TIMER0 -> -> 0 `i `*F3126 313  ]
+[e $ ! != _ISR_TIMER0 -> -> 0 `i `*F3127 313  ]
 {
 "158
 [; ;MCAL_Layer/TIMERS/TIMER0/hal_timer0.c: 158:         ISR_TIMER0();
