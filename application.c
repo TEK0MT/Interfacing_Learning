@@ -11,15 +11,15 @@ std_ReturnType ret = E_NOT_OK;
 void isr(void){
     led_turn_toggle(&led1);
 }
-timer2_t timer = {.TIMER2_HANDLER = isr,.prescaler_val = TIMER2_PRESCALER_DIV_4,.prevalue = 250,.postscale_val = TIMER2_POSTSCALER_DIV_BY_10};
+timer3_t timer = {.TIMER3_HANDLER = isr,.prescaler_val = TIMER3_PRESCALER_DIV_8,.prevalue = 15536,.mode = TIMER3_COUNTER,.size = TIMER3_16BIT_OP};
 uint8 value = 0;
 int main() {
     application_initialize();
-    TIMER2_INIT(&timer);
+    TIMER3_INIT(&timer);
     
     
     while(1){
-        TIMER2_Read_Value(&timer,&value);
+        TIMER3_Read_Value(&timer,&value);
     }
     return (EXIT_SUCCESS);
 }

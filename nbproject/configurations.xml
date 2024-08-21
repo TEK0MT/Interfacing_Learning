@@ -63,6 +63,9 @@
           <logicalFolder name="TIMER2" displayName="TIMER2" projectFiles="true">
             <itemPath>MCAL_Layer/TIMERS/TIMER2/hal_timer2.h</itemPath>
           </logicalFolder>
+          <logicalFolder name="TIMER3" displayName="TIMER3" projectFiles="true">
+            <itemPath>MCAL_Layer/TIMERS/TIMER3/hal_timer3.h</itemPath>
+          </logicalFolder>
         </logicalFolder>
         <itemPath>MCAL_Layer/compiler.h</itemPath>
         <itemPath>MCAL_Layer/mcal_std_types.h</itemPath>
@@ -133,6 +136,9 @@
           </logicalFolder>
           <logicalFolder name="TIMER2" displayName="TIMER2" projectFiles="true">
             <itemPath>MCAL_Layer/TIMERS/TIMER2/hal_timer2.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="TIMER3" displayName="TIMER3" projectFiles="true">
+            <itemPath>MCAL_Layer/TIMERS/TIMER3/hal_timer3.c</itemPath>
           </logicalFolder>
         </logicalFolder>
         <itemPath>MCAL_Layer/device_config.c</itemPath>

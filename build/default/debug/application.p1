@@ -6,24 +6,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36
 [; ;./ECU_Layer/LED/ecu_led.h: 36: std_ReturnType led_turn_toggle(const led_t *led);
 [v _led_turn_toggle `(uc ~T0 @X0 0 ef1`*CS274 ]
-"26 ./application.h
-[; ;./application.h: 26: extern led_t led1;
+"27 ./application.h
+[; ;./application.h: 27: extern led_t led1;
 [v _led1 `S274 ~T0 @X0 0 e ]
-[v F3372 `(v ~T0 @X0 0 tf ]
-"49 ./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h
-[; ;./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h: 49:     typedef struct{
-[s S287 `*F3372 1 `uc 1 `uc 1 `uc 1 ]
-[n S287 . TIMER2_HANDLER prevalue prescaler_val postscale_val ]
+[v F3390 `(v ~T0 @X0 0 tf ]
+"45 ./MCAL_Layer/TIMERS/TIMER3/hal_timer3.h
+[; ;./MCAL_Layer/TIMERS/TIMER3/hal_timer3.h: 45:     typedef struct{
+[s S288 `*F3390 1 :1 `uc 1 :1 `uc 1 `us 1 `uc 1 ]
+[n S288 . TIMER3_HANDLER mode size prevalue prescaler_val ]
 [p mainexit ]
-"104 ./application.h
-[; ;./application.h: 104: void application_initialize();
+"105 ./application.h
+[; ;./application.h: 105: void application_initialize();
 [v _application_initialize `(v ~T0 @X0 0 e? ]
-"64 ./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h
-[; ;./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h: 64: std_ReturnType TIMER2_INIT(const timer2_t *timer);
-[v _TIMER2_INIT `(uc ~T0 @X0 0 ef1`*CS287 ]
-"67
-[; ;./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h: 67: std_ReturnType TIMER2_Read_Value(const timer2_t *timer,uint8 *val);
-[v _TIMER2_Read_Value `(uc ~T0 @X0 0 ef2`*CS287`*uc ]
+"61 ./MCAL_Layer/TIMERS/TIMER3/hal_timer3.h
+[; ;./MCAL_Layer/TIMERS/TIMER3/hal_timer3.h: 61: std_ReturnType TIMER3_INIT(const timer3_t *timer);
+[v _TIMER3_INIT `(uc ~T0 @X0 0 ef1`*CS288 ]
+"64
+[; ;./MCAL_Layer/TIMERS/TIMER3/hal_timer3.h: 64: std_ReturnType TIMER3_Read_Value(const timer3_t *timer,uint16 *val);
+[v _TIMER3_Read_Value `(uc ~T0 @X0 0 ef2`*CS288`*us ]
 "26 ./ECU_Layer/ECU_LAYER.h
 [; ;./ECU_Layer/ECU_LAYER.h: 26: std_ReturnType Ecu_initialize(void);
 [v _Ecu_initialize `(uc ~T0 @X0 0 ef ]
@@ -301,8 +301,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "6715
 [; <" TOSU equ 0FFFh ;# ">
-"33 ./application.h
-[; ;./application.h: 33:   const uint8 customChar[] = {
+"34 ./application.h
+[; ;./application.h: 34:   const uint8 customChar[] = {
 [v _customChar `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar
 :U ..
@@ -316,8 +316,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"43
-[; ;./application.h: 43: const uint8 customChar2[] = {
+"44
+[; ;./application.h: 44: const uint8 customChar2[] = {
 [v _customChar2 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar2
 :U ..
@@ -331,8 +331,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"53
-[; ;./application.h: 53: const const uint8 customChar3[] = {
+"54
+[; ;./application.h: 54: const const uint8 customChar3[] = {
 [v _customChar3 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar3
 :U ..
@@ -346,8 +346,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"63
-[; ;./application.h: 63: const uint8 customChar4[] = {
+"64
+[; ;./application.h: 64: const uint8 customChar4[] = {
 [v _customChar4 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar4
 :U ..
@@ -361,8 +361,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"73
-[; ;./application.h: 73: const uint8 customChar5[] = {
+"74
+[; ;./application.h: 74: const uint8 customChar5[] = {
 [v _customChar5 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar5
 :U ..
@@ -376,8 +376,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"83
-[; ;./application.h: 83: const uint8 customChar6[] = {
+"84
+[; ;./application.h: 84: const uint8 customChar6[] = {
 [v _customChar6 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar6
 :U ..
@@ -391,8 +391,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"93
-[; ;./application.h: 93: const uint8 customChar7[] = {
+"94
+[; ;./application.h: 94: const uint8 customChar7[] = {
 [v _customChar7 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar7
 :U ..
@@ -423,18 +423,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _led_turn_toggle (1 -> &U _led1 `*CS274 ]
 "13
 [; ;application.c: 13: }
-[e :UE 288 ]
+[e :UE 289 ]
 }
 "14
-[; ;application.c: 14: timer2_t timer = {.TIMER2_HANDLER = isr,.prescaler_val = 0x01,.prevalue = 250,.postscale_val = 9};
-[v _timer `S287 ~T0 @X0 1 e ]
+[; ;application.c: 14: timer3_t timer = {.TIMER3_HANDLER = isr,.prescaler_val = 0x03,.prevalue = 15536,.mode = 0x01,.size = 0x01};
+[v _timer `S288 ~T0 @X0 1 e ]
 [i _timer
 :U ..
 :U ..
 &U _isr
--> -> 250 `i `uc
 -> -> 1 `i `uc
--> -> 9 `i `uc
+-> -> 1 `i `uc
+-> -> 15536 `i `us
+-> -> 3 `i `uc
 ..
 ..
 ]
@@ -455,28 +456,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;application.c: 17:     application_initialize();
 [e ( _application_initialize ..  ]
 "18
-[; ;application.c: 18:     TIMER2_INIT(&timer);
-[e ( _TIMER2_INIT (1 -> &U _timer `*CS287 ]
+[; ;application.c: 18:     TIMER3_INIT(&timer);
+[e ( _TIMER3_INIT (1 -> &U _timer `*CS288 ]
 "21
 [; ;application.c: 21:     while(1){
-[e :U 291 ]
+[e :U 292 ]
 {
 "22
-[; ;application.c: 22:         TIMER2_Read_Value(&timer,&value);
-[e ( _TIMER2_Read_Value (2 , -> &U _timer `*CS287 &U _value ]
+[; ;application.c: 22:         TIMER3_Read_Value(&timer,&value);
+[e ( _TIMER3_Read_Value (2 , -> &U _timer `*CS288 -> &U _value `*us ]
 "23
 [; ;application.c: 23:     }
 }
-[e :U 290 ]
-[e $U 291  ]
-[e :U 292 ]
+[e :U 291 ]
+[e $U 292  ]
+[e :U 293 ]
 "24
 [; ;application.c: 24:     return (0);
 [e ) -> 0 `i ]
-[e $UE 289  ]
+[e $UE 290  ]
 "25
 [; ;application.c: 25: }
-[e :UE 289 ]
+[e :UE 290 ]
 }
 "26
 [; ;application.c: 26: void application_initialize(){
@@ -489,5 +490,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ret ( _Ecu_initialize ..  ]
 "28
 [; ;application.c: 28: }
-[e :UE 293 ]
+[e :UE 294 ]
 }

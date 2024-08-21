@@ -57,6 +57,17 @@
 #define TIMER2_LOW_PRIORITY()             (IPR1bits.TMR2IP = 0)
 #endif
 #endif
+
+#if TIMER3_INTERRUPT == INTERRUPT_ENABLED
+#define TIMER3_INTERRUPT_ENABLE()       (PIE2bits.TMR3IE = 1)
+#define TIMER3_INTERRUPT_DISABLE()       (PIE2bits.TMR3IE = 0)
+#define TIMER3_CLEAR_FLAG()       (PIR2bits.TMR3IF = 0)
+
+#if INETRRUPT_PRIORITY
+#define TIMER3_HIGH_PRIORITY()             (IPR2bits.TMR3IP = 1)
+#define TIMER3_LOW_PRIORITY()             (IPR2bits.TMR3IP = 0)
+#endif
+#endif
 /* Section : Data Type Declarations */
 
 

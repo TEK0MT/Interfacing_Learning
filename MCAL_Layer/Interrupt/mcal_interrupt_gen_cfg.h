@@ -18,6 +18,7 @@
 #define TIMER0_INTERRUPT                INTERRUPT_ENABLED
 #define TIMER1_INTERRUPT                INTERRUPT_ENABLED
 #define TIMER2_INTERRUPT                INTERRUPT_ENABLED
+#define TIMER3_INTERRUPT                INTERRUPT_ENABLED
 /* Section : Macro Functions Declarations */
 
 

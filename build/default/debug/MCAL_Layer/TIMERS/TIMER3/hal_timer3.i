@@ -1,4 +1,4 @@
-# 1 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c"
+# 1 "MCAL_Layer/TIMERS/TIMER3/hal_timer3.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,17 +6,20 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c" 2
+# 1 "MCAL_Layer/TIMERS/TIMER3/hal_timer3.c" 2
 
 
 
 
 
 
-# 1 "MCAL_Layer/Interrupt/mcal_interrupt_manager.h" 1
-# 11 "MCAL_Layer/Interrupt/mcal_interrupt_manager.h"
-# 1 "MCAL_Layer/Interrupt/mcal_interrupt_config.h" 1
-# 11 "MCAL_Layer/Interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/TIMERS/TIMER3/hal_timer3.h" 1
+# 11 "MCAL_Layer/TIMERS/TIMER3/hal_timer3.h"
+# 1 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/hal_gpio.h" 1
+# 12 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/hal_gpio_cfg.h" 1
+# 12 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/hal_gpio.h" 2
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\__at.h" 1 3
@@ -4229,10 +4232,12 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 11 "MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
+# 13 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/hal_gpio.h" 2
 
-# 1 "MCAL_Layer/Interrupt/../std_libraries.h" 1
-# 11 "MCAL_Layer/Interrupt/../std_libraries.h"
+# 1 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../mcal_std_types.h" 1
+# 11 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../mcal_std_types.h"
+# 1 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../std_libraries.h" 1
+# 11 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -4403,7 +4408,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "MCAL_Layer/Interrupt/../std_libraries.h" 2
+# 11 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
@@ -4482,7 +4487,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "MCAL_Layer/Interrupt/../std_libraries.h" 2
+# 12 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 3
@@ -4541,22 +4546,11 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "MCAL_Layer/Interrupt/../std_libraries.h" 2
-# 12 "MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
+# 13 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../std_libraries.h" 2
+# 11 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../mcal_std_types.h" 2
 
-# 1 "MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h" 1
-# 13 "MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
-
-# 1 "MCAL_Layer/Interrupt/../GPIO/hal_gpio.h" 1
-# 12 "MCAL_Layer/Interrupt/../GPIO/hal_gpio.h"
-# 1 "MCAL_Layer/Interrupt/../GPIO/hal_gpio_cfg.h" 1
-# 12 "MCAL_Layer/Interrupt/../GPIO/hal_gpio.h" 2
-
-
-# 1 "MCAL_Layer/Interrupt/../GPIO/../mcal_std_types.h" 1
-# 12 "MCAL_Layer/Interrupt/../GPIO/../mcal_std_types.h"
-# 1 "MCAL_Layer/Interrupt/../compiler.h" 1
-# 11 "MCAL_Layer/Interrupt/../compiler.h"
+# 1 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../compiler.h" 1
+# 11 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../compiler.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4720,9 +4714,9 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 11 "MCAL_Layer/Interrupt/../compiler.h" 2
-# 12 "MCAL_Layer/Interrupt/../GPIO/../mcal_std_types.h" 2
-# 31 "MCAL_Layer/Interrupt/../GPIO/../mcal_std_types.h"
+# 11 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../compiler.h" 2
+# 12 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../mcal_std_types.h" 2
+# 31 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4732,11 +4726,11 @@ typedef signed int sint32;
 
 
 typedef uint8 std_ReturnType;
-# 14 "MCAL_Layer/Interrupt/../GPIO/hal_gpio.h" 2
+# 14 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/hal_gpio.h" 2
 
-# 1 "MCAL_Layer/Interrupt/../GPIO/../../MCAL_Layer/device_config.h" 1
-# 15 "MCAL_Layer/Interrupt/../GPIO/hal_gpio.h" 2
-# 30 "MCAL_Layer/Interrupt/../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/../../MCAL_Layer/device_config.h" 1
+# 15 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/hal_gpio.h" 2
+# 30 "MCAL_Layer/TIMERS/TIMER3/../../GPIO/hal_gpio.h"
 typedef enum{
     GPIO_LOW = 0,
     GPIO_HIGH
@@ -4786,14 +4780,21 @@ std_ReturnType gpio_port_get_direction_status(const port_index_t port,direction_
 std_ReturnType gpio_port_read_logic(const port_index_t port,uint8 *logic);
 std_ReturnType gpio_port_write_logic(const port_index_t port,uint8 logic);
 std_ReturnType gpio_port_toggle_logic(const port_index_t port);
-# 14 "MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
-# 42 "MCAL_Layer/Interrupt/mcal_interrupt_config.h"
+# 11 "MCAL_Layer/TIMERS/TIMER3/hal_timer3.h" 2
+
+# 1 "MCAL_Layer/TIMERS/TIMER3/../../Interrupt/mcal_interrupt_manager.h" 1
+# 11 "MCAL_Layer/TIMERS/TIMER3/../../Interrupt/mcal_interrupt_manager.h"
+# 1 "MCAL_Layer/TIMERS/TIMER3/../../Interrupt/mcal_interrupt_config.h" 1
+# 13 "MCAL_Layer/TIMERS/TIMER3/../../Interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/TIMERS/TIMER3/../../Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 13 "MCAL_Layer/TIMERS/TIMER3/../../Interrupt/mcal_interrupt_config.h" 2
+# 42 "MCAL_Layer/TIMERS/TIMER3/../../Interrupt/mcal_interrupt_config.h"
 typedef enum{
     LOW_PRIORITY = 0,
     HIGH_PRIORITY
 }interrupt_priority;
-# 11 "MCAL_Layer/Interrupt/mcal_interrupt_manager.h" 2
-# 22 "MCAL_Layer/Interrupt/mcal_interrupt_manager.h"
+# 11 "MCAL_Layer/TIMERS/TIMER3/../../Interrupt/mcal_interrupt_manager.h" 2
+# 22 "MCAL_Layer/TIMERS/TIMER3/../../Interrupt/mcal_interrupt_manager.h"
 void INT0_ISR(void);
 void INT1_ISR(void);
 void INT2_ISR(void);
@@ -4805,80 +4806,161 @@ void TMR0_ISR(void);
 void TMR1_ISR(void);
 void TMR2_ISR(void);
 void TMR3_ISR(void);
-# 7 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c" 2
+# 12 "MCAL_Layer/TIMERS/TIMER3/hal_timer3.h" 2
+
+# 1 "MCAL_Layer/TIMERS/TIMER3/../../Interrupt/mcal_internal_interrupt.h" 1
+# 13 "MCAL_Layer/TIMERS/TIMER3/hal_timer3.h" 2
+# 45 "MCAL_Layer/TIMERS/TIMER3/hal_timer3.h"
+    typedef struct{
+
+    void (* TIMER3_HANDLER)(void);
 
 
-static volatile uint8 RB4_F = 1,RB5_F = 1,RB6_F = 1,RB7_F = 1;
-# 38 "MCAL_Layer/Interrupt/mcal_interrupt_manager.c"
-void __attribute__((picinterrupt(("")))) InterruptMangaer(){
-    if((INTCONbits.INT0IE == 1) && (INTCONbits.INT0IF == 1)){
-        INT0_ISR();
+
+
+
+    uint8 mode :1;
+    uint8 size :1;
+    uint16 prevalue;
+    uint8 prescaler_val;
+}timer3_t;
+
+
+
+std_ReturnType TIMER3_INIT(const timer3_t *timer);
+std_ReturnType TIMER3_DEINIT(const timer3_t *timer);
+std_ReturnType TIMER3_Write_Value(const timer3_t *timer,uint16 val);
+std_ReturnType TIMER3_Read_Value(const timer3_t *timer,uint16 *val);
+# 7 "MCAL_Layer/TIMERS/TIMER3/hal_timer3.c" 2
+
+
+
+
+static uint16 preval;
+
+static void (*TMR3_HANDLER)(void);
+
+static std_ReturnType TIMER3_MODE_SELECT(const timer3_t *timer);
+static std_ReturnType TIMER3_SIZE_SELECT(const timer3_t *timer);
+
+
+
+std_ReturnType TIMER3_INIT(const timer3_t *timer){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(timer == ((void*)0)){
+        ret = (std_ReturnType)0x00;
     }
     else{
+        (T3CONbits.TMR3ON = 0);
+        TIMER3_MODE_SELECT(timer);
+        TIMER3_SIZE_SELECT(timer);
+        (T3CONbits.T3CKPS = timer->prescaler_val);
+        TMR3H = (uint8)((timer->prevalue) >> 8) ;
+        TMR3L = (uint8)(timer->prevalue);
+        preval = timer->prevalue;
+        (T3CONbits.T3SYNC = 0);
+        TMR3_HANDLER = timer->TIMER3_HANDLER;
+# 48 "MCAL_Layer/TIMERS/TIMER3/hal_timer3.c"
+    (INTCONbits.GIEH = 1);
+    (INTCONbits.PEIE = 1);
+    (PIE2bits.TMR3IE = 1);
+    (PIR2bits.TMR3IF = 0);
+
+    (T3CONbits.TMR3ON = 1);
+    }
+    return ret;
+}
+std_ReturnType TIMER3_DEINIT(const timer3_t *timer){
+
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(timer == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        (T3CONbits.TMR3ON = 0);
+
+
+    (PIE2bits.TMR3IE = 0);
+
 
     }
-    if((1 == INTCON3bits.INT1E) && (1 == INTCON3bits.INT1F)){
-        INT1_ISR();
+    return ret;
+}
+std_ReturnType TIMER3_Write_Value(const timer3_t *timer,uint16 val){
+    uint16 l_val = val;
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(timer == ((void*)0)){
+        ret = (std_ReturnType)0x00;
     }
-    else{ }
-    if((1 == INTCON3bits.INT2IE) && (1 == INTCON3bits.INT2IF)){
-        INT2_ISR();
+    else{
+        TMR3H = (uint8)((l_val >> 8));
+        TMR3L = (uint8)(l_val );
     }
-    else{ }
-    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB4 == GPIO_HIGH) && (RB4_F == 1)){
-        RB4_F = 0;
-        RB4_ISR(0);
+    return ret;
+}
+std_ReturnType TIMER3_Read_Value(const timer3_t *timer,uint16 *val){
+    uint8 l_val = 0;
+    uint8 h_val = 0;
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(timer == ((void*)0)){
+        ret = (std_ReturnType)0x00;
     }
-    else{ }
-    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB4 == GPIO_LOW) && (RB4_F == 0)){
-        RB4_F = 1;
-        RB4_ISR(1);
+    else{
+        l_val = TMR3L;
+        h_val = TMR3H;
+        *val = (uint16)(l_val + (h_val << 8));
     }
-    else{ }
-    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB5 == GPIO_HIGH) && (RB5_F == 1)){
-        RB5_F = 0;
-        RB5_ISR(0);
-    }
-    else{ }
-    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB5 == GPIO_LOW) && (RB5_F == 0)){
-        RB5_F = 1;
-        RB5_ISR(1);
-    }
-    else{ }
-    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB6 == GPIO_HIGH) && (RB6_F == 1)){
-        RB6_F = 0;
-        RB6_ISR(0);
-    }
-    else{ }
-    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB6 == GPIO_LOW) && (RB6_F == 0)){
-        RB6_F = 1;
-        RB4_ISR(1);
-    }
-    else{ }
-    if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB7 == GPIO_HIGH) && (RB7_F == 1)){
-        RB7_F = 0;
-        RB7_ISR(0);
-    }
-    else{ }if((INTCONbits.RBIE == 1) && (INTCONbits.RBIF == 1) && (PORTBbits.RB7 == GPIO_HIGH) && (RB7_F == 0)){
-        RB7_F = 0;
-        RB7_ISR(1);
-    }
-    else{ }
-    if((INTCONbits.TMR0IE == 1) && (INTCONbits.TMR0IF == 1)){
-        TMR0_ISR();
-    }
-    else{ }
-    if((PIE1bits.TMR1IE = 1) && (PIR1bits.TMR1IF = 1)){
-        TMR1_ISR();
-    }
-    else{ }
+    return ret;
+}
 
-    if((T2CONbits.TMR2ON = 1) && (PIR1bits.TMR2IF = 1)){
-        TMR2_ISR();
+static std_ReturnType TIMER3_MODE_SELECT(const timer3_t *timer){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(timer == ((void*)0)){
+        ret = (std_ReturnType)0x00;
     }
-    else{ }
-    if((T3CONbits.TMR3ON = 1) && (PIR2bits.TMR3IF = 1)){
-        TMR3_ISR();
+    else{
+        switch(timer->mode){
+            case 0x00 :
+                (T3CONbits.TMR3CS = 0);
+                break;
+            case 0x01 :
+                (T3CONbits.TMR3CS = 1);
+                break;
+            default :
+                ret = (std_ReturnType)0x00;
+        }
+
     }
-    else{ }
+    return ret;
+}
+
+static std_ReturnType TIMER3_SIZE_SELECT(const timer3_t *timer){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(timer == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        switch(timer->size){
+            case 0x00 :
+                (T3CONbits.RD16 = 0);
+                break;
+            case 0x01 :
+                (T3CONbits.RD16 = 1);
+                break;
+            default :
+                ret = (std_ReturnType)0x00;
+        }
+
+    }
+    return ret;
+}
+
+void TMR3_ISR(void){
+    (PIR2bits.TMR3IF = 0);
+    TMR3H = (uint8)(preval >> 8);
+    TMR3L = (uint8)preval;
+    if(TMR3_HANDLER){
+        TMR3_HANDLER();
+    }
+    else{}
 }

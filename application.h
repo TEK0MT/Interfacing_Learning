@@ -15,6 +15,7 @@
 #include "MCAL_Layer/TIMERS/TIMER0/hal_timer0.h"
 #include "MCAL_Layer/TIMERS/TIMER1/hal_timer1.h"
 #include "MCAL_Layer/TIMERS/TIMER2/hal_timer2.h"
+#include "MCAL_Layer/TIMERS/TIMER3/hal_timer3.h"
 /* Section : Macro Declarations */
 
 

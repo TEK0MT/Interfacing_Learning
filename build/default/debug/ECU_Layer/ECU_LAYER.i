@@ -4941,9 +4941,9 @@ std_ReturnType convert_uint32_to_string(uint32 value,uint8 *str);
 std_ReturnType Ecu_initialize(void);
 # 7 "ECU_Layer/ECU_LAYER.c" 2
 # 38 "ECU_Layer/ECU_LAYER.c"
-led_t led1 = {.port_name = PORTC_INDEX,.pin_name = PIN0,.led_status = LED_OFF};
+led_t led1 = {.port_name = PORTC_INDEX,.pin_name = PIN2,.led_status = LED_OFF};
 led_t led2 = {.port_name = PORTC_INDEX,.pin_name = PIN1,.led_status = LED_OFF};
-led_t led3 = {.port_name = PORTC_INDEX,.pin_name = PIN2,.led_status = LED_OFF};
+
 
 std_ReturnType Ecu_initialize(void){
 

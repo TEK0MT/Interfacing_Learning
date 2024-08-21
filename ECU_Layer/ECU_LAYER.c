@@ -35,9 +35,9 @@
                     .data_pins[3].port = PORTC_INDEX,.data_pins[3].pin = PIN5,.data_pins[3].logic=GPIO_LOW,.data_pins[3].direction=GPIO_DIRECTION_OUTPUT
 };
 */
-led_t led1 = {.port_name = PORTC_INDEX,.pin_name = PIN0,.led_status = LED_OFF};
+led_t led1 = {.port_name = PORTC_INDEX,.pin_name = PIN2,.led_status = LED_OFF};
 led_t led2 = {.port_name = PORTC_INDEX,.pin_name = PIN1,.led_status = LED_OFF};
-led_t led3 = {.port_name = PORTC_INDEX,.pin_name = PIN2,.led_status = LED_OFF};
+//led_t led3 = {.port_name = PORTC_INDEX,.pin_name = PIN2,.led_status = LED_OFF};
 
 std_ReturnType Ecu_initialize(void){
     //keypad_initialize(&keypad1);
