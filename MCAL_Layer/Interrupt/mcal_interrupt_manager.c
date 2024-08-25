@@ -93,17 +93,27 @@ void __interrupt() InterruptMangaer(){
         TMR0_ISR();
     }
     else{/* Nothing */}
-    if((PIE1bits.TMR1IE = 1) && (PIR1bits.TMR1IF = 1)){
+    if((PIE1bits.TMR1IE == 1) && (PIR1bits.TMR1IF == 1)){
         TMR1_ISR();
     }
     else{/* Nothing */}
     
-    if((T2CONbits.TMR2ON = 1) && (PIR1bits.TMR2IF = 1)){
+    if((T2CONbits.TMR2ON == 1) && (PIR1bits.TMR2IF == 1)){
         TMR2_ISR();
     }
     else{/* Nothing */}
-    if((T3CONbits.TMR3ON = 1) && (PIR2bits.TMR3IF = 1)){
+    if((T3CONbits.TMR3ON == 1) && (PIR2bits.TMR3IF == 1)){
         TMR3_ISR();
+    }
+    else{/* Nothing */}
+    
+    if((PIE1bits.CCP1IE == 1) && (PIR1bits.CCP1IF == 1)){
+        CCP1_ISR();
+    }
+    else{/* Nothing */}
+    
+    if((PIE2bits.CCP2IE == 1) && (PIR2bits.CCP2IF == 1)){
+        CCP2_ISR();
     }
     else{/* Nothing */}
 }

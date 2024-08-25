@@ -1,4 +1,4 @@
-# 1 "ECU_Layer/LCD/ecu_lcd.c"
+# 1 "MCAL_Layer/CCP/hal_cpp.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,23 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ECU_Layer/LCD/ecu_lcd.c" 2
+# 1 "MCAL_Layer/CCP/hal_cpp.c" 2
 
 
 
 
 
 
-# 1 "ECU_Layer/LCD/ecu_lcd.h" 1
-# 11 "ECU_Layer/LCD/ecu_lcd.h"
-# 1 "ECU_Layer/LCD/ecu_lcd_cfg.h" 1
-# 11 "ECU_Layer/LCD/ecu_lcd.h" 2
-
-# 1 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h" 1
-# 12 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h"
-# 1 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio_cfg.h" 1
-# 12 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h" 2
-
+# 1 "MCAL_Layer/CCP/hal_cpp.h" 1
+# 10 "MCAL_Layer/CCP/hal_cpp.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\__at.h" 1 3
@@ -4235,12 +4227,10 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 13 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 10 "MCAL_Layer/CCP/hal_cpp.h" 2
 
-# 1 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../mcal_std_types.h" 1
-# 11 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../mcal_std_types.h"
-# 1 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../std_libraries.h" 1
-# 11 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../std_libraries.h"
+# 1 "MCAL_Layer/CCP/../std_libraries.h" 1
+# 11 "MCAL_Layer/CCP/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -4411,7 +4401,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../std_libraries.h" 2
+# 11 "MCAL_Layer/CCP/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
@@ -4490,7 +4480,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../std_libraries.h" 2
+# 12 "MCAL_Layer/CCP/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 3
@@ -4549,11 +4539,26 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../std_libraries.h" 2
-# 11 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
+# 13 "MCAL_Layer/CCP/../std_libraries.h" 2
+# 11 "MCAL_Layer/CCP/hal_cpp.h" 2
 
-# 1 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../compiler.h" 1
-# 11 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../compiler.h"
+# 1 "MCAL_Layer/CCP/../Interrupt/mcal_internal_interrupt.h" 1
+# 11 "MCAL_Layer/CCP/../Interrupt/mcal_internal_interrupt.h"
+# 1 "MCAL_Layer/CCP/../Interrupt/mcal_interrupt_config.h" 1
+# 13 "MCAL_Layer/CCP/../Interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/CCP/../Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 13 "MCAL_Layer/CCP/../Interrupt/mcal_interrupt_config.h" 2
+
+# 1 "MCAL_Layer/CCP/../Interrupt/../GPIO/hal_gpio.h" 1
+# 12 "MCAL_Layer/CCP/../Interrupt/../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/CCP/../Interrupt/../GPIO/hal_gpio_cfg.h" 1
+# 12 "MCAL_Layer/CCP/../Interrupt/../GPIO/hal_gpio.h" 2
+
+
+# 1 "MCAL_Layer/CCP/../Interrupt/../GPIO/../mcal_std_types.h" 1
+# 12 "MCAL_Layer/CCP/../Interrupt/../GPIO/../mcal_std_types.h"
+# 1 "MCAL_Layer/CCP/../compiler.h" 1
+# 11 "MCAL_Layer/CCP/../compiler.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4717,9 +4722,9 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 11 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../compiler.h" 2
-# 12 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
-# 31 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../mcal_std_types.h"
+# 11 "MCAL_Layer/CCP/../compiler.h" 2
+# 12 "MCAL_Layer/CCP/../Interrupt/../GPIO/../mcal_std_types.h" 2
+# 31 "MCAL_Layer/CCP/../Interrupt/../GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4729,11 +4734,11 @@ typedef signed int sint32;
 
 
 typedef uint8 std_ReturnType;
-# 14 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 14 "MCAL_Layer/CCP/../Interrupt/../GPIO/hal_gpio.h" 2
 
-# 1 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/../../MCAL_Layer/device_config.h" 1
-# 15 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h" 2
-# 30 "ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/CCP/../Interrupt/../GPIO/../../MCAL_Layer/device_config.h" 1
+# 15 "MCAL_Layer/CCP/../Interrupt/../GPIO/hal_gpio.h" 2
+# 30 "MCAL_Layer/CCP/../Interrupt/../GPIO/hal_gpio.h"
 typedef enum{
     GPIO_LOW = 0,
     GPIO_HIGH
@@ -4783,393 +4788,330 @@ std_ReturnType gpio_port_get_direction_status(const port_index_t port,direction_
 std_ReturnType gpio_port_read_logic(const port_index_t port,uint8 *logic);
 std_ReturnType gpio_port_write_logic(const port_index_t port,uint8 logic);
 std_ReturnType gpio_port_toggle_logic(const port_index_t port);
-# 12 "ECU_Layer/LCD/ecu_lcd.h" 2
-# 46 "ECU_Layer/LCD/ecu_lcd.h"
-typedef struct{
-    pin_config_t rs;
-    pin_config_t enable;
-    pin_config_t data_pins[8];
-}lcd_8bits_t;
+# 14 "MCAL_Layer/CCP/../Interrupt/mcal_interrupt_config.h" 2
+# 42 "MCAL_Layer/CCP/../Interrupt/mcal_interrupt_config.h"
+typedef enum{
+    LOW_PRIORITY = 0,
+    HIGH_PRIORITY
+}interrupt_priority;
+# 11 "MCAL_Layer/CCP/../Interrupt/mcal_internal_interrupt.h" 2
+# 12 "MCAL_Layer/CCP/hal_cpp.h" 2
+
+
+# 1 "MCAL_Layer/CCP/ccp_cfg.h" 1
+# 14 "MCAL_Layer/CCP/hal_cpp.h" 2
+# 61 "MCAL_Layer/CCP/hal_cpp.h"
+typedef enum{
+    CCP_CAPTURE_MODE,
+            CCP_COMPARE_MODE,
+            CCP_PWM_MODE
+}ccp_mode_t;
+
+
+typedef enum{
+    CCP1_INST = 0,
+            CCP2_INST
+}ccp_inst;
+
+typedef union{
+    struct{
+    uint8 ccp_lval;
+    uint8 ccp_hval;
+    };
+    struct{
+        uint16 value;
+    };
+}CCP_REG_T;
+
+
+typedef enum{
+    CCP1_CCP2_TIMER3 = 0,
+            CCP1_TIMER1_CCPN2_TIMER2,
+            CCP1_CCP2_TIMER1
+}ccp_capture_timer_t;
 
 typedef struct{
-    pin_config_t rs;
-    pin_config_t enable;
-    pin_config_t data_pins[4];
-}lcd_4bits_t;
+    ccp_inst ccpx;
+    ccp_mode_t mode;
+    uint8 variant;
+    pin_config_t pin;
+    ccp_capture_timer_t timer;
 
-std_ReturnType lcd_8bit_initialize(const lcd_8bits_t *lcd);
-std_ReturnType lcd_8bit_send_command(const lcd_8bits_t *lcd,uint8 command);
-std_ReturnType lcd_8bit_send_char(const lcd_8bits_t *lcd,uint8 _char);
-std_ReturnType lcd_8bit_send_char_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 _char);
-std_ReturnType lcd_8bit_send_string(const lcd_8bits_t *lcd,uint8 *str);
-std_ReturnType lcd_8bit_send_string_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 *str);
-std_ReturnType lcd_8bit_custom_character(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos);
+    uint32 pwm_freq;
+    uint8 timer2_postscaler;
+    uint8 timer2_pre_scaler;
 
 
-std_ReturnType lcd_4bit_initialize(const lcd_4bits_t *lcd);
-std_ReturnType lcd_4bit_send_command(const lcd_4bits_t *lcd,uint8 command);
-std_ReturnType lcd_4bit_send_char(const lcd_4bits_t *lcd,uint8 _char);
-std_ReturnType lcd_4bit_send_char_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 _char);
-std_ReturnType lcd_4bit_send_string(const lcd_4bits_t *lcd,uint8 *str);
-std_ReturnType lcd_4bit_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *str);
-std_ReturnType lcd_4bit_custom_character(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos);
+    void (*Interrupt_CCP1_Handler)(void);
+    interrupt_priority ccp1_priority;
 
 
-
-std_ReturnType convert_uint8_to_string(uint8 value,const uint8 *str);
-std_ReturnType convert_uint16_to_string(uint16 value,uint8 *str);
-std_ReturnType convert_uint32_to_string(uint32 value,uint8 *str);
-# 7 "ECU_Layer/LCD/ecu_lcd.c" 2
-
-static std_ReturnType lcd_send_8bits(const lcd_8bits_t *lcd,uint8 command);
-static std_ReturnType lcd_send_4bits(const lcd_4bits_t *lcd,uint8 command);
-static std_ReturnType enable_signal_8bits(const lcd_8bits_t *lcd);
-static std_ReturnType enable_signal_4bits(const lcd_4bits_t *lcd);
-static std_ReturnType lcd_8bits_set_cursor(const lcd_8bits_t *lcd,uint8 Rows,uint8 coloumns);
-static std_ReturnType lcd_4bits_set_cursor(const lcd_4bits_t *lcd,uint8 Rows,uint8 coloumns);
+    void (*Interrupt_CCP2_Handler)(void);
+    interrupt_priority ccp2_priority;
 
 
+}ccp_t;
 
 
+std_ReturnType CCP_Init(const ccp_t* ccp);
+std_ReturnType CCP_DeInit(const ccp_t* ccp);
+# 124 "MCAL_Layer/CCP/hal_cpp.h"
+std_ReturnType CCP_PWM_Set_Duty(const ccp_t* ccp,uint8 val);
+std_ReturnType CCP_PWM_Start(const ccp_t* ccp);
+std_ReturnType CCP_PWM_Stop(const ccp_t* ccp);
+# 7 "MCAL_Layer/CCP/hal_cpp.c" 2
 
-std_ReturnType lcd_8bit_initialize(const lcd_8bits_t *lcd){
+
+static void (*Interrupt_Handler_CCP1)(void);
+static void (*Interrupt_Handler_CCP2)(void);
+
+
+static std_ReturnType CCP_Interrupt_Config(const ccp_t* ccp);
+static std_ReturnType CCP_Capture_Config(const ccp_t* ccp);
+static std_ReturnType CCP_Compare_Config(const ccp_t* ccp);
+static std_ReturnType CCP_PWM_Config(const ccp_t* ccp);
+
+std_ReturnType CCP_Init(const ccp_t* ccp){
     std_ReturnType ret = (std_ReturnType)0x01;
-    uint8 counter = 0;
-    if(((void*)0) == lcd){
+    if(ccp == ((void*)0)){
         ret = (std_ReturnType)0x00;
     }
     else{
-        ret = gpio_pin_initialize(&(lcd->rs));
-        ret = gpio_pin_initialize(&(lcd->enable));
-        for(counter = 0;counter < 8;counter++){
-            ret = gpio_pin_initialize(&(lcd->data_pins[counter]));
+        if(ccp->ccpx == CCP1_INST){
+        (CCP1CONbits.CCP1M = ((uint8)0x00));
         }
-        _delay((unsigned long)((20)*(4000000/4000.0)));
-        lcd_8bit_send_command(lcd,0x38);
-        _delay((unsigned long)((5)*(4000000/4000.0)));
-        lcd_8bit_send_command(lcd,0x38);
-        _delay((unsigned long)((150)*(4000000/4000000.0)));
-        lcd_8bit_send_command(lcd,0x38);
-        lcd_8bit_send_command(lcd,0x01);
-        lcd_8bit_send_command(lcd,0x02);
-        lcd_8bit_send_command(lcd,0x06);
-        lcd_8bit_send_command(lcd,0x0C);
-        lcd_8bit_send_command(lcd,0x38);
-    }
-    return ret;
-}
-std_ReturnType lcd_8bit_send_command(const lcd_8bits_t *lcd,uint8 command){
-    std_ReturnType ret = (std_ReturnType)0x01;
-
-    uint8 counter = 0;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        ret = gpio_pin_write_logic(&(lcd->rs),GPIO_LOW);
-        for(counter = 0;counter < 8;counter++){
-            ret = gpio_pin_write_logic(&(lcd->data_pins[counter]),(command >> counter) & (uint8)0x01);
+        else if(ccp->ccpx == CCP2_INST){
+        (CCP2CONbits.CCP2M = ((uint8)0x00));
         }
+        else{ }
 
-        enable_signal_8bits(lcd);
-    }
-    return ret;
-}
-std_ReturnType lcd_8bit_send_char(const lcd_8bits_t *lcd,uint8 _char){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    uint8 counter = 0;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        ret = gpio_pin_write_logic(&(lcd->rs),GPIO_HIGH);
-        for(counter = 0;counter < 8;counter++){
-            ret = gpio_pin_write_logic(&(lcd->data_pins[counter]),(_char >> counter) & (uint8)0x01);
+
+
+        if(ccp->mode == CCP_CAPTURE_MODE){
+            ret = CCP_Capture_Config(ccp);
         }
-        enable_signal_8bits(lcd);
-    }
-    return ret;
-}
-std_ReturnType lcd_8bit_send_char_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 _char){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        lcd_8bits_set_cursor(lcd,Row,coloumns);
-        lcd_8bit_send_char(lcd,_char);
-    }
-    return ret;
-}
-
-std_ReturnType lcd_8bit_send_string(const lcd_8bits_t *lcd,uint8 *str){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        while(*str){
-            ret = lcd_8bit_send_char(lcd,*str++);
+        else if(ccp->mode == CCP_COMPARE_MODE){
+            ret = CCP_Compare_Config(ccp);
         }
-    }
-    return ret;
-}
-std_ReturnType lcd_8bit_send_string_pos(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 *str){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-
-           ret = lcd_8bits_set_cursor(lcd,Row,coloumns);
-           ret = lcd_8bit_send_string(lcd,str);
-
-    }
-    return ret;
-}
-std_ReturnType lcd_8bit_custom_character(const lcd_8bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    uint8 counter = 0;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-
-        ret = lcd_8bit_send_command(lcd,(0x40 + (mempos*8)));
-        for(counter = 0;counter <= 7;counter++){
-        ret = lcd_8bit_send_char(lcd,chr[counter]);
+        else if(ccp->mode == CCP_PWM_MODE){
+            ret = CCP_PWM_Config(ccp);
         }
-        ret = lcd_8bit_send_char_pos(lcd,Row,coloumns,mempos);
+        else{ }
+        ret = gpio_pin_initialize(&(ccp->pin));
 
+        CCP_Interrupt_Config(ccp);
     }
     return ret;
 }
-# 142 "ECU_Layer/LCD/ecu_lcd.c"
-std_ReturnType lcd_4bit_initialize(const lcd_4bits_t *lcd){
+std_ReturnType CCP_DeInit(const ccp_t* ccp){
     std_ReturnType ret = (std_ReturnType)0x01;
-    uint8 counter = 0;
-    if(((void*)0) == lcd){
+    if(ccp == ((void*)0)){
         ret = (std_ReturnType)0x00;
     }
     else{
-        ret = gpio_pin_initialize(&(lcd->rs));
-        ret = gpio_pin_initialize(&(lcd->enable));
-        for(counter = 0;counter < 4;counter++){
-            ret = gpio_pin_initialize(&(lcd->data_pins[counter]));
+         if(ccp->ccpx == CCP1_INST){
+        (CCP1CONbits.CCP1M = ((uint8)0x00));
+
+        (PIE1bits.CCP1IE = 0);
+
         }
-        _delay((unsigned long)((20)*(4000000/4000.0)));
-        lcd_4bit_send_command(lcd,0x38);
-        _delay((unsigned long)((5)*(4000000/4000.0)));
-        lcd_4bit_send_command(lcd,0x38);
-        _delay((unsigned long)((150)*(4000000/4000000.0)));
-        lcd_4bit_send_command(lcd,0x38);
-        lcd_4bit_send_command(lcd,0x01);
-        lcd_4bit_send_command(lcd,0x02);
-        lcd_4bit_send_command(lcd,0x06);
-        lcd_4bit_send_command(lcd,0x0C);
-        lcd_4bit_send_command(lcd,0x28);
-        lcd_4bit_send_command(lcd,0x80);
-    }
-    return ret;
-}
-std_ReturnType lcd_4bit_send_command(const lcd_4bits_t *lcd,uint8 command){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        ret = gpio_pin_write_logic(&(lcd->rs),GPIO_LOW);
-        ret = lcd_send_4bits(lcd,(command >> 4));
-        enable_signal_4bits(lcd);
-        ret = lcd_send_4bits(lcd,command);
-        enable_signal_4bits(lcd);
-    }
-    return ret;
-}
-std_ReturnType lcd_4bit_send_char(const lcd_4bits_t *lcd,uint8 _char){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        ret = gpio_pin_write_logic(&(lcd->rs),GPIO_HIGH);
-        ret = lcd_send_4bits(lcd,(_char >> 4));
-        enable_signal_4bits(lcd);
-        ret = lcd_send_4bits(lcd,_char);
-        enable_signal_4bits(lcd);
-    }
-    return ret;
-}
-std_ReturnType lcd_4bit_send_char_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 _char){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        ret = lcd_4bits_set_cursor(lcd,Row,coloumn);
+        else if(ccp->ccpx == CCP2_INST){
+        (CCP2CONbits.CCP2M = ((uint8)0x00));
 
-        ret = lcd_4bit_send_char(lcd,_char);
-    }
-    return ret;
-}
+        (PIE2bits.CCP2IE = 0);
 
-std_ReturnType lcd_4bit_send_string(const lcd_4bits_t *lcd,uint8 *str){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        while(*str){
-            ret = lcd_4bit_send_char(lcd,*str++);
         }
-    }
-    return ret;
-}
-std_ReturnType lcd_4bit_send_string_pos(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumn,uint8 *str){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        ret = lcd_4bits_set_cursor(lcd,Row,coloumn);
-        ret = lcd_4bit_send_string(lcd,str);
-    }
-    return ret;
-}
-std_ReturnType lcd_4bit_custom_character(const lcd_4bits_t *lcd,uint8 Row,uint8 coloumns,uint8 chr[],uint8 mempos){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    uint8 counter = 0;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
+        else{ }
 
-        ret = lcd_4bit_send_command(lcd,(0x40 + (mempos*8)));
-        for(counter = 0;counter <= 7;counter++){
-        ret = lcd_4bit_send_char(lcd,chr[counter]);
+    }
+    return ret;
+}
+# 143 "MCAL_Layer/CCP/hal_cpp.c"
+std_ReturnType CCP_PWM_Set_Duty(const ccp_t* ccp,uint8 val){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(ccp == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        uint16 pwm_period = (uint16)((float)4 *((float)PR2 + 1.0) * ((float)val / 100.0));
+        if(ccp->ccpx == CCP1_INST){
+        CCP1CONbits.DC1B = (uint8)(pwm_period & 0x0003);
+        CCPR1L = (uint8)(pwm_period >> 2);
         }
-        ret = lcd_4bit_send_char_pos(lcd,Row,coloumns,mempos);
-
-    }
-    return ret;
-}
-
-
-
-std_ReturnType convert_uint8_to_string(uint8 value,const uint8 *str){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == str){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        memset((char *)str, '\0', 4);
-        sprintf((uint8 *)str, "%u", (uint8)value);
-    }
-    return ret;
-}
-std_ReturnType convert_uint16_to_string(uint16 value,uint8 *str){
-    std_ReturnType ret = (std_ReturnType)0x01;
-
-        memset(str, '\0',6);
-        sprintf(str, "%i", value);
-
-    return ret;
-}
-std_ReturnType convert_uint32_to_string(uint32 value,uint8 *str){
-
-        std_ReturnType ret = (std_ReturnType)0x01;
-        memset(str,'\0',11);
-        sprintf(str, "%i", value);
-
-    return ret;
-}
-
-
-
-
-
-
-
-static std_ReturnType lcd_send_8bits(const lcd_8bits_t *lcd,uint8 command){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    uint8 counter = 0;
-    if(((void*)0) == lcd){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        for(counter = 0;counter < 8;++counter){
-            ret = gpio_pin_write_logic(&(lcd->data_pins[counter]),(command >> counter) & (uint8)0x01);
+        else if (ccp->ccpx == CCP2_INST){
+            CCP2CONbits.DC2B = (uint8)(pwm_period & 0x0003);
+        CCPR2L = (uint8)(pwm_period >> 2);
         }
-
+        else{ }
     }
     return ret;
 }
-static std_ReturnType lcd_send_4bits(const lcd_4bits_t *lcd,uint8 command){
+std_ReturnType CCP_PWM_Start(const ccp_t* ccp){
     std_ReturnType ret = (std_ReturnType)0x01;
-    uint8 counter = 0;
-    if(((void*)0) == lcd){
+    if(ccp == ((void*)0)){
         ret = (std_ReturnType)0x00;
     }
     else{
-        ret = gpio_pin_write_logic(&(lcd->data_pins[0]),(command >> 0) & (uint8)0x01);
-        ret = gpio_pin_write_logic(&(lcd->data_pins[1]),(command >> 1) & (uint8)0x01);
-        ret = gpio_pin_write_logic(&(lcd->data_pins[2]),(command >> 2) & (uint8)0x01);
-        ret = gpio_pin_write_logic(&(lcd->data_pins[3]),(command >> 3) & (uint8)0x01);
+        if(ccp->ccpx == CCP1_INST){
+        CCP1CONbits.CCP1M = ((uint8)0x0C);
+        }
+        else if (ccp->ccpx == CCP2_INST){
+         CCP2CONbits.CCP2M = ((uint8)0x0C);
+        }
+        else{ }
     }
     return ret;
 }
-static std_ReturnType enable_signal_8bits(const lcd_8bits_t *lcd){
+std_ReturnType CCP_PWM_Stop(const ccp_t* ccp){
     std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == lcd){
+    if(ccp == ((void*)0)){
         ret = (std_ReturnType)0x00;
     }
     else{
-        ret = gpio_pin_write_logic(&(lcd->enable),GPIO_HIGH);
-        _delay((unsigned long)((5)*(4000000/4000000.0)));
-        ret = gpio_pin_write_logic(&(lcd->enable),GPIO_LOW);
+        if(ccp->ccpx == CCP1_INST){
+        CCP1CONbits.CCP1M = ((uint8)0x00);
+        }
+        else if (ccp->ccpx == CCP2_INST){
+         CCP2CONbits.CCP2M = ((uint8)0x00);
+        }
+        else{ }
     }
     return ret;
 }
-static std_ReturnType enable_signal_4bits(const lcd_4bits_t *lcd){
+
+
+
+static std_ReturnType CCP_Interrupt_Config(const ccp_t* ccp){
+
+    (PIE1bits.CCP1IE = 1);
+    (PIR1bits.CCP1IF = 0);
+    Interrupt_Handler_CCP1 = ccp->Interrupt_CCP1_Handler;
+# 214 "MCAL_Layer/CCP/hal_cpp.c"
+    (INTCONbits.GIEH = 1);
+    (INTCONbits.PEIE = 1);
+
+
+
+
+    (PIE2bits.CCP2IE = 1);
+    (PIR2bits.CCP2IF = 0);
+    Interrupt_Handler_CCP2 = ccp->Interrupt_CCP2_Handler;
+# 235 "MCAL_Layer/CCP/hal_cpp.c"
+    (INTCONbits.GIEH = 1);
+    (INTCONbits.PEIE = 1);
+
+
+
+}
+
+
+
+static std_ReturnType CCP_Capture_Config(const ccp_t* ccp){
     std_ReturnType ret = (std_ReturnType)0x01;
-    if(((void*)0) == lcd){
+    if(ccp == ((void*)0)){
         ret = (std_ReturnType)0x00;
     }
     else{
-        ret = gpio_pin_write_logic(&(lcd->enable),GPIO_HIGH);
-        _delay((unsigned long)((5)*(4000000/4000000.0)));
-        ret = gpio_pin_write_logic(&(lcd->enable),GPIO_LOW);
-    }
-    return ret;
-}
-static std_ReturnType lcd_8bits_set_cursor(const lcd_8bits_t *lcd,uint8 Rows,uint8 coloumns){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    coloumns--;
+        if(ccp->timer == CCP1_CCP2_TIMER3 ){
+            T3CONbits.T3CCP1 = 0;
+            T3CONbits.T3CCP2 = 1;
+        }
+        else if(ccp->timer == CCP1_TIMER1_CCPN2_TIMER2){
+            T3CONbits.T3CCP1 = 1;
+            T3CONbits.T3CCP2 = 0;
+        }
+        else if(ccp->timer == CCP1_CCP2_TIMER1){
+            T3CONbits.T3CCP1 = 0;
+            T3CONbits.T3CCP2 = 0;
+        }
+        else{}
 
-        switch(Rows){
-            case 1 : lcd_8bit_send_command(lcd,(0x80 + coloumns)); break;
-            case 2 : lcd_8bit_send_command(lcd,(0xc0 + coloumns)); break;
-            case 3 : lcd_8bit_send_command(lcd,(0x94 + coloumns)); break;
-            case 4 : lcd_8bit_send_command(lcd,(0xd4 + coloumns)); break;
-            default:
-                break;
 
+        if(ccp->ccpx == CCP1_INST){
+            switch(ccp->variant){
+                case ((uint8)0x04) : (CCP1CONbits.CCP1M = ((uint8)0x04)); break;
+                case ((uint8)0x05) : (CCP1CONbits.CCP1M = ((uint8)0x05)); break;
+                case ((uint8)0x06) : (CCP1CONbits.CCP1M = ((uint8)0x06)); break;
+                case ((uint8)0x07) : (CCP1CONbits.CCP1M = ((uint8)0x07)); break;
+                default : ret = (std_ReturnType)0x00;
             }
+        }
+        else if (ccp->ccpx == CCP2_INST){
+             switch(ccp->variant){
+                case ((uint8)0x04) : (CCP2CONbits.CCP2M = ((uint8)0x04)); break;
+                case ((uint8)0x05) : (CCP2CONbits.CCP2M = ((uint8)0x05)); break;
+                case ((uint8)0x06) : (CCP2CONbits.CCP2M = ((uint8)0x06)); break;
+                case ((uint8)0x07) : (CCP2CONbits.CCP2M = ((uint8)0x07)); break;
+                default : ret = (std_ReturnType)0x00;
+            }
+        }
+        else{ }
+    }
     return ret;
 }
-static std_ReturnType lcd_4bits_set_cursor(const lcd_4bits_t *lcd,uint8 Rows,uint8 coloumns){
+
+
+
+static std_ReturnType CCP_Compare_Config(const ccp_t* ccp){
     std_ReturnType ret = (std_ReturnType)0x01;
-    coloumns--;
-
-        switch(Rows){
-            case 1 : lcd_4bit_send_command(lcd,(0x80 + coloumns)); break;
-            case 2 : lcd_4bit_send_command(lcd,(0xc0 + coloumns)); break;
-            case 3 : lcd_4bit_send_command(lcd,(0x94 + coloumns)); break;
-            case 4 : lcd_4bit_send_command(lcd,(0xd4 + coloumns)); break;
-            default:
-                break;
-
+    if(ccp == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        if(ccp->ccpx == CCP1_INST){
+            switch(ccp->variant){
+                case ((uint8)0x02) : (CCP1CONbits.CCP1M = ((uint8)0x02)); break;
+                case ((uint8)0x08) : (CCP1CONbits.CCP1M = ((uint8)0x08)); break;
+                case ((uint8)0x09) : (CCP1CONbits.CCP1M = ((uint8)0x09)); break;
+                case ((uint8)0x0A) : (CCP1CONbits.CCP1M = ((uint8)0x0A)); break;
+                case ((uint8)0x0B) : (CCP1CONbits.CCP1M = ((uint8)0x0B)); break;
+                default : ret = (std_ReturnType)0x00;
             }
+        }
+        else if (ccp->ccpx == CCP2_INST){
+             switch(ccp->variant){
+                case ((uint8)0x02) : (CCP2CONbits.CCP2M = ((uint8)0x02)); break;
+                case ((uint8)0x08) : (CCP2CONbits.CCP2M = ((uint8)0x08)); break;
+                case ((uint8)0x09) : (CCP2CONbits.CCP2M = ((uint8)0x09)); break;
+                case ((uint8)0x0A) : (CCP2CONbits.CCP2M = ((uint8)0x0A)); break;
+                case ((uint8)0x0B) : (CCP2CONbits.CCP2M = ((uint8)0x0B)); break;
+                default : ret = (std_ReturnType)0x00;
+            }
+        }
+        else{ }
+    }
     return ret;
+}
+static std_ReturnType CCP_PWM_Config(const ccp_t* ccp){
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if(ccp == ((void*)0)){
+        ret = (std_ReturnType)0x00;
+    }
+    else{
+        PR2 = (uint8)(((float)(4000000) / ((float)(ccp->timer2_pre_scaler) * (float)(ccp->timer2_postscaler) * 4.0 * (float)(ccp->pwm_freq))) - 1);
+        if(ccp->ccpx == CCP1_INST){
+            (CCP1CONbits.CCP1M = ((uint8)0x0C));
+        }
+        else if (ccp->ccpx == CCP2_INST){
+            (CCP2CONbits.CCP2M = ((uint8)0x0C));
+        }
+        else{ }
+    }
+    return ret;
+}
 
+void CCP1_ISR(void){
+    (PIR1bits.CCP1IF = 0);
+    if(Interrupt_Handler_CCP1){
+        Interrupt_Handler_CCP1();
+    }
+    else{ }
+}
+
+void CCP2_ISR(void){
+    (PIR2bits.CCP2IF = 0);
+    if(Interrupt_Handler_CCP2){
+        Interrupt_Handler_CCP2();
+    }
+    else{ }
 }

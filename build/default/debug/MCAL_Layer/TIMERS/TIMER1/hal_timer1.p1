@@ -1,9 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3080 `(v ~T0 @X0 0 tf ]
-[v F3062 `(v ~T0 @X0 0 tf ]
+[v F3082 `(v ~T0 @X0 0 tf ]
+[v F3064 `(v ~T0 @X0 0 tf ]
 "45 MCAL_Layer/TIMERS/TIMER1/hal_timer1.h
 [; ;MCAL_Layer/TIMERS/TIMER1/hal_timer1.h: 45:     typedef struct{
-[s S274 `*F3062 1 :1 `uc 1 :1 `uc 1 `us 1 `uc 1 ]
+[s S274 `*F3064 1 :1 `uc 1 :1 `uc 1 `us 1 `uc 1 ]
 [n S274 . TIMER1_HANDLER mode size prevalue prescaler_val ]
 "5230 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5230:     struct {
@@ -89,7 +89,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2596
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 2596: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
 [v _PIR1bits `VS88 ~T0 @X0 0 e@3998 ]
-[v F3112 `(v ~T0 @X0 0 tf ]
+[v F3114 `(v ~T0 @X0 0 tf ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -506,7 +506,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _preval `us ~T0 @X0 1 s ]
 "13
 [; ;MCAL_Layer/TIMERS/TIMER1/hal_timer1.c: 13: static void (*TMR1_HANDLER)(void);
-[v _TMR1_HANDLER `*F3080 ~T0 @X0 1 s ]
+[v _TMR1_HANDLER `*F3082 ~T0 @X0 1 s ]
 "20
 [; ;MCAL_Layer/TIMERS/TIMER1/hal_timer1.c: 20: std_ReturnType TIMER1_INIT(const timer1_t *timer){
 [v _TIMER1_INIT `(uc ~T0 @X0 1 ef1`*CS274 ]
@@ -900,7 +900,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR1L -> _preval `uc ]
 "145
 [; ;MCAL_Layer/TIMERS/TIMER1/hal_timer1.c: 145:     if(TMR1_HANDLER){
-[e $ ! != _TMR1_HANDLER -> -> 0 `i `*F3112 304  ]
+[e $ ! != _TMR1_HANDLER -> -> 0 `i `*F3114 304  ]
 {
 "146
 [; ;MCAL_Layer/TIMERS/TIMER1/hal_timer1.c: 146:         TMR1_HANDLER();

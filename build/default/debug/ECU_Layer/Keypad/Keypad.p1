@@ -614,8 +614,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ECU_Layer/Keypad/Keypad.c: 60:             ret = gpio_pin_write_logic(&(_keypad_obj->rows[row_counter]), GPIO_HIGH);
 [e = _ret ( _gpio_pin_write_logic (2 , &U *U + &U . *U __keypad_obj 0 * -> _row_counter `ux -> -> # *U &U . *U __keypad_obj 0 `ui `ux . `E2981 1 ]
 "61
-[; ;ECU_Layer/Keypad/Keypad.c: 61:             _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;ECU_Layer/Keypad/Keypad.c: 61:             _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "63
 [; ;ECU_Layer/Keypad/Keypad.c: 63:             for (coloumns_conter = 0; coloumns_conter < 4; coloumns_conter++) {
 {

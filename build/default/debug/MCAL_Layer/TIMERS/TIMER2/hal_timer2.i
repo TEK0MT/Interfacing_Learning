@@ -4806,6 +4806,8 @@ void TMR0_ISR(void);
 void TMR1_ISR(void);
 void TMR2_ISR(void);
 void TMR3_ISR(void);
+void CCP1_ISR(void);
+void CCP2_ISR(void);
 # 12 "MCAL_Layer/TIMERS/TIMER2/hal_timer2.h" 2
 
 # 1 "MCAL_Layer/TIMERS/TIMER2/../../Interrupt/mcal_internal_interrupt.h" 1

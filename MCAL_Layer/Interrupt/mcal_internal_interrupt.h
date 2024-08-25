@@ -68,6 +68,28 @@
 #define TIMER3_LOW_PRIORITY()             (IPR2bits.TMR3IP = 0)
 #endif
 #endif
+
+#if CCP1_INTERRUPT == INTERRUPT_ENABLED
+#define CCP1_INTERRUPT_ENABLE()       (PIE1bits.CCP1IE = 1)
+#define CCP1_INTERRUPT_DISABLE()       (PIE1bits.CCP1IE = 0)
+#define CCP1_CLEAR_FLAG()       (PIR1bits.CCP1IF = 0)
+
+#if INETRRUPT_PRIORITY
+#define CCP1_HIGH_PRIORITY()             (IPR1bits.CCP1IP = 1)
+#define CCP1_LOW_PRIORITY()             (IPR1bits.CCP1IP = 0)
+#endif
+#endif
+
+#if CCP2_INTERRUPT == INTERRUPT_ENABLED
+#define CCP2_INTERRUPT_ENABLE()       (PIE2bits.CCP2IE = 1)
+#define CCP2_INTERRUPT_DISABLE()       (PIE2bits.CCP2IE = 0)
+#define CCP2_CLEAR_FLAG()       (PIR2bits.CCP2IF = 0)
+
+#if INETRRUPT_PRIORITY
+#define CCP2_HIGH_PRIORITY()             (IPR2bits.CCP2IP = 1)
+#define CCP2_LOW_PRIORITY()             (IPR2bits.CCP2IP = 0)
+#endif
+#endif
 /* Section : Data Type Declarations */
 
 

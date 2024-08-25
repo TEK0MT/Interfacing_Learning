@@ -1,9 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3078 `(v ~T0 @X0 0 tf ]
-[v F3062 `(v ~T0 @X0 0 tf ]
+[v F3080 `(v ~T0 @X0 0 tf ]
+[v F3064 `(v ~T0 @X0 0 tf ]
 "49 MCAL_Layer/TIMERS/TIMER2/hal_timer2.h
 [; ;MCAL_Layer/TIMERS/TIMER2/hal_timer2.h: 49:     typedef struct{
-[s S274 `*F3062 1 `uc 1 `uc 1 `uc 1 ]
+[s S274 `*F3064 1 `uc 1 `uc 1 `uc 1 ]
 [n S274 . TIMER2_HANDLER prevalue prescaler_val postscale_val ]
 "5042 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 5042:     struct {
@@ -72,7 +72,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2596
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 2596: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
 [v _PIR1bits `VS88 ~T0 @X0 0 e@3998 ]
-[v F3098 `(v ~T0 @X0 0 tf ]
+[v F3100 `(v ~T0 @X0 0 tf ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\pic\include\proc\pic18f4620.h: 54: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -486,7 +486,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "9 MCAL_Layer/TIMERS/TIMER2/hal_timer2.c
 [; ;MCAL_Layer/TIMERS/TIMER2/hal_timer2.c: 9: static void (*TMR2_HANDLER)(void);
-[v _TMR2_HANDLER `*F3078 ~T0 @X0 1 s ]
+[v _TMR2_HANDLER `*F3080 ~T0 @X0 1 s ]
 "11
 [; ;MCAL_Layer/TIMERS/TIMER2/hal_timer2.c: 11: static uint8 preval = 0;
 [v _preval `uc ~T0 @X0 1 s ]
@@ -706,7 +706,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR2 _preval ]
 "85
 [; ;MCAL_Layer/TIMERS/TIMER2/hal_timer2.c: 85:     if(TMR2_HANDLER){
-[e $ ! != _TMR2_HANDLER -> -> 0 `i `*F3098 288  ]
+[e $ ! != _TMR2_HANDLER -> -> 0 `i `*F3100 288  ]
 {
 "86
 [; ;MCAL_Layer/TIMERS/TIMER2/hal_timer2.c: 86:         TMR2_HANDLER();

@@ -5085,6 +5085,8 @@ void TMR0_ISR(void);
 void TMR1_ISR(void);
 void TMR2_ISR(void);
 void TMR3_ISR(void);
+void CCP1_ISR(void);
+void CCP2_ISR(void);
 # 12 "./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h" 2
 # 43 "./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h"
 typedef enum{
@@ -5193,6 +5195,71 @@ std_ReturnType TIMER3_Write_Value(const timer3_t *timer,uint16 val);
 std_ReturnType TIMER3_Read_Value(const timer3_t *timer,uint16 *val);
 # 18 "./application.h" 2
 
+# 1 "./MCAL_Layer/CCP/hal_cpp.h" 1
+# 14 "./MCAL_Layer/CCP/hal_cpp.h"
+# 1 "./MCAL_Layer/CCP/ccp_cfg.h" 1
+# 14 "./MCAL_Layer/CCP/hal_cpp.h" 2
+# 61 "./MCAL_Layer/CCP/hal_cpp.h"
+typedef enum{
+    CCP_CAPTURE_MODE,
+            CCP_COMPARE_MODE,
+            CCP_PWM_MODE
+}ccp_mode_t;
+
+
+typedef enum{
+    CCP1_INST = 0,
+            CCP2_INST
+}ccp_inst;
+
+typedef union{
+    struct{
+    uint8 ccp_lval;
+    uint8 ccp_hval;
+    };
+    struct{
+        uint16 value;
+    };
+}CCP_REG_T;
+
+
+typedef enum{
+    CCP1_CCP2_TIMER3 = 0,
+            CCP1_TIMER1_CCPN2_TIMER2,
+            CCP1_CCP2_TIMER1
+}ccp_capture_timer_t;
+
+typedef struct{
+    ccp_inst ccpx;
+    ccp_mode_t mode;
+    uint8 variant;
+    pin_config_t pin;
+    ccp_capture_timer_t timer;
+
+    uint32 pwm_freq;
+    uint8 timer2_postscaler;
+    uint8 timer2_pre_scaler;
+
+
+    void (*Interrupt_CCP1_Handler)(void);
+    interrupt_priority ccp1_priority;
+
+
+    void (*Interrupt_CCP2_Handler)(void);
+    interrupt_priority ccp2_priority;
+
+
+}ccp_t;
+
+
+std_ReturnType CCP_Init(const ccp_t* ccp);
+std_ReturnType CCP_DeInit(const ccp_t* ccp);
+# 124 "./MCAL_Layer/CCP/hal_cpp.h"
+std_ReturnType CCP_PWM_Set_Duty(const ccp_t* ccp,uint8 val);
+std_ReturnType CCP_PWM_Start(const ccp_t* ccp);
+std_ReturnType CCP_PWM_Stop(const ccp_t* ccp);
+# 19 "./application.h" 2
+
 
 
 
@@ -5286,15 +5353,18 @@ std_ReturnType ret = (std_ReturnType)0x00;
 void isr(void){
     led_turn_toggle(&led1);
 }
-timer3_t timer = {.TIMER3_HANDLER = isr,.prescaler_val = 0x03,.prevalue = 15536,.mode = 0x01,.size = 0x01};
+timer2_t timer = {.TIMER2_HANDLER = ((void*)0),.prescaler_val = 0x00,.postscale_val = 3,.prevalue = 249};
+ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = 0x01,.timer2_postscaler = 4
+,.pwm_freq = 1000,.variant = ((uint8)0x0C),.mode = CCP_PWM_MODE,.Interrupt_CCP1_Handler = ((void*)0),.Interrupt_CCP2_Handler = ((void*)0)};
 uint8 value = 0;
 int main() {
     application_initialize();
-    TIMER3_INIT(&timer);
-
-
+    TIMER2_INIT(&timer);
+    CCP_Init(&ccp);
+    CCP_PWM_Set_Duty(&ccp,50);
+    CCP_PWM_Start(&ccp);
     while(1){
-        TIMER3_Read_Value(&timer,&value);
+
     }
     return (0);
 }

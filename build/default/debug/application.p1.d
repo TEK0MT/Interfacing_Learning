@@ -29,4 +29,6 @@ MCAL_Layer/TIMERS/TIMER0/hal_timer0.h  \
 MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_manager.h  \
 MCAL_Layer/TIMERS/TIMER1/hal_timer1.h  \
 MCAL_Layer/TIMERS/TIMER2/hal_timer2.h  \
-MCAL_Layer/TIMERS/TIMER3/hal_timer3.h 
+MCAL_Layer/TIMERS/TIMER3/hal_timer3.h  \
+MCAL_Layer/CCP/hal_cpp.h  \
+MCAL_Layer/CCP/ccp_cfg.h 

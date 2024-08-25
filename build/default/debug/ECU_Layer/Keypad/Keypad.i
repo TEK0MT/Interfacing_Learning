@@ -4843,7 +4843,7 @@ std_ReturnType keypad_read_value(const keypad_t *_keypad_obj, uint8 *value) {
                 ret = gpio_pin_write_logic(&(_keypad_obj->rows[l_counter]), GPIO_LOW);
             }
             ret = gpio_pin_write_logic(&(_keypad_obj->rows[row_counter]), GPIO_HIGH);
-            _delay((unsigned long)((10)*(8000000/4000.0)));
+            _delay((unsigned long)((10)*(4000000/4000.0)));
 
             for (coloumns_conter = 0; coloumns_conter < 4; coloumns_conter++) {
                 ret = gpio_pin_read_logic(&(_keypad_obj->coloumns[coloumns_conter]), &value_l);

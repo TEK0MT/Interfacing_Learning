@@ -173,7 +173,7 @@ GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "18 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER0/hal_timer0.c
-[e E3060 . `uc
+[e E3062 . `uc
 PRESCALER_DIV_2 0
 PRESCALER_DIV_4 1
 PRESCALER_DIV_8 2
@@ -183,16 +183,79 @@ PRESCALER_DIV_64 5
 PRESCALER_DIV_128 6
 PRESCALER_DIV_256 7
 ]
-"11 D:\Embedded Systems\Interfacing_Learning\application.c
-[v _isr isr `(v  1 e 1 0 ]
-"16
+"15 D:\Embedded Systems\Interfacing_Learning\application.c
+[e E3413 . `uc
+CCP1_INST 0
+CCP2_INST 1
+]
+[e E3408 . `uc
+CCP_CAPTURE_MODE 0
+CCP_COMPARE_MODE 1
+CCP_PWM_MODE 2
+]
+[e E3426 . `uc
+CCP1_CCP2_TIMER3 0
+CCP1_TIMER1_CCPN2_TIMER2 1
+CCP1_CCP2_TIMER1 2
+]
+[e E3195 . `uc
+LOW_PRIORITY 0
+HIGH_PRIORITY 1
+]
+[e E2999 . `uc
+PORTA_INDEX 0
+PORTB_INDEX 1
+PORTC_INDEX 2
+PORTD_INDEX 3
+PORTE_INDEX 4
+]
+[e E2989 . `uc
+PIN0 0
+PIN1 1
+PIN2 2
+PIN3 3
+PIN4 4
+PIN5 5
+PIN6 6
+PIN7 7
+]
+[e E2985 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+[e E2981 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"18 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/CCP/hal_cpp.c
+[e E3050 . `uc
+CCP1_INST 0
+CCP2_INST 1
+]
+[e E3045 . `uc
+CCP_CAPTURE_MODE 0
+CCP_COMPARE_MODE 1
+CCP_PWM_MODE 2
+]
+[e E3063 . `uc
+CCP1_CCP2_TIMER3 0
+CCP1_TIMER1_CCPN2_TIMER2 1
+CCP1_CCP2_TIMER1 2
+]
+[e E3041 . `uc
+LOW_PRIORITY 0
+HIGH_PRIORITY 1
+]
+"18 D:\Embedded Systems\Interfacing_Learning\application.c
 [v _main main `(i  1 e 2 0 ]
-"26
+"29
 [v _application_initialize application_initialize `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 "86 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
 "54 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\ftdiv.c
@@ -217,6 +280,8 @@ PRESCALER_DIV_256 7
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "42 D:\Embedded Systems\Interfacing_Learning\ECU_Layer/ECU_LAYER.c
 [v _Ecu_initialize Ecu_initialize `(uc  1 e 1 0 ]
 "45 D:\Embedded Systems\Interfacing_Learning\ECU_Layer/LCD/ecu_lcd.c
@@ -261,6 +326,24 @@ PRESCALER_DIV_256 7
 [v _ADC_Select_result_format ADC_Select_result_format `(uc  1 s 1 ADC_Select_result_format ]
 "170
 [v _ADC_Configure_Port ADC_Configure_Port `(uc  1 s 1 ADC_Configure_Port ]
+"18 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/CCP/hal_cpp.c
+[v _CCP_Init CCP_Init `(uc  1 e 1 0 ]
+"143
+[v _CCP_PWM_Set_Duty CCP_PWM_Set_Duty `(uc  1 e 1 0 ]
+"162
+[v _CCP_PWM_Start CCP_PWM_Start `(uc  1 e 1 0 ]
+"197
+[v _CCP_Interrupt_Config CCP_Interrupt_Config `(uc  1 s 1 CCP_Interrupt_Config ]
+"244
+[v _CCP_Capture_Config CCP_Capture_Config `(uc  1 s 1 CCP_Capture_Config ]
+"290
+[v _CCP_Compare_Config CCP_Compare_Config `(uc  1 s 1 CCP_Compare_Config ]
+"320
+[v _CCP_PWM_Config CCP_PWM_Config `(uc  1 s 1 CCP_PWM_Config ]
+"338
+[v _CCP1_ISR CCP1_ISR `(v  1 e 1 0 ]
+"346
+[v _CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]
 "21 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "68
@@ -319,13 +402,11 @@ PRESCALER_DIV_256 7
 [v _TIMER1_SIZE_SELECT TIMER1_SIZE_SELECT `(uc  1 s 1 TIMER1_SIZE_SELECT ]
 "141
 [v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
-"82 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER2/hal_timer2.c
+"13 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER2/hal_timer2.c
+[v _TIMER2_INIT TIMER2_INIT `(uc  1 e 1 0 ]
+"82
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
-"20 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER3/hal_timer3.c
-[v _TIMER3_INIT TIMER3_INIT `(uc  1 e 1 0 ]
-"85
-[v _TIMER3_Read_Value TIMER3_Read_Value `(uc  1 e 1 0 ]
-"100
+"100 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER3/hal_timer3.c
 [v _TIMER3_MODE_SELECT TIMER3_MODE_SELECT `(uc  1 s 1 TIMER3_MODE_SELECT ]
 "121
 [v _TIMER3_SIZE_SELECT TIMER3_SIZE_SELECT `(uc  1 s 1 TIMER3_SIZE_SELECT ]
@@ -333,13 +414,17 @@ PRESCALER_DIV_256 7
 [v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
 "10 D:\Embedded Systems\Interfacing_Learning\application.c
 [v _ret ret `uc  1 e 1 0 ]
-[s S2425 . 6 `*.37(v 1 TIMER3_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
-`uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 prescaler_val 1 5 ]
+[s S2351 . 5 `*.37(v 1 TIMER2_HANDLER 2 0 `uc 1 prevalue 1 2 `uc 1 prescaler_val 1 3 `uc 1 postscale_val 1 4 ]
 "14
-[v _timer timer `S2425  1 e 6 0 ]
+[v _timer timer `S2351  1 e 5 0 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
 "15
-[v _value value `uc  1 e 1 0 ]
+[s S2655 . 15 `E3413 1 ccpx 1 0 `E3408 1 mode 1 1 `uc 1 variant 1 2 `S24 1 pin 1 3 `E3426 1 timer 1 4 `ui 1 pwm_freq 2 5 `uc 1 timer2_postscaler 1 7 `uc 1 timer2_pre_scaler 1 8 `*.37(v 1 Interrupt_CCP1_Handler 2 9 `E3195 1 ccp1_priority 1 11 `*.37(v 1 Interrupt_CCP2_Handler 2 12 `E3195 1 ccp2_priority 1 14 ]
+[v _ccp ccp `S2655  1 e 15 0 ]
 "1380 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8/pic/include/proc/pic18f4620.h
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "1602
@@ -529,7 +614,7 @@ PRESCALER_DIV_256 7
 ]
 [u S1767 . 1 `S1754 1 . 1 0 `S1763 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES1767  1 e 1 @3998 ]
-[s S2550 . 1 `uc 1 CCP2IE 1 0 :1:0 
+[s S1913 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
@@ -539,11 +624,11 @@ PRESCALER_DIV_256 7
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "2749
-[s S2559 . 1 `uc 1 . 1 0 :2:0 
+[s S1922 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 ]
-[u S2562 . 1 `S2550 1 . 1 0 `S2559 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES2562  1 e 1 @4000 ]
+[u S1925 . 1 `S1913 1 . 1 0 `S1922 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES1925  1 e 1 @4000 ]
 [s S1877 . 1 `uc 1 CCP2IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
@@ -614,6 +699,47 @@ PRESCALER_DIV_256 7
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "3655
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
+[s S2829 . 1 `uc 1 CCP2M 1 0 :4:0 
+`uc 1 DC2B 1 0 :2:4 
+]
+"4179
+[s S2832 . 1 `uc 1 CCP2M0 1 0 :1:0 
+`uc 1 CCP2M1 1 0 :1:1 
+`uc 1 CCP2M2 1 0 :1:2 
+`uc 1 CCP2M3 1 0 :1:3 
+`uc 1 CCP2Y 1 0 :1:4 
+`uc 1 CCP2X 1 0 :1:5 
+]
+[s S2839 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 DC2B0 1 0 :1:4 
+`uc 1 DC2B1 1 0 :1:5 
+]
+[u S2843 . 1 `S2829 1 . 1 0 `S2832 1 . 1 0 `S2839 1 . 1 0 ]
+[v _CCP2CONbits CCP2CONbits `VES2843  1 e 1 @4026 ]
+"4241
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @4027 ]
+[s S2790 . 1 `uc 1 CCP1M 1 0 :4:0 
+`uc 1 DC1B 1 0 :2:4 
+`uc 1 P1M 1 0 :2:6 
+]
+"4282
+[s S2794 . 1 `uc 1 CCP1M0 1 0 :1:0 
+`uc 1 CCP1M1 1 0 :1:1 
+`uc 1 CCP1M2 1 0 :1:2 
+`uc 1 CCP1M3 1 0 :1:3 
+`uc 1 CCP1Y 1 0 :1:4 
+`uc 1 CCP1X 1 0 :1:5 
+`uc 1 P1M0 1 0 :1:6 
+`uc 1 P1M1 1 0 :1:7 
+]
+[s S2803 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 DC1B0 1 0 :1:4 
+`uc 1 DC1B1 1 0 :1:5 
+]
+[u S2807 . 1 `S2790 1 . 1 0 `S2794 1 . 1 0 `S2803 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES2807  1 e 1 @4029 ]
+"4359
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
 [s S1788 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
@@ -629,13 +755,15 @@ PRESCALER_DIV_256 7
 ]
 [u S1800 . 1 `S1788 1 . 1 0 `S1792 1 . 1 0 ]
 [v _T2CONbits T2CONbits `VES1800  1 e 1 @4042 ]
+"5107
+[v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "5217
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
-[s S2132 . 1 `uc 1 . 1 0 :2:0 
+[s S2176 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "5257
-[s S2135 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S2179 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -643,24 +771,24 @@ PRESCALER_DIV_256 7
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S2143 . 1 `uc 1 . 1 0 :2:0 
+[s S2187 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S2149 . 1 `uc 1 . 1 0 :3:0 
+[s S2193 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S2154 . 1 `S2132 1 . 1 0 `S2135 1 . 1 0 `S2143 1 . 1 0 `S2149 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES2154  1 e 1 @4045 ]
+[u S2198 . 1 `S2176 1 . 1 0 `S2179 1 . 1 0 `S2187 1 . 1 0 `S2193 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES2198  1 e 1 @4045 ]
 "5334
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "5341
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S1986 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2030 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -668,14 +796,14 @@ PRESCALER_DIV_256 7
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "5878
-[s S1993 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2037 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 T016BIT 1 0 :1:6 
 ]
-[u S1999 . 1 `S1986 1 . 1 0 `S1993 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES1999  1 e 1 @4053 ]
+[u S2043 . 1 `S2030 1 . 1 0 `S2037 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES2043  1 e 1 @4053 ]
 "5940
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "5947
@@ -728,6 +856,10 @@ PRESCALER_DIV_256 7
 [v _led1 led1 `S457  1 e 1 0 ]
 "9 D:\Embedded Systems\Interfacing_Learning\ECU_Layer/Keypad/Keypad.c
 [v _keypad_values keypad_values `[4][4]uc  1 e 16 0 ]
+"9 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/CCP/hal_cpp.c
+[v _Interrupt_Handler_CCP1 Interrupt_Handler_CCP1 `*.37(v  1 s 2 Interrupt_Handler_CCP1 ]
+"10
+[v _Interrupt_Handler_CCP2 Interrupt_Handler_CCP2 `*.37(v  1 s 2 Interrupt_Handler_CCP2 ]
 "9 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/GPIO/hal_gpio.c
 [v _tris_registers tris_registers `[5]*.39VEuc  1 e 10 0 ]
 "11
@@ -772,20 +904,20 @@ PRESCALER_DIV_256 7
 "9 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER2/hal_timer2.c
 [v _TMR2_HANDLER TMR2_HANDLER `*.37(v  1 s 2 TMR2_HANDLER ]
 "11
-[v _preval@hal_timer2$F2392 preval `uc  1 s 1 preval ]
+[v _preval@hal_timer2$F2436 preval `uc  1 s 1 preval ]
 "11 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER3/hal_timer3.c
-[v _preval@hal_timer3$F2595 preval `us  1 s 2 preval ]
+[v _preval@hal_timer3$F2573 preval `us  1 s 2 preval ]
 "13
 [v _TMR3_HANDLER TMR3_HANDLER `*.37(v  1 s 2 TMR3_HANDLER ]
-"16 D:\Embedded Systems\Interfacing_Learning\application.c
+"18 D:\Embedded Systems\Interfacing_Learning\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"25
+"28
 } 0
-"26
+"29
 [v _application_initialize application_initialize `(v  1 e 1 0 ]
 {
-"28
+"31
 } 0
 "42 D:\Embedded Systems\Interfacing_Learning\ECU_Layer/ECU_LAYER.c
 [v _Ecu_initialize Ecu_initialize `(uc  1 e 1 0 ]
@@ -801,151 +933,260 @@ PRESCALER_DIV_256 7
 `uc 1 logic 1 0 :1:7 
 ]
 "19
-[v led_initialize@pin_obj pin_obj `S24  1 a 1 2 ]
+[v led_initialize@pin_obj pin_obj `S24  1 a 1 13 ]
 [s S457 . 1 `uc 1 port_name 1 0 :3:0 
 `uc 1 pin_name 1 0 :3:3 
 `uc 1 led_status 1 0 :1:6 
 `uc 1 Reserved 1 0 :1:7 
 ]
 "13
-[v led_initialize@led led `*.30CS457  1 p 1 0 ]
+[v led_initialize@led led `*.30CS457  1 p 1 11 ]
 "18
 [v led_initialize@F3062 F3062 `S24  1 s 1 F3062 ]
 "24
+} 0
+"13 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER2/hal_timer2.c
+[v _TIMER2_INIT TIMER2_INIT `(uc  1 e 1 0 ]
+{
+[s S2351 . 5 `*.37(v 1 TIMER2_HANDLER 2 0 `uc 1 prevalue 1 2 `uc 1 prescaler_val 1 3 `uc 1 postscale_val 1 4 ]
+[v TIMER2_INIT@timer timer `*.30CS2351  1 p 1 1 ]
+"46
+} 0
+"162 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/CCP/hal_cpp.c
+[v _CCP_PWM_Start CCP_PWM_Start `(uc  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[s S2655 . 15 `E3413 1 ccpx 1 0 `E3408 1 mode 1 1 `uc 1 variant 1 2 `S24 1 pin 1 3 `E3426 1 timer 1 4 `ui 1 pwm_freq 2 5 `uc 1 timer2_postscaler 1 7 `uc 1 timer2_pre_scaler 1 8 `*.37(v 1 Interrupt_CCP1_Handler 2 9 `E3195 1 ccp1_priority 1 11 `*.37(v 1 Interrupt_CCP2_Handler 2 12 `E3195 1 ccp2_priority 1 14 ]
+[v CCP_PWM_Start@ccp ccp `*.30CS2655  1 p 1 1 ]
+"177
+} 0
+"143
+[v _CCP_PWM_Set_Duty CCP_PWM_Set_Duty `(uc  1 e 1 0 ]
+{
+"149
+[v CCP_PWM_Set_Duty@pwm_period pwm_period `us  1 a 2 99 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"143
+[s S2655 . 15 `E3413 1 ccpx 1 0 `E3408 1 mode 1 1 `uc 1 variant 1 2 `S24 1 pin 1 3 `E3426 1 timer 1 4 `ui 1 pwm_freq 2 5 `uc 1 timer2_postscaler 1 7 `uc 1 timer2_pre_scaler 1 8 `*.37(v 1 Interrupt_CCP1_Handler 2 9 `E3195 1 ccp1_priority 1 11 `*.37(v 1 Interrupt_CCP2_Handler 2 12 `E3195 1 ccp2_priority 1 14 ]
+[v CCP_PWM_Set_Duty@ccp ccp `*.30CS2655  1 p 1 91 ]
+[v CCP_PWM_Set_Duty@val val `uc  1 p 1 92 ]
+"161
+} 0
+"18
+[v _CCP_Init CCP_Init `(uc  1 e 1 0 ]
+{
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[s S2655 . 15 `E3413 1 ccpx 1 0 `E3408 1 mode 1 1 `uc 1 variant 1 2 `S24 1 pin 1 3 `E3426 1 timer 1 4 `ui 1 pwm_freq 2 5 `uc 1 timer2_postscaler 1 7 `uc 1 timer2_pre_scaler 1 8 `*.37(v 1 Interrupt_CCP1_Handler 2 9 `E3195 1 ccp1_priority 1 11 `*.37(v 1 Interrupt_CCP2_Handler 2 12 `E3195 1 ccp2_priority 1 14 ]
+[v CCP_Init@ccp ccp `*.30CS2655  1 p 1 103 ]
+"49
 } 0
 "134 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
 {
 "135
-[v gpio_pin_initialize@ret ret `uc  1 a 1 23 ]
+[v gpio_pin_initialize@ret ret `uc  1 a 1 10 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "134
-[v gpio_pin_initialize@_pin_config _pin_config `*.30CS24  1 p 1 22 ]
+[v gpio_pin_initialize@_pin_config _pin_config `*.30CS24  1 p 1 9 ]
 "144
 } 0
 "68
 [v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
 {
 "69
-[v gpio_pin_write_logic@ret ret `uc  1 a 1 21 ]
+[v gpio_pin_write_logic@ret ret `uc  1 a 1 8 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "68
-[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 14 ]
-[v gpio_pin_write_logic@logic logic `E2981  1 p 1 15 ]
+[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 1 ]
+[v gpio_pin_write_logic@logic logic `E2981  1 p 1 2 ]
 "87
 } 0
 "21
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 {
 "22
-[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 20 ]
+[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 7 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
 "21
-[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 14 ]
+[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 1 ]
 "40
 } 0
-"85 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER3/hal_timer3.c
-[v _TIMER3_Read_Value TIMER3_Read_Value `(uc  1 e 1 0 ]
+"320 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/CCP/hal_cpp.c
+[v _CCP_PWM_Config CCP_PWM_Config `(uc  1 s 1 CCP_PWM_Config ]
 {
-"87
-[v TIMER3_Read_Value@h_val h_val `uc  1 a 1 22 ]
-"86
-[v TIMER3_Read_Value@l_val l_val `uc  1 a 1 21 ]
-"88
-[v TIMER3_Read_Value@ret ret `uc  1 a 1 20 ]
-[s S2425 . 6 `*.37(v 1 TIMER3_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
-`uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 prescaler_val 1 5 ]
-"85
-[v TIMER3_Read_Value@timer timer `*.30CS2425  1 p 1 14 ]
-[v TIMER3_Read_Value@val val `*.30us  1 p 1 15 ]
-"98
+"321
+[v CCP_PWM_Config@ret ret `uc  1 a 1 102 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"320
+[s S2655 . 15 `E3413 1 ccpx 1 0 `E3408 1 mode 1 1 `uc 1 variant 1 2 `S24 1 pin 1 3 `E3426 1 timer 1 4 `ui 1 pwm_freq 2 5 `uc 1 timer2_postscaler 1 7 `uc 1 timer2_pre_scaler 1 8 `*.37(v 1 Interrupt_CCP1_Handler 2 9 `E3195 1 ccp1_priority 1 11 `*.37(v 1 Interrupt_CCP2_Handler 2 12 `E3195 1 ccp2_priority 1 14 ]
+[v CCP_PWM_Config@ccp ccp `*.30CS2655  1 p 1 91 ]
+"336
 } 0
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 11 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 10 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 1 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 9 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 90 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 89 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 81 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S3498 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S3503 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S3506 . 4 `l 1 i 4 0 `d 1 f 4 0 `S3498 1 fAsBytes 4 0 `S3503 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S3506  1 a 4 75 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 69 ]
+[s S3574 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S3577 . 2 `s 1 i 2 0 `us 1 n 2 0 `S3574 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S3577  1 a 2 79 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 74 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 73 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 68 ]
+"8
+[v ___flmul@b b `d  1 p 4 56 ]
+[v ___flmul@a a `d  1 p 4 60 ]
+"205
+} 0
+"11 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 34 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 27 ]
 "20
-[v _TIMER3_INIT TIMER3_INIT `(uc  1 e 1 0 ]
-{
-[s S2425 . 6 `*.37(v 1 TIMER3_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
-`uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 prescaler_val 1 5 ]
-[v TIMER3_INIT@timer timer `*.30CS2425  1 p 1 15 ]
-"56
+[v ___fldiv@new_exp new_exp `s  1 a 2 32 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 39 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 38 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 31 ]
+"11
+[v ___fldiv@b b `d  1 p 4 15 ]
+[v ___fldiv@a a `d  1 p 4 19 ]
+"185
 } 0
-"121
-[v _TIMER3_SIZE_SELECT TIMER3_SIZE_SELECT `(uc  1 s 1 TIMER3_SIZE_SELECT ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
 {
-[s S2425 . 6 `*.37(v 1 TIMER3_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
-`uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 prescaler_val 1 5 ]
-[v TIMER3_SIZE_SELECT@timer timer `*.30CS2425  1 p 1 14 ]
-"140
+"17
+[v ___fladd@grs grs `uc  1 a 1 55 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 54 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 53 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 52 ]
+"10
+[v ___fladd@b b `d  1 p 4 40 ]
+[v ___fladd@a a `d  1 p 4 44 ]
+"237
 } 0
-"100
-[v _TIMER3_MODE_SELECT TIMER3_MODE_SELECT `(uc  1 s 1 TIMER3_MODE_SELECT ]
+"197 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/CCP/hal_cpp.c
+[v _CCP_Interrupt_Config CCP_Interrupt_Config `(uc  1 s 1 CCP_Interrupt_Config ]
 {
-[s S2425 . 6 `*.37(v 1 TIMER3_HANDLER 2 0 `uc 1 mode 1 2 :1:0 
-`uc 1 size 1 2 :1:1 
-`us 1 prevalue 2 3 `uc 1 prescaler_val 1 5 ]
-[v TIMER3_MODE_SELECT@timer timer `*.30CS2425  1 p 1 14 ]
-"119
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+[s S2655 . 15 `E3413 1 ccpx 1 0 `E3408 1 mode 1 1 `uc 1 variant 1 2 `S24 1 pin 1 3 `E3426 1 timer 1 4 `ui 1 pwm_freq 2 5 `uc 1 timer2_postscaler 1 7 `uc 1 timer2_pre_scaler 1 8 `*.37(v 1 Interrupt_CCP1_Handler 2 9 `E3195 1 ccp1_priority 1 11 `*.37(v 1 Interrupt_CCP2_Handler 2 12 `E3195 1 ccp2_priority 1 14 ]
+[v CCP_Interrupt_Config@ccp ccp `*.30CS2655  1 p 1 1 ]
+"240
+} 0
+"290
+[v _CCP_Compare_Config CCP_Compare_Config `(uc  1 s 1 CCP_Compare_Config ]
+{
+"291
+[v CCP_Compare_Config@ret ret `uc  1 a 1 3 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"290
+[s S2655 . 15 `E3413 1 ccpx 1 0 `E3408 1 mode 1 1 `uc 1 variant 1 2 `S24 1 pin 1 3 `E3426 1 timer 1 4 `ui 1 pwm_freq 2 5 `uc 1 timer2_postscaler 1 7 `uc 1 timer2_pre_scaler 1 8 `*.37(v 1 Interrupt_CCP1_Handler 2 9 `E3195 1 ccp1_priority 1 11 `*.37(v 1 Interrupt_CCP2_Handler 2 12 `E3195 1 ccp2_priority 1 14 ]
+[v CCP_Compare_Config@ccp ccp `*.30CS2655  1 p 1 1 ]
+"319
+} 0
+"244
+[v _CCP_Capture_Config CCP_Capture_Config `(uc  1 s 1 CCP_Capture_Config ]
+{
+"245
+[v CCP_Capture_Config@ret ret `uc  1 a 1 3 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"244
+[s S2655 . 15 `E3413 1 ccpx 1 0 `E3408 1 mode 1 1 `uc 1 variant 1 2 `S24 1 pin 1 3 `E3426 1 timer 1 4 `ui 1 pwm_freq 2 5 `uc 1 timer2_postscaler 1 7 `uc 1 timer2_pre_scaler 1 8 `*.37(v 1 Interrupt_CCP1_Handler 2 9 `E3195 1 ccp1_priority 1 11 `*.37(v 1 Interrupt_CCP2_Handler 2 12 `E3195 1 ccp2_priority 1 14 ]
+[v CCP_Capture_Config@ccp ccp `*.30CS2655  1 p 1 1 ]
+"286
 } 0
 "38 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/Interrupt/mcal_interrupt_manager.c
 [v _InterruptMangaer InterruptMangaer `IIH(v  1 e 1 0 ]
 {
-"109
+"119
 } 0
 "142 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER3/hal_timer3.c
 [v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
 {
 "150
-} 0
-"11 D:\Embedded Systems\Interfacing_Learning\application.c
-[v _isr isr `(v  1 e 1 0 ]
-{
-"13
-} 0
-"54 D:\Embedded Systems\Interfacing_Learning\ECU_Layer/LED/ecu_led.c
-[v _led_turn_toggle led_turn_toggle `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"60
-[v led_turn_toggle@pin_obj pin_obj `S24  1 a 1 7 ]
-[s S457 . 1 `uc 1 port_name 1 0 :3:0 
-`uc 1 pin_name 1 0 :3:3 
-`uc 1 led_status 1 0 :1:6 
-`uc 1 Reserved 1 0 :1:7 
-]
-"54
-[v led_turn_toggle@led led `*.30CS457  1 p 1 5 ]
-"59
-[v led_turn_toggle@F3077 F3077 `S24  1 s 1 F3077 ]
-"65
-} 0
-"116 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[v gpio_pin_toggle_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
-"125
 } 0
 "82 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/TIMERS/TIMER2/hal_timer2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
@@ -1012,4 +1253,14 @@ PRESCALER_DIV_256 7
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
 {
 "65
+} 0
+"346 D:\Embedded Systems\Interfacing_Learning\MCAL_Layer/CCP/hal_cpp.c
+[v _CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]
+{
+"352
+} 0
+"338
+[v _CCP1_ISR CCP1_ISR `(v  1 e 1 0 ]
+{
+"344
 } 0

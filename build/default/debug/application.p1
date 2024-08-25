@@ -6,24 +6,64 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36
 [; ;./ECU_Layer/LED/ecu_led.h: 36: std_ReturnType led_turn_toggle(const led_t *led);
 [v _led_turn_toggle `(uc ~T0 @X0 0 ef1`*CS274 ]
-"27 ./application.h
-[; ;./application.h: 27: extern led_t led1;
+"28 ./application.h
+[; ;./application.h: 28: extern led_t led1;
 [v _led1 `S274 ~T0 @X0 0 e ]
-[v F3390 `(v ~T0 @X0 0 tf ]
-"45 ./MCAL_Layer/TIMERS/TIMER3/hal_timer3.h
-[; ;./MCAL_Layer/TIMERS/TIMER3/hal_timer3.h: 45:     typedef struct{
-[s S288 `*F3390 1 :1 `uc 1 :1 `uc 1 `us 1 `uc 1 ]
-[n S288 . TIMER3_HANDLER mode size prevalue prescaler_val ]
+[v F3375 `(v ~T0 @X0 0 tf ]
+"49 ./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h
+[; ;./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h: 49:     typedef struct{
+[s S287 `*F3375 1 `uc 1 `uc 1 `uc 1 ]
+[n S287 . TIMER2_HANDLER prevalue prescaler_val postscale_val ]
+[v F3476 `(v ~T0 @X0 0 tf ]
+"15 application.c
+[; ;application.c: 15: ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = 0x01,.timer2_postscaler = 4
+[c E3413 0 1 .. ]
+[n E3413 . CCP1_INST CCP2_INST  ]
+[c E3408 0 1 2 .. ]
+[n E3408 . CCP_CAPTURE_MODE CCP_COMPARE_MODE CCP_PWM_MODE  ]
+"59 ./MCAL_Layer/CCP/../GPIO/hal_gpio.h
+[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . port pin direction logic ]
+"15 application.c
+[; ;application.c: 15: ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = 0x01,.timer2_postscaler = 4
+[c E3426 0 1 2 .. ]
+[n E3426 . CCP1_CCP2_TIMER3 CCP1_TIMER1_CCPN2_TIMER2 CCP1_CCP2_TIMER1  ]
+[v F3441 `(v ~T0 @X0 0 tf ]
+[c E3195 0 1 .. ]
+[n E3195 . LOW_PRIORITY HIGH_PRIORITY  ]
+[v F3444 `(v ~T0 @X0 0 tf ]
+"90 ./MCAL_Layer/CCP/hal_cpp.h
+[; ;./MCAL_Layer/CCP/hal_cpp.h: 90: typedef struct{
+[s S292 `E3413 1 `E3408 1 `uc 1 `S273 1 `E3426 1 `ui 1 `uc 1 `uc 1 `*F3441 1 `E3195 1 `*F3444 1 `E3195 1 ]
+[n S292 . ccpx mode variant pin timer pwm_freq timer2_postscaler timer2_pre_scaler Interrupt_CCP1_Handler ccp1_priority Interrupt_CCP2_Handler ccp2_priority ]
+"15 application.c
+[; ;application.c: 15: ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = 0x01,.timer2_postscaler = 4
+[c E2999 0 1 2 3 4 .. ]
+[n E2999 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[c E2989 0 1 2 3 4 5 6 7 .. ]
+[n E2989 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
+[c E2985 0 1 .. ]
+[n E2985 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
+[c E2981 0 1 .. ]
+[n E2981 . GPIO_LOW GPIO_HIGH  ]
+[v F3478 `(v ~T0 @X0 0 tf ]
+[v F3479 `(v ~T0 @X0 0 tf ]
 [p mainexit ]
-"105 ./application.h
-[; ;./application.h: 105: void application_initialize();
+"106 ./application.h
+[; ;./application.h: 106: void application_initialize();
 [v _application_initialize `(v ~T0 @X0 0 e? ]
-"61 ./MCAL_Layer/TIMERS/TIMER3/hal_timer3.h
-[; ;./MCAL_Layer/TIMERS/TIMER3/hal_timer3.h: 61: std_ReturnType TIMER3_INIT(const timer3_t *timer);
-[v _TIMER3_INIT `(uc ~T0 @X0 0 ef1`*CS288 ]
-"64
-[; ;./MCAL_Layer/TIMERS/TIMER3/hal_timer3.h: 64: std_ReturnType TIMER3_Read_Value(const timer3_t *timer,uint16 *val);
-[v _TIMER3_Read_Value `(uc ~T0 @X0 0 ef2`*CS288`*us ]
+"64 ./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h
+[; ;./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h: 64: std_ReturnType TIMER2_INIT(const timer2_t *timer);
+[v _TIMER2_INIT `(uc ~T0 @X0 0 ef1`*CS287 ]
+"113 ./MCAL_Layer/CCP/hal_cpp.h
+[; ;./MCAL_Layer/CCP/hal_cpp.h: 113: std_ReturnType CCP_Init(const ccp_t* ccp);
+[v _CCP_Init `(uc ~T0 @X0 0 ef1`*CS292 ]
+"124
+[; ;./MCAL_Layer/CCP/hal_cpp.h: 124: std_ReturnType CCP_PWM_Set_Duty(const ccp_t* ccp,uint8 val);
+[v _CCP_PWM_Set_Duty `(uc ~T0 @X0 0 ef2`*CS292`uc ]
+"125
+[; ;./MCAL_Layer/CCP/hal_cpp.h: 125: std_ReturnType CCP_PWM_Start(const ccp_t* ccp);
+[v _CCP_PWM_Start `(uc ~T0 @X0 0 ef1`*CS292 ]
 "26 ./ECU_Layer/ECU_LAYER.h
 [; ;./ECU_Layer/ECU_LAYER.h: 26: std_ReturnType Ecu_initialize(void);
 [v _Ecu_initialize `(uc ~T0 @X0 0 ef ]
@@ -301,8 +341,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "6715
 [; <" TOSU equ 0FFFh ;# ">
-"34 ./application.h
-[; ;./application.h: 34:   const uint8 customChar[] = {
+"35 ./application.h
+[; ;./application.h: 35:   const uint8 customChar[] = {
 [v _customChar `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar
 :U ..
@@ -316,8 +356,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"44
-[; ;./application.h: 44: const uint8 customChar2[] = {
+"45
+[; ;./application.h: 45: const uint8 customChar2[] = {
 [v _customChar2 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar2
 :U ..
@@ -331,8 +371,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"54
-[; ;./application.h: 54: const const uint8 customChar3[] = {
+"55
+[; ;./application.h: 55: const const uint8 customChar3[] = {
 [v _customChar3 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar3
 :U ..
@@ -346,8 +386,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"64
-[; ;./application.h: 64: const uint8 customChar4[] = {
+"65
+[; ;./application.h: 65: const uint8 customChar4[] = {
 [v _customChar4 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar4
 :U ..
@@ -361,8 +401,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"74
-[; ;./application.h: 74: const uint8 customChar5[] = {
+"75
+[; ;./application.h: 75: const uint8 customChar5[] = {
 [v _customChar5 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar5
 :U ..
@@ -376,8 +416,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"84
-[; ;./application.h: 84: const uint8 customChar6[] = {
+"85
+[; ;./application.h: 85: const uint8 customChar6[] = {
 [v _customChar6 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar6
 :U ..
@@ -391,8 +431,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"94
-[; ;./application.h: 94: const uint8 customChar7[] = {
+"95
+[; ;./application.h: 95: const uint8 customChar7[] = {
 [v _customChar7 `Cuc ~T0 @X0 -> 8 `i e ]
 [i _customChar7
 :U ..
@@ -423,72 +463,104 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _led_turn_toggle (1 -> &U _led1 `*CS274 ]
 "13
 [; ;application.c: 13: }
-[e :UE 289 ]
+[e :UE 293 ]
 }
 "14
-[; ;application.c: 14: timer3_t timer = {.TIMER3_HANDLER = isr,.prescaler_val = 0x03,.prevalue = 15536,.mode = 0x01,.size = 0x01};
-[v _timer `S288 ~T0 @X0 1 e ]
+[; ;application.c: 14: timer2_t timer = {.TIMER2_HANDLER = ((void*)0),.prescaler_val = 0x00,.postscale_val = 3,.prevalue = 249};
+[v _timer `S287 ~T0 @X0 1 e ]
 [i _timer
 :U ..
 :U ..
-&U _isr
--> -> 1 `i `uc
--> -> 1 `i `uc
--> -> 15536 `i `us
+-> -> -> 0 `i `*v `*F3476
+-> -> 249 `i `uc
+-> -> 0 `i `uc
 -> -> 3 `i `uc
 ..
 ..
 ]
 "15
-[; ;application.c: 15: uint8 value = 0;
+[; ;application.c: 15: ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = 0x01,.timer2_postscaler = 4
+[v _ccp `S292 ~T0 @X0 1 e ]
+[i _ccp
+:U ..
+:U ..
+. `E3413 0
+. `E3408 2
+-> -> 12 `i `uc
+:U ..
+:U ..
+-> . `E2999 2 `uc
+-> . `E2989 2 `uc
+-> . `E2985 0 `uc
+-> . `E2981 0 `uc
+..
+..
+-> -> 0 `i `E3426
+-> -> 1000 `i `ui
+-> -> 4 `i `uc
+-> -> 1 `i `uc
+-> -> -> 0 `i `*v `*F3478
+-> -> 0 `i `E3195
+-> -> -> 0 `i `*v `*F3479
+..
+..
+]
+"17
+[; ;application.c: 17: uint8 value = 0;
 [v _value `uc ~T0 @X0 1 e ]
 [i _value
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"16
-[; ;application.c: 16: int main() {
+"18
+[; ;application.c: 18: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"17
-[; ;application.c: 17:     application_initialize();
+"19
+[; ;application.c: 19:     application_initialize();
 [e ( _application_initialize ..  ]
-"18
-[; ;application.c: 18:     TIMER3_INIT(&timer);
-[e ( _TIMER3_INIT (1 -> &U _timer `*CS288 ]
+"20
+[; ;application.c: 20:     TIMER2_INIT(&timer);
+[e ( _TIMER2_INIT (1 -> &U _timer `*CS287 ]
 "21
-[; ;application.c: 21:     while(1){
-[e :U 292 ]
-{
+[; ;application.c: 21:     CCP_Init(&ccp);
+[e ( _CCP_Init (1 -> &U _ccp `*CS292 ]
 "22
-[; ;application.c: 22:         TIMER3_Read_Value(&timer,&value);
-[e ( _TIMER3_Read_Value (2 , -> &U _timer `*CS288 -> &U _value `*us ]
+[; ;application.c: 22:     CCP_PWM_Set_Duty(&ccp,50);
+[e ( _CCP_PWM_Set_Duty (2 , -> &U _ccp `*CS292 -> -> 50 `i `uc ]
 "23
-[; ;application.c: 23:     }
-}
-[e :U 291 ]
-[e $U 292  ]
-[e :U 293 ]
+[; ;application.c: 23:     CCP_PWM_Start(&ccp);
+[e ( _CCP_PWM_Start (1 -> &U _ccp `*CS292 ]
 "24
-[; ;application.c: 24:     return (0);
-[e ) -> 0 `i ]
-[e $UE 290  ]
-"25
-[; ;application.c: 25: }
-[e :UE 290 ]
-}
+[; ;application.c: 24:     while(1){
+[e :U 296 ]
+{
 "26
-[; ;application.c: 26: void application_initialize(){
+[; ;application.c: 26:     }
+}
+[e :U 295 ]
+[e $U 296  ]
+[e :U 297 ]
+"27
+[; ;application.c: 27:     return (0);
+[e ) -> 0 `i ]
+[e $UE 294  ]
+"28
+[; ;application.c: 28: }
+[e :UE 294 ]
+}
+"29
+[; ;application.c: 29: void application_initialize(){
 [v _application_initialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _application_initialize ]
 [f ]
-"27
-[; ;application.c: 27:     ret = Ecu_initialize();
+"30
+[; ;application.c: 30:     ret = Ecu_initialize();
 [e = _ret ( _Ecu_initialize ..  ]
-"28
-[; ;application.c: 28: }
-[e :UE 294 ]
+"31
+[; ;application.c: 31: }
+[e :UE 298 ]
 }
