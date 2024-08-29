@@ -4808,6 +4808,8 @@ void TMR2_ISR(void);
 void TMR3_ISR(void);
 void CCP1_ISR(void);
 void CCP2_ISR(void);
+void EUSART_TX_ISR(void);
+void EUSART_RX_ISR(void);
 # 12 "MCAL_Layer/TIMERS/TIMER1/hal_timer1.h" 2
 
 # 1 "MCAL_Layer/TIMERS/TIMER1/../../Interrupt/mcal_internal_interrupt.h" 1

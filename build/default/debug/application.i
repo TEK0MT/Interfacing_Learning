@@ -5087,6 +5087,8 @@ void TMR2_ISR(void);
 void TMR3_ISR(void);
 void CCP1_ISR(void);
 void CCP2_ISR(void);
+void EUSART_TX_ISR(void);
+void EUSART_RX_ISR(void);
 # 12 "./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h" 2
 # 43 "./MCAL_Layer/TIMERS/TIMER0/hal_timer0.h"
 typedef enum{
@@ -5260,6 +5262,57 @@ std_ReturnType CCP_PWM_Start(const ccp_t* ccp);
 std_ReturnType CCP_PWM_Stop(const ccp_t* ccp);
 # 19 "./application.h" 2
 
+# 1 "./MCAL_Layer/ESUART/hal_suart.h" 1
+# 50 "./MCAL_Layer/ESUART/hal_suart.h"
+typedef enum {
+    BAUDRATE_ASYN_8BIT_lOW_SPEED,
+    BAUDRATE_ASYN_8BIT_HIGH_SPEED,
+    BAUDRATE_ASYN_16BIT_lOW_SPEED,
+    BAUDRATE_ASYN_16BIT_HIGH_SPEED,
+    BAUDRATE_SYN_8BIT,
+    BAUDRATE_SYN_16BIT
+} baudrate_gen_t;
+
+typedef struct {
+    interrupt_priority tx_priority;
+    uint8 TX_enable : 1;
+    uint8 Interrupt_tx_enable : 1;
+    uint8 tx_9bit_enable : 1;
+    uint8 reserved : 5;
+} usart_tx_cfg;
+
+typedef struct {
+    interrupt_priority rx_priority;
+    uint8 RX_enable : 1;
+    uint8 Interrupt_rx_enable : 1;
+    uint8 rx_9bit_enable : 1;
+    uint8 reserved : 5;
+} usart_rx_cfg;
+
+typedef struct {
+    uint32 baudrate;
+    baudrate_gen_t mode;
+    usart_tx_cfg tx;
+    usart_rx_cfg rx;
+    void (*EUSART_TxDefaultInterruptHandler)(void);
+    void (*EUSART_RxDefaultInterruptHandler)(void);
+    void (*EUSART_FramingErrorHandler)(void);
+    void (*EUSART_OverrunErrorHandler)(void);
+} usart_t;
+
+std_ReturnType ESUART_ASYNC_INIT(const usart_t *usart);
+std_ReturnType ESUART_ASYNC_DEINIT(const usart_t *usart);
+
+std_ReturnType ESUART_ASYNC_WRITE_BYTE_BLOCKING(uint8 data);
+std_ReturnType ESUART_ASYNC_WRITE_BYTE_NOBLOCKING(uint8 data);
+std_ReturnType EUSART_ASYNC_WriteStringBlocking(uint8 *_data, uint16 str_len);
+
+std_ReturnType ESUART_ASYNC_READ_BYTE_BLOCKING(uint8 *data);
+std_ReturnType ESUART_ASYNC_READ_BYTE_NOBLOCKING(uint8 *data);
+
+std_ReturnType EUSART_ASYNC_RX_Restart(void);
+# 20 "./application.h" 2
+
 
 
 
@@ -5275,76 +5328,7 @@ extern lcd_8bits_t lcd1;
 extern lcd_8bits_t lcd3;
 extern lcd_4bits_t lcd2;
 
-  const uint8 customChar[] = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x11,
-  0x11,
-  0x11,
-  0x1F,
-  0x00
-};
-const uint8 customChar2[] = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x11,
-  0x11,
-  0x1F,
-  0x1F,
-  0x00
-};
-const const uint8 customChar3[] = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x11,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x00
-};
-const uint8 customChar4[] = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x00
-};
-const uint8 customChar5[] = {
-  0x0E,
-  0x0A,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x00
-};
-const uint8 customChar6[] = {
-  0x0E,
-  0x0E,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x00
-};
-const uint8 customChar7[] = {
-  0x04,
-  0x0A,
-  0x04,
-  0x04,
-  0x04,
-  0x0E,
-  0x15,
-  0x0E
-};
+
 
 void application_initialize();
 # 9 "application.c" 2
@@ -5353,18 +5337,18 @@ std_ReturnType ret = (std_ReturnType)0x00;
 void isr(void){
     led_turn_toggle(&led1);
 }
-timer2_t timer = {.TIMER2_HANDLER = ((void*)0),.prescaler_val = 0x00,.postscale_val = 3,.prevalue = 249};
-ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = 0x01,.timer2_postscaler = 4
-,.pwm_freq = 1000,.variant = ((uint8)0x0C),.mode = CCP_PWM_MODE,.Interrupt_CCP1_Handler = ((void*)0),.Interrupt_CCP2_Handler = ((void*)0)};
-uint8 value = 0;
+volatile uint8 chara;
+usart_t esuart = {.baudrate = 9600,.mode = BAUDRATE_ASYN_8BIT_HIGH_SPEED,.tx.TX_enable = 1,.tx.tx_9bit_enable = 0,.rx.RX_enable = 1,.rx.rx_9bit_enable = 0};
 int main() {
     application_initialize();
-    TIMER2_INIT(&timer);
-    CCP_Init(&ccp);
-    CCP_PWM_Set_Duty(&ccp,50);
-    CCP_PWM_Start(&ccp);
+    ESUART_ASYNC_INIT(&esuart);
     while(1){
 
+
+        ESUART_ASYNC_READ_BYTE_BLOCKING(&chara);
+        ESUART_ASYNC_WRITE_BYTE_BLOCKING(chara);
+        _delay((unsigned long)((200)*(4000000/4000.0)));
+        ESUART_ASYNC_WRITE_BYTE_BLOCKING('*');
     }
     return (0);
 }

@@ -116,5 +116,14 @@ void __interrupt() InterruptMangaer(){
         CCP2_ISR();
     }
     else{/* Nothing */}
+    
+     if((INTERRUPT_ENABLED == PIE1bits.TXIE) && (INTERRUPT_OCCURED == PIR1bits.TXIF)){
+        EUSART_TX_ISR();
+    }
+    else{ /* Nothing */ }
+    if((INTERRUPT_ENABLED == PIE1bits.RCIE) && (INTERRUPT_OCCURED == PIR1bits.RCIF)){
+        EUSART_RX_ISR();
+    }
+    else{ /* Nothing */ }
 }
 #endif

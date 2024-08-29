@@ -90,6 +90,26 @@
 #define CCP2_LOW_PRIORITY()             (IPR2bits.CCP2IP = 0)
 #endif
 #endif
+
+#if USART_TX_INTERRUPT == INTERRUPT_ENABLED
+#define TX_INTERRUPT_ENABLE()       (PIE1bits.TXIE = 1)
+#define TX_INTERRUPT_DISABLE()       (PIE1bits.TXIE = 0)
+
+#if INETRRUPT_PRIORITY
+#define TX_HIGH_PRIORITY()             (IPR1bits.TXIP = 1)
+#define TX_LOW_PRIORITY()             (IPR1bits.TXIP = 0)
+#endif
+#endif
+
+#if USART_RX_INTERRUPT == INTERRUPT_ENABLED
+#define RX_INTERRUPT_ENABLE()       (PIE1bits.RCIE = 1)
+#define RX_INTERRUPT_DISABLE()       (PIE1bits.RCIE = 0)
+#define RX_CLEAR_FLAG()       (PIR1bits.RCIF = 0)
+#if INETRRUPT_PRIORITY
+#define RX_HIGH_PRIORITY()             (IPR1bits.RCIP = 1)
+#define RX_LOW_PRIORITY()             (IPR1bits.RCIP = 0)
+#endif
+#endif
 /* Section : Data Type Declarations */
 
 

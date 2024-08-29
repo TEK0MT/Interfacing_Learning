@@ -11,18 +11,18 @@ std_ReturnType ret = E_NOT_OK;
 void isr(void){
     led_turn_toggle(&led1);
 }
-timer2_t timer = {.TIMER2_HANDLER = NULL,.prescaler_val = TIMER2_PRESCALER_OFF,.postscale_val = TIMER2_POSTSCALER_DIV_BY_4,.prevalue = 249};
-ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = TIMER2_CCP_PRESCALER_OFF,.timer2_postscaler = TIMER2_CCP_POSTSCALER_DIV_BY_4
-,.pwm_freq = 1000,.variant = CCP_PWM,.mode = CCP_PWM_MODE,.Interrupt_CCP1_Handler = NULL,.Interrupt_CCP2_Handler = NULL};
-uint8 value = 0;
+volatile uint8 chara;
+usart_t esuart = {.baudrate = 9600,.mode = BAUDRATE_ASYN_8BIT_HIGH_SPEED,.tx.TX_enable = TX_ENABLE,.tx.tx_9bit_enable = ESUART_8BIT,.rx.RX_enable = 1,.rx.rx_9bit_enable = ESUART_8BIT};
 int main() {
     application_initialize();
-    TIMER2_INIT(&timer);
-    CCP_Init(&ccp);
-    CCP_PWM_Set_Duty(&ccp,50);
-    CCP_PWM_Start(&ccp);
+    ESUART_ASYNC_INIT(&esuart);
     while(1){
         
+        
+        ESUART_ASYNC_READ_BYTE_BLOCKING(&chara);
+        ESUART_ASYNC_WRITE_BYTE_BLOCKING(chara);
+        __delay_ms(200);
+        ESUART_ASYNC_WRITE_BYTE_BLOCKING('*');
     }
     return (EXIT_SUCCESS);
 }

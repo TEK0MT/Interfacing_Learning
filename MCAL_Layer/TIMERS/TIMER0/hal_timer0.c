@@ -39,8 +39,8 @@ std_ReturnType TIMER0_INIT(const timer0_t *timer){
             TIMER0_HIGH_PRIORITY() 
         }
         else if(timer->priority == LOW_PRIORITY){
-            INTERRUPT_LOW_PRIORITY_INTERRUPT_ENABLED()();
-            TIMER1_LOW_PRIORITY() 
+            INTERRUPT_LOW_PRIORITY_INTERRUPT_ENABLED();
+            TIMER1_LOW_PRIORITY() ;
         }
     #else
     INTERRUPT_GLOBAL_INTERRUPT_ENABLED();

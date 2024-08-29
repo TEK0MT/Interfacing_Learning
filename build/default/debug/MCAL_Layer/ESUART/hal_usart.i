@@ -1,4 +1,4 @@
-# 1 "MCAL_Layer/TIMERS/TIMER0/hal_timer0.c"
+# 1 "MCAL_Layer/ESUART/hal_usart.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,19 +6,19 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL_Layer/TIMERS/TIMER0/hal_timer0.c" 2
+# 1 "MCAL_Layer/ESUART/hal_usart.c" 2
 
 
 
 
 
 
-# 1 "MCAL_Layer/TIMERS/TIMER0/hal_timer0.h" 1
-# 11 "MCAL_Layer/TIMERS/TIMER0/hal_timer0.h"
-# 1 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/hal_gpio.h" 1
-# 12 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/hal_gpio.h"
-# 1 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/hal_gpio_cfg.h" 1
-# 12 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/hal_gpio.h" 2
+# 1 "MCAL_Layer/ESUART/hal_suart.h" 1
+# 11 "MCAL_Layer/ESUART/hal_suart.h"
+# 1 "MCAL_Layer/ESUART/../GPIO/hal_gpio.h" 1
+# 12 "MCAL_Layer/ESUART/../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/ESUART/../GPIO/hal_gpio_cfg.h" 1
+# 12 "MCAL_Layer/ESUART/../GPIO/hal_gpio.h" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18Fxxxx_DFP/1.6.159/xc8\\pic\\include\\proc\\pic18f4620.h" 3
@@ -4232,12 +4232,12 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 13 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/hal_gpio.h" 2
+# 13 "MCAL_Layer/ESUART/../GPIO/hal_gpio.h" 2
 
-# 1 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../mcal_std_types.h" 1
-# 11 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../mcal_std_types.h"
-# 1 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../std_libraries.h" 1
-# 11 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../std_libraries.h"
+# 1 "MCAL_Layer/ESUART/../GPIO/../mcal_std_types.h" 1
+# 11 "MCAL_Layer/ESUART/../GPIO/../mcal_std_types.h"
+# 1 "MCAL_Layer/ESUART/../GPIO/../std_libraries.h" 1
+# 11 "MCAL_Layer/ESUART/../GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -4408,7 +4408,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../std_libraries.h" 2
+# 11 "MCAL_Layer/ESUART/../GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdlib.h" 3
@@ -4487,7 +4487,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../std_libraries.h" 2
+# 12 "MCAL_Layer/ESUART/../GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 3
@@ -4546,11 +4546,11 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../std_libraries.h" 2
-# 11 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../mcal_std_types.h" 2
+# 13 "MCAL_Layer/ESUART/../GPIO/../std_libraries.h" 2
+# 11 "MCAL_Layer/ESUART/../GPIO/../mcal_std_types.h" 2
 
-# 1 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../compiler.h" 1
-# 11 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../compiler.h"
+# 1 "MCAL_Layer/ESUART/../GPIO/../compiler.h" 1
+# 11 "MCAL_Layer/ESUART/../GPIO/../compiler.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4714,9 +4714,9 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 11 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../compiler.h" 2
-# 12 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../mcal_std_types.h" 2
-# 31 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../mcal_std_types.h"
+# 11 "MCAL_Layer/ESUART/../GPIO/../compiler.h" 2
+# 12 "MCAL_Layer/ESUART/../GPIO/../mcal_std_types.h" 2
+# 31 "MCAL_Layer/ESUART/../GPIO/../mcal_std_types.h"
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned int uint32;
@@ -4726,11 +4726,11 @@ typedef signed int sint32;
 
 
 typedef uint8 std_ReturnType;
-# 14 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/hal_gpio.h" 2
+# 14 "MCAL_Layer/ESUART/../GPIO/hal_gpio.h" 2
 
-# 1 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/../../MCAL_Layer/device_config.h" 1
-# 15 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/hal_gpio.h" 2
-# 30 "MCAL_Layer/TIMERS/TIMER0/../../GPIO/hal_gpio.h"
+# 1 "MCAL_Layer/ESUART/../GPIO/../../MCAL_Layer/device_config.h" 1
+# 15 "MCAL_Layer/ESUART/../GPIO/hal_gpio.h" 2
+# 30 "MCAL_Layer/ESUART/../GPIO/hal_gpio.h"
 typedef enum{
     GPIO_LOW = 0,
     GPIO_HIGH
@@ -4780,219 +4780,328 @@ std_ReturnType gpio_port_get_direction_status(const port_index_t port,direction_
 std_ReturnType gpio_port_read_logic(const port_index_t port,uint8 *logic);
 std_ReturnType gpio_port_write_logic(const port_index_t port,uint8 logic);
 std_ReturnType gpio_port_toggle_logic(const port_index_t port);
-# 11 "MCAL_Layer/TIMERS/TIMER0/hal_timer0.h" 2
+# 11 "MCAL_Layer/ESUART/hal_suart.h" 2
 
-# 1 "MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_manager.h" 1
-# 11 "MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_manager.h"
-# 1 "MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_config.h" 1
-# 13 "MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_config.h"
-# 1 "MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_gen_cfg.h" 1
-# 13 "MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_config.h" 2
-# 42 "MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_config.h"
+
+# 1 "MCAL_Layer/ESUART/../Interrupt/mcal_internal_interrupt.h" 1
+# 11 "MCAL_Layer/ESUART/../Interrupt/mcal_internal_interrupt.h"
+# 1 "MCAL_Layer/ESUART/../Interrupt/mcal_interrupt_config.h" 1
+# 13 "MCAL_Layer/ESUART/../Interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_Layer/ESUART/../Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 13 "MCAL_Layer/ESUART/../Interrupt/mcal_interrupt_config.h" 2
+# 42 "MCAL_Layer/ESUART/../Interrupt/mcal_interrupt_config.h"
 typedef enum{
     LOW_PRIORITY = 0,
     HIGH_PRIORITY
 }interrupt_priority;
-# 11 "MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_manager.h" 2
-# 22 "MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_interrupt_manager.h"
-void INT0_ISR(void);
-void INT1_ISR(void);
-void INT2_ISR(void);
-void RB4_ISR(uint8 n);
-void RB5_ISR(uint8 n);
-void RB6_ISR(uint8 n);
-void RB7_ISR(uint8 n);
-void TMR0_ISR(void);
-void TMR1_ISR(void);
-void TMR2_ISR(void);
-void TMR3_ISR(void);
-void CCP1_ISR(void);
-void CCP2_ISR(void);
-void EUSART_TX_ISR(void);
-void EUSART_RX_ISR(void);
-# 12 "MCAL_Layer/TIMERS/TIMER0/hal_timer0.h" 2
+# 11 "MCAL_Layer/ESUART/../Interrupt/mcal_internal_interrupt.h" 2
+# 13 "MCAL_Layer/ESUART/hal_suart.h" 2
+# 50 "MCAL_Layer/ESUART/hal_suart.h"
+typedef enum {
+    BAUDRATE_ASYN_8BIT_lOW_SPEED,
+    BAUDRATE_ASYN_8BIT_HIGH_SPEED,
+    BAUDRATE_ASYN_16BIT_lOW_SPEED,
+    BAUDRATE_ASYN_16BIT_HIGH_SPEED,
+    BAUDRATE_SYN_8BIT,
+    BAUDRATE_SYN_16BIT
+} baudrate_gen_t;
 
-# 1 "MCAL_Layer/TIMERS/TIMER0/../../Interrupt/mcal_internal_interrupt.h" 1
-# 13 "MCAL_Layer/TIMERS/TIMER0/hal_timer0.h" 2
-# 43 "MCAL_Layer/TIMERS/TIMER0/hal_timer0.h"
-typedef enum{
-    PRESCALER_DIV_2 = 0,
-            PRESCALER_DIV_4,
-            PRESCALER_DIV_8,
-            PRECALER_DIV_16,
-            PRESCALER_DIV_32,
-            PRESCALER_DIV_64,
-            PRESCALER_DIV_128,
-            PRESCALER_DIV_256
-}prescaler_value_t;
+typedef struct {
+    interrupt_priority tx_priority;
+    uint8 TX_enable : 1;
+    uint8 Interrupt_tx_enable : 1;
+    uint8 tx_9bit_enable : 1;
+    uint8 reserved : 5;
+} usart_tx_cfg;
 
+typedef struct {
+    interrupt_priority rx_priority;
+    uint8 RX_enable : 1;
+    uint8 Interrupt_rx_enable : 1;
+    uint8 rx_9bit_enable : 1;
+    uint8 reserved : 5;
+} usart_rx_cfg;
 
-typedef struct{
+typedef struct {
+    uint32 baudrate;
+    baudrate_gen_t mode;
+    usart_tx_cfg tx;
+    usart_rx_cfg rx;
+    void (*EUSART_TxDefaultInterruptHandler)(void);
+    void (*EUSART_RxDefaultInterruptHandler)(void);
+    void (*EUSART_FramingErrorHandler)(void);
+    void (*EUSART_OverrunErrorHandler)(void);
+} usart_t;
 
-    void (* TIMER0_HANDLER)(void);
+std_ReturnType ESUART_ASYNC_INIT(const usart_t *usart);
+std_ReturnType ESUART_ASYNC_DEINIT(const usart_t *usart);
 
+std_ReturnType ESUART_ASYNC_WRITE_BYTE_BLOCKING(uint8 data);
+std_ReturnType ESUART_ASYNC_WRITE_BYTE_NOBLOCKING(uint8 data);
+std_ReturnType EUSART_ASYNC_WriteStringBlocking(uint8 *_data, uint16 str_len);
 
+std_ReturnType ESUART_ASYNC_READ_BYTE_BLOCKING(uint8 *data);
+std_ReturnType ESUART_ASYNC_READ_BYTE_NOBLOCKING(uint8 *data);
 
-
-
-    uint8 mode :1;
-    uint8 size :1;
-    uint16 prevalue;
-    uint8 edge :1;
-    uint8 prescaler;
-    prescaler_value_t prescaler_val;
-}timer0_t;
-
-
-std_ReturnType TIMER0_INIT(const timer0_t *timer);
-std_ReturnType TIMER0_DEINIT(const timer0_t *timer);
-std_ReturnType TIMER0_Write_Value(const timer0_t *timer,uint16 var);
-std_ReturnType TIMER0_Read_Value(const timer0_t *timer,uint16 *var);
-# 7 "MCAL_Layer/TIMERS/TIMER0/hal_timer0.c" 2
+std_ReturnType EUSART_ASYNC_RX_Restart(void);
+# 7 "MCAL_Layer/ESUART/hal_usart.c" 2
 
 
 
-static void(*ISR_TIMER0)(void);
 
-static std_ReturnType TIMER0_Size_SELECT(const timer0_t *timer);
-static std_ReturnType TIMER0_MODE_SELECT(const timer0_t *timer);
-static std_ReturnType TIMER0_PRESCALER_CFG(const timer0_t *timer);
+static void (*EUSART_TxInterruptHandler)(void) = ((void*)0);
 
-static uint16 preload = 0;
 
-std_ReturnType TIMER0_INIT(const timer0_t *timer){
+static void (*EUSART_RxInterruptHandler)(void) = ((void*)0);
+static void (*EUSART_FramingErrorHandler)(void) = ((void*)0);
+static void (*EUSART_OverrunErrorHandler)(void) = ((void*)0);
+
+
+
+
+
+std_ReturnType ESUART_ASYNC_BAUD_RATE(const usart_t *usart);
+std_ReturnType ESUART_ASYNC_TX_INIT(const usart_t *usart);
+std_ReturnType ESUART_ASYNC_RX_INIT(const usart_t *usart);
+
+std_ReturnType ESUART_ASYNC_INIT(const usart_t *usart) {
     std_ReturnType ret = (std_ReturnType)0x01;
-    if(timer == ((void*)0)){
+    if (usart == ((void*)0)) {
         ret = (std_ReturnType)0x00;
-    }
-    else{
-        (T0CONbits.TMR0ON = 0);
-        TIMER0_Size_SELECT(timer);
-        TIMER0_MODE_SELECT(timer);
-        TIMER0_PRESCALER_CFG(timer);
-        TMR0H = ((timer->prevalue) >> 8);
-        TMR0L = (uint8)(timer->prevalue);
-        preload = timer->prevalue;
-
-        (INTCONbits.TMR0IE = 1);
-        (INTCONbits.TMR0IF = 0);
-        ISR_TIMER0 = timer->TIMER0_HANDLER;
-# 46 "MCAL_Layer/TIMERS/TIMER0/hal_timer0.c"
-    (INTCONbits.GIEH = 1);
-    (INTCONbits.PEIE = 1);
-
-
-    (T0CONbits.TMR0ON = 1);
-    }
-    return ret;
-}
-std_ReturnType TIMER0_DEINIT(const timer0_t *timer){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(timer == ((void*)0)){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        (T0CONbits.TMR0ON = 0);
-
-        (INTCONbits.TMR0IE = 0);
-
-    }
-    return ret;
-}
-std_ReturnType TIMER0_Write_Value(const timer0_t *timer,uint16 var){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    if(timer == ((void*)0)){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        TMR0H = (var >> 8);
-        TMR0L = (uint8)(var);
-    }
-    return ret;
-}
-std_ReturnType TIMER0_Read_Value(const timer0_t *timer,uint16 *var){
-    std_ReturnType ret = (std_ReturnType)0x01;
-    uint8 low_reg = 0;
-    uint8 high_reg = 0;
-    if(timer == ((void*)0)){
-        ret = (std_ReturnType)0x00;
-    }
-    else{
-        low_reg = TMR0L;
-        high_reg = TMR0H;
-        *var = (uint16)((high_reg << 8) + low_reg);
+    } else {
+        RCSTAbits.SPEN = 0;
+        TRISCbits.RC7 = 1;
+        TRISCbits.RC6 = 1;
+        ESUART_ASYNC_BAUD_RATE(usart);
+        ESUART_ASYNC_TX_INIT(usart);
+        ESUART_ASYNC_RX_INIT(usart);
+        RCSTAbits.SPEN = 1;
     }
     return ret;
 }
 
-
-static std_ReturnType TIMER0_Size_SELECT(const timer0_t *timer){
+std_ReturnType ESUART_ASYNC_DEINIT(const usart_t *usart) {
     std_ReturnType ret = (std_ReturnType)0x01;
-    if(timer == ((void*)0)){
+    if (usart == ((void*)0)) {
+        ret = (std_ReturnType)0x00;
+    } else {
+        RCSTAbits.SPEN = 0;
+    }
+    return ret;
+}
+
+std_ReturnType ESUART_ASYNC_WRITE_BYTE_BLOCKING(uint8 data) {
+    std_ReturnType ret = (std_ReturnType)0x01;
+    while (!TXSTAbits.TRMT);
+
+    (PIE1bits.TXIE = 1);
+
+    TXREG = data;
+    return ret;
+}
+
+std_ReturnType ESUART_ASYNC_WRITE_BYTE_NOBLOCKING(uint8 data) {
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if (TXSTAbits.TRMT) {
+        TXREG = data;
+    } else {
         ret = (std_ReturnType)0x00;
     }
-    else{
-        if(timer->size == 1){
-            (T0CONbits.T08BIT = 0);
+    return ret;
+}
+
+std_ReturnType ESUART_ASYNC_READ_BYTE_BLOCKING(uint8 *data) {
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if (data == ((void*)0)) {
+        ret = (std_ReturnType)0x00;
+    } else {
+        while (!PIR1bits.RCIF);
+
+        *data = RCREG;
+
+        return ret;
+    }
+}
+
+std_ReturnType ESUART_ASYNC_READ_BYTE_NOBLOCKING(uint8 *data) {
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if (1 == PIR1bits.RCIF) {
+        *data = RCREG;
+    } else {
+        ret = (std_ReturnType)0x00;
+    }
+    return ret;
+}
+
+std_ReturnType EUSART_ASYNC_WriteStringBlocking(uint8 *_data, uint16 str_len) {
+    std_ReturnType ret = (std_ReturnType)0x01;
+    uint16 char_counter = 0;
+    for (char_counter = 0; char_counter < str_len; char_counter++) {
+        ret = ESUART_ASYNC_READ_BYTE_BLOCKING(_data[char_counter]);
+    }
+    return ret;
+}
+
+std_ReturnType EUSART_ASYNC_RX_Restart(void) {
+    std_ReturnType ret = (std_ReturnType)0x01;
+    RCSTAbits.CREN = 0;
+    RCSTAbits.CREN = 1;
+    return ret;
+}
+
+std_ReturnType ESUART_ASYNC_BAUD_RATE(const usart_t *usart) {
+    float baud_temp = 0;
+    std_ReturnType ret = (std_ReturnType)0x01;
+    if (usart == ((void*)0)) {
+        ret = (std_ReturnType)0x00;
+    } else {
+        switch (usart->mode) {
+            case BAUDRATE_ASYN_8BIT_lOW_SPEED:
+                (TXSTAbits.SYNC = 0);
+                TXSTAbits.BRGH = 0;
+                BAUDCONbits.BRG16 = 0;
+                baud_temp = ((4000000 / (float) usart->baudrate) / 64) - 1;
+                break;
+
+            case BAUDRATE_ASYN_8BIT_HIGH_SPEED:
+                (TXSTAbits.SYNC = 0);
+                TXSTAbits.BRGH = 1;
+                BAUDCONbits.BRG16 = 0;
+                baud_temp = ((4000000 / (float) usart->baudrate) / 16) - 1;
+                break;
+
+            case BAUDRATE_ASYN_16BIT_lOW_SPEED:
+                (TXSTAbits.SYNC = 0);
+                TXSTAbits.BRGH = 0;
+                BAUDCONbits.BRG16 = 1;
+                baud_temp = ((4000000 / (float) usart->baudrate) / 16) - 1;
+                break;
+
+            case BAUDRATE_ASYN_16BIT_HIGH_SPEED:
+                (TXSTAbits.SYNC = 0);
+                TXSTAbits.BRGH = 1;
+                BAUDCONbits.BRG16 = 1;
+                baud_temp = ((4000000 / (float) usart->baudrate) / 4) - 1;
+                break;
+
+            case BAUDRATE_SYN_8BIT:
+                (TXSTAbits.SYNC = 1);
+                BAUDCONbits.BRG16 = 0;
+                baud_temp = ((4000000 / (float) usart->baudrate) / 4) - 1;
+                break;
+
+            case BAUDRATE_SYN_16BIT:
+                (TXSTAbits.SYNC = 1);
+                BAUDCONbits.BRG16 = 1;
+                baud_temp = ((4000000 / (float) usart->baudrate) / 4) - 1;
+                break;
+
+            default:
+                ret = (std_ReturnType)0x00;
+
         }
-        else if(timer->size == 0){
-            (T0CONbits.T08BIT = 1);
-        }
-        else{ret = (std_ReturnType)0x00;}
+        SPBRG = (uint8) ((uint32) baud_temp);
+        SPBRGH = (uint8) ((uint32) baud_temp >> 8);
     }
     return ret;
 }
 
-static std_ReturnType TIMER0_MODE_SELECT(const timer0_t *timer){
+std_ReturnType ESUART_ASYNC_TX_INIT(const usart_t *usart) {
     std_ReturnType ret = (std_ReturnType)0x01;
-    if(timer == ((void*)0)){
+    if (usart == ((void*)0)) {
         ret = (std_ReturnType)0x00;
-    }
-    else{
-        if(timer->mode == 1){
-            (T0CONbits.T0CS = 0);
-        }
-        else if(timer->mode == 0){
-            (T0CONbits.T0CS = 1);
-            if(timer->edge == 1){
-                (T0CONbits.T0SE = 0);
+    } else {
+        if (usart->tx.TX_enable == 1) {
+            (TXSTAbits.TXEN = 1);
+            if (usart->tx.tx_9bit_enable == 1) {
+                (TXSTAbits.TX9 = 1);
+            } else if (usart->tx.tx_9bit_enable == 0) {
+                (TXSTAbits.TX9 = 0);
+            } else {
+
             }
-            else if(timer->edge == 0){
-                (T0CONbits.T0SE = 1);
+            if (usart->tx.Interrupt_tx_enable) {
+
+                (PIE1bits.TXIE = 1);
+                EUSART_TxInterruptHandler = usart->EUSART_TxDefaultInterruptHandler;
+# 196 "MCAL_Layer/ESUART/hal_usart.c"
+                (INTCONbits.GIEH = 1);
+                (INTCONbits.PEIE = 1);
+
+
+
             }
-            else{ret = (std_ReturnType)0x00;}
+        } else if (usart->tx.TX_enable == 0) {
+            (TXSTAbits.TXEN = 0);
+        } else {
         }
-        else{ret = (std_ReturnType)0x00;}
     }
-    return ret;
 }
-static std_ReturnType TIMER0_PRESCALER_CFG(const timer0_t *timer){
+
+std_ReturnType ESUART_ASYNC_RX_INIT(const usart_t *usart) {
     std_ReturnType ret = (std_ReturnType)0x01;
-    if(timer == ((void*)0)){
+    if (usart == ((void*)0)) {
         ret = (std_ReturnType)0x00;
-    }
-    else{
-        if(timer->prescaler == 0){
-            (T0CONbits.PSA = 1);
-        }
-        else if(timer->prescaler == 1){
+    } else {
+        if (usart->rx.RX_enable == 1) {
+            (RCSTAbits.CREN = 1);
+            if (usart->rx.rx_9bit_enable == 1) {
+                (RCSTAbits.RX9 = 1);
+            } else if (usart->rx.rx_9bit_enable == 0) {
+                (RCSTAbits.RX9 = 0);
+            } else {
 
-            (T0CONbits.PSA = 0);
-            T0CONbits.T0PS = timer->prescaler_val;
+            }
+            if (usart->rx.Interrupt_rx_enable) {
+
+                (PIE1bits.RCIE = 1);
+                EUSART_RxInterruptHandler = usart->EUSART_RxDefaultInterruptHandler;
+                EUSART_FramingErrorHandler = usart->EUSART_FramingErrorHandler;
+                EUSART_OverrunErrorHandler = usart->EUSART_OverrunErrorHandler;
+# 239 "MCAL_Layer/ESUART/hal_usart.c"
+                (INTCONbits.GIEH = 1);
+                (INTCONbits.PEIE = 1);
+
+
+
+            }
+
+        } else if (usart->rx.RX_enable == 0) {
+            (RCSTAbits.CREN = 0);
+        } else {
         }
-        else{ret = (std_ReturnType)0x00;}
     }
-    return ret;
 }
 
-void TMR0_ISR(void){
-    (INTCONbits.TMR0IF = 0);
-    TMR0H = (preload >> 8);
-    TMR0L = (uint8)(preload);
-    if(ISR_TIMER0){
-        ISR_TIMER0();
+
+
+void EUSART_TX_ISR(void) {
+    (PIE1bits.TXIE = 0);
+    if (EUSART_TxInterruptHandler) {
+        EUSART_TxInterruptHandler();
+    } else {
+
     }
-    else{
+}
+
+
+
+
+
+void EUSART_RX_ISR(void) {
+    if (EUSART_RxInterruptHandler) {
+        EUSART_RxInterruptHandler();
+    } else {
+
+    }
+    if (EUSART_FramingErrorHandler) {
+        EUSART_FramingErrorHandler();
+    } else {
+
+    }
+    if (EUSART_OverrunErrorHandler) {
+        EUSART_OverrunErrorHandler();
+    } else {
 
     }
 }

@@ -17,6 +17,7 @@
 #include "MCAL_Layer/TIMERS/TIMER2/hal_timer2.h"
 #include "MCAL_Layer/TIMERS/TIMER3/hal_timer3.h"
 #include "MCAL_Layer/CCP/hal_cpp.h"
+#include "MCAL_Layer/ESUART/hal_suart.h"
 /* Section : Macro Declarations */
 
 
@@ -32,76 +33,7 @@ extern lcd_8bits_t lcd1;
 extern lcd_8bits_t lcd3;
 extern lcd_4bits_t lcd2;
 
-  const uint8 customChar[] = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x11,
-  0x11,
-  0x11,
-  0x1F,
-  0x00
-};
-const uint8 customChar2[] = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x11,
-  0x11,
-  0x1F,
-  0x1F,
-  0x00
-};
-const const uint8 customChar3[] = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x11,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x00
-};
-const uint8 customChar4[] = {
-  0x0E,
-  0x0A,
-  0x11,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x00
-};
-const uint8 customChar5[] = {
-  0x0E,
-  0x0A,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x00
-};
-const uint8 customChar6[] = {
-  0x0E,
-  0x0E,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x1F,
-  0x00
-};
-const uint8 customChar7[] = {
-  0x04,
-  0x0A,
-  0x04,
-  0x04,
-  0x04,
-  0x0E,
-  0x15,
-  0x0E
-};
+  
 /* Section : Function Declarations */
 void application_initialize();
 

@@ -6,64 +6,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36
 [; ;./ECU_Layer/LED/ecu_led.h: 36: std_ReturnType led_turn_toggle(const led_t *led);
 [v _led_turn_toggle `(uc ~T0 @X0 0 ef1`*CS274 ]
-"28 ./application.h
-[; ;./application.h: 28: extern led_t led1;
+"29 ./application.h
+[; ;./application.h: 29: extern led_t led1;
 [v _led1 `S274 ~T0 @X0 0 e ]
-[v F3375 `(v ~T0 @X0 0 tf ]
-"49 ./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h
-[; ;./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h: 49:     typedef struct{
-[s S287 `*F3375 1 `uc 1 `uc 1 `uc 1 ]
-[n S287 . TIMER2_HANDLER prevalue prescaler_val postscale_val ]
-[v F3476 `(v ~T0 @X0 0 tf ]
 "15 application.c
-[; ;application.c: 15: ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = 0x01,.timer2_postscaler = 4
-[c E3413 0 1 .. ]
-[n E3413 . CCP1_INST CCP2_INST  ]
-[c E3408 0 1 2 .. ]
-[n E3408 . CCP_CAPTURE_MODE CCP_COMPARE_MODE CCP_PWM_MODE  ]
-"59 ./MCAL_Layer/CCP/../GPIO/hal_gpio.h
-[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . port pin direction logic ]
-"15 application.c
-[; ;application.c: 15: ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = 0x01,.timer2_postscaler = 4
-[c E3426 0 1 2 .. ]
-[n E3426 . CCP1_CCP2_TIMER3 CCP1_TIMER1_CCPN2_TIMER2 CCP1_CCP2_TIMER1  ]
-[v F3441 `(v ~T0 @X0 0 tf ]
+[; ;application.c: 15: usart_t esuart = {.baudrate = 9600,.mode = BAUDRATE_ASYN_8BIT_HIGH_SPEED,.tx.TX_enable = 1,.tx.tx_9bit_enable = 0,.rx.RX_enable = 1,.rx.rx_9bit_enable = 0};
+[c E3460 0 1 2 3 4 5 .. ]
+[n E3460 . BAUDRATE_ASYN_8BIT_lOW_SPEED BAUDRATE_ASYN_8BIT_HIGH_SPEED BAUDRATE_ASYN_16BIT_lOW_SPEED BAUDRATE_ASYN_16BIT_HIGH_SPEED BAUDRATE_SYN_8BIT BAUDRATE_SYN_16BIT  ]
 [c E3195 0 1 .. ]
 [n E3195 . LOW_PRIORITY HIGH_PRIORITY  ]
-[v F3444 `(v ~T0 @X0 0 tf ]
-"90 ./MCAL_Layer/CCP/hal_cpp.h
-[; ;./MCAL_Layer/CCP/hal_cpp.h: 90: typedef struct{
-[s S292 `E3413 1 `E3408 1 `uc 1 `S273 1 `E3426 1 `ui 1 `uc 1 `uc 1 `*F3441 1 `E3195 1 `*F3444 1 `E3195 1 ]
-[n S292 . ccpx mode variant pin timer pwm_freq timer2_postscaler timer2_pre_scaler Interrupt_CCP1_Handler ccp1_priority Interrupt_CCP2_Handler ccp2_priority ]
-"15 application.c
-[; ;application.c: 15: ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = 0x01,.timer2_postscaler = 4
-[c E2999 0 1 2 3 4 .. ]
-[n E2999 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-[c E2989 0 1 2 3 4 5 6 7 .. ]
-[n E2989 . PIN0 PIN1 PIN2 PIN3 PIN4 PIN5 PIN6 PIN7  ]
-[c E2985 0 1 .. ]
-[n E2985 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
-[c E2981 0 1 .. ]
-[n E2981 . GPIO_LOW GPIO_HIGH  ]
-[v F3478 `(v ~T0 @X0 0 tf ]
-[v F3479 `(v ~T0 @X0 0 tf ]
+"59 ./MCAL_Layer/ESUART/hal_suart.h
+[; ;./MCAL_Layer/ESUART/hal_suart.h: 59: typedef struct {
+[s S293 `E3195 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
+[n S293 . tx_priority TX_enable Interrupt_tx_enable tx_9bit_enable reserved ]
+"67
+[; ;./MCAL_Layer/ESUART/hal_suart.h: 67: typedef struct {
+[s S294 `E3195 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
+[n S294 . rx_priority RX_enable Interrupt_rx_enable rx_9bit_enable reserved ]
+[v F3488 `(v ~T0 @X0 0 tf ]
+[v F3490 `(v ~T0 @X0 0 tf ]
+[v F3492 `(v ~T0 @X0 0 tf ]
+[v F3494 `(v ~T0 @X0 0 tf ]
+"75
+[; ;./MCAL_Layer/ESUART/hal_suart.h: 75: typedef struct {
+[s S295 `ui 1 `E3460 1 `S293 1 `S294 1 `*F3488 1 `*F3490 1 `*F3492 1 `*F3494 1 ]
+[n S295 . baudrate mode tx rx EUSART_TxDefaultInterruptHandler EUSART_RxDefaultInterruptHandler EUSART_FramingErrorHandler EUSART_OverrunErrorHandler ]
 [p mainexit ]
-"106 ./application.h
-[; ;./application.h: 106: void application_initialize();
+"38 ./application.h
+[; ;./application.h: 38: void application_initialize();
 [v _application_initialize `(v ~T0 @X0 0 e? ]
-"64 ./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h
-[; ;./MCAL_Layer/TIMERS/TIMER2/hal_timer2.h: 64: std_ReturnType TIMER2_INIT(const timer2_t *timer);
-[v _TIMER2_INIT `(uc ~T0 @X0 0 ef1`*CS287 ]
-"113 ./MCAL_Layer/CCP/hal_cpp.h
-[; ;./MCAL_Layer/CCP/hal_cpp.h: 113: std_ReturnType CCP_Init(const ccp_t* ccp);
-[v _CCP_Init `(uc ~T0 @X0 0 ef1`*CS292 ]
-"124
-[; ;./MCAL_Layer/CCP/hal_cpp.h: 124: std_ReturnType CCP_PWM_Set_Duty(const ccp_t* ccp,uint8 val);
-[v _CCP_PWM_Set_Duty `(uc ~T0 @X0 0 ef2`*CS292`uc ]
-"125
-[; ;./MCAL_Layer/CCP/hal_cpp.h: 125: std_ReturnType CCP_PWM_Start(const ccp_t* ccp);
-[v _CCP_PWM_Start `(uc ~T0 @X0 0 ef1`*CS292 ]
+"86 ./MCAL_Layer/ESUART/hal_suart.h
+[; ;./MCAL_Layer/ESUART/hal_suart.h: 86: std_ReturnType ESUART_ASYNC_INIT(const usart_t *usart);
+[v _ESUART_ASYNC_INIT `(uc ~T0 @X0 0 ef1`*CS295 ]
+"93
+[; ;./MCAL_Layer/ESUART/hal_suart.h: 93: std_ReturnType ESUART_ASYNC_READ_BYTE_BLOCKING(uint8 *data);
+[v _ESUART_ASYNC_READ_BYTE_BLOCKING `(uc ~T0 @X0 0 ef1`*uc ]
+"89
+[; ;./MCAL_Layer/ESUART/hal_suart.h: 89: std_ReturnType ESUART_ASYNC_WRITE_BYTE_BLOCKING(uint8 data);
+[v _ESUART_ASYNC_WRITE_BYTE_BLOCKING `(uc ~T0 @X0 0 ef1`uc ]
+[v F2951 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
+[v __delay `JF2951 ~T0 @X0 0 e ]
+[p i __delay ]
 "26 ./ECU_Layer/ECU_LAYER.h
 [; ;./ECU_Layer/ECU_LAYER.h: 26: std_ReturnType Ecu_initialize(void);
 [v _Ecu_initialize `(uc ~T0 @X0 0 ef ]
@@ -341,111 +325,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "6715
 [; <" TOSU equ 0FFFh ;# ">
-"35 ./application.h
-[; ;./application.h: 35:   const uint8 customChar[] = {
-[v _customChar `Cuc ~T0 @X0 -> 8 `i e ]
-[i _customChar
-:U ..
--> -> 14 `i `uc
--> -> 10 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"45
-[; ;./application.h: 45: const uint8 customChar2[] = {
-[v _customChar2 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _customChar2
-:U ..
--> -> 14 `i `uc
--> -> 10 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"55
-[; ;./application.h: 55: const const uint8 customChar3[] = {
-[v _customChar3 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _customChar3
-:U ..
--> -> 14 `i `uc
--> -> 10 `i `uc
--> -> 17 `i `uc
--> -> 17 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"65
-[; ;./application.h: 65: const uint8 customChar4[] = {
-[v _customChar4 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _customChar4
-:U ..
--> -> 14 `i `uc
--> -> 10 `i `uc
--> -> 17 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"75
-[; ;./application.h: 75: const uint8 customChar5[] = {
-[v _customChar5 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _customChar5
-:U ..
--> -> 14 `i `uc
--> -> 10 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"85
-[; ;./application.h: 85: const uint8 customChar6[] = {
-[v _customChar6 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _customChar6
-:U ..
--> -> 14 `i `uc
--> -> 14 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 31 `i `uc
--> -> 0 `i `uc
-..
-]
-"95
-[; ;./application.h: 95: const uint8 customChar7[] = {
-[v _customChar7 `Cuc ~T0 @X0 -> 8 `i e ]
-[i _customChar7
-:U ..
--> -> 4 `i `uc
--> -> 10 `i `uc
--> -> 4 `i `uc
--> -> 4 `i `uc
--> -> 4 `i `uc
--> -> 14 `i `uc
--> -> 21 `i `uc
--> -> 14 `i `uc
-..
-]
 "10 application.c
 [; ;application.c: 10: std_ReturnType ret = (std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 e ]
@@ -463,93 +342,80 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _led_turn_toggle (1 -> &U _led1 `*CS274 ]
 "13
 [; ;application.c: 13: }
-[e :UE 293 ]
+[e :UE 296 ]
 }
 "14
-[; ;application.c: 14: timer2_t timer = {.TIMER2_HANDLER = ((void*)0),.prescaler_val = 0x00,.postscale_val = 3,.prevalue = 249};
-[v _timer `S287 ~T0 @X0 1 e ]
-[i _timer
-:U ..
-:U ..
--> -> -> 0 `i `*v `*F3476
--> -> 249 `i `uc
--> -> 0 `i `uc
--> -> 3 `i `uc
-..
-..
-]
+[; ;application.c: 14: volatile uint8 chara;
+[v _chara `Vuc ~T0 @X0 1 e ]
 "15
-[; ;application.c: 15: ccp_t ccp = {.ccpx = CCP1_INST,.pin.port = PORTC_INDEX,.pin.pin = PIN2,.pin.direction = GPIO_DIRECTION_OUTPUT,.pin.logic = GPIO_LOW,.timer2_pre_scaler = 0x01,.timer2_postscaler = 4
-[v _ccp `S292 ~T0 @X0 1 e ]
-[i _ccp
+[; ;application.c: 15: usart_t esuart = {.baudrate = 9600,.mode = BAUDRATE_ASYN_8BIT_HIGH_SPEED,.tx.TX_enable = 1,.tx.tx_9bit_enable = 0,.rx.RX_enable = 1,.rx.rx_9bit_enable = 0};
+[v _esuart `S295 ~T0 @X0 1 e ]
+[i _esuart
 :U ..
 :U ..
-. `E3413 0
-. `E3408 2
--> -> 12 `i `uc
+-> -> 9600 `i `ui
+. `E3460 1
 :U ..
 :U ..
--> . `E2999 2 `uc
--> . `E2989 2 `uc
--> . `E2985 0 `uc
--> . `E2981 0 `uc
-..
-..
--> -> 0 `i `E3426
--> -> 1000 `i `ui
--> -> 4 `i `uc
--> -> 1 `i `uc
--> -> -> 0 `i `*v `*F3478
 -> -> 0 `i `E3195
--> -> -> 0 `i `*v `*F3479
-..
-..
-]
-"17
-[; ;application.c: 17: uint8 value = 0;
-[v _value `uc ~T0 @X0 1 e ]
-[i _value
+-> -> 1 `i `uc
 -> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+:U ..
+:U ..
+-> -> 0 `i `E3195
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+..
+..
+..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"18
-[; ;application.c: 18: int main() {
+"16
+[; ;application.c: 16: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"19
-[; ;application.c: 19:     application_initialize();
+"17
+[; ;application.c: 17:     application_initialize();
 [e ( _application_initialize ..  ]
-"20
-[; ;application.c: 20:     TIMER2_INIT(&timer);
-[e ( _TIMER2_INIT (1 -> &U _timer `*CS287 ]
-"21
-[; ;application.c: 21:     CCP_Init(&ccp);
-[e ( _CCP_Init (1 -> &U _ccp `*CS292 ]
-"22
-[; ;application.c: 22:     CCP_PWM_Set_Duty(&ccp,50);
-[e ( _CCP_PWM_Set_Duty (2 , -> &U _ccp `*CS292 -> -> 50 `i `uc ]
-"23
-[; ;application.c: 23:     CCP_PWM_Start(&ccp);
-[e ( _CCP_PWM_Start (1 -> &U _ccp `*CS292 ]
-"24
-[; ;application.c: 24:     while(1){
-[e :U 296 ]
+"18
+[; ;application.c: 18:     ESUART_ASYNC_INIT(&esuart);
+[e ( _ESUART_ASYNC_INIT (1 -> &U _esuart `*CS295 ]
+"19
+[; ;application.c: 19:     while(1){
+[e :U 299 ]
 {
+"22
+[; ;application.c: 22:         ESUART_ASYNC_READ_BYTE_BLOCKING(&chara);
+[e ( _ESUART_ASYNC_READ_BYTE_BLOCKING (1 -> &U _chara `*uc ]
+"23
+[; ;application.c: 23:         ESUART_ASYNC_WRITE_BYTE_BLOCKING(chara);
+[e ( _ESUART_ASYNC_WRITE_BYTE_BLOCKING (1 _chara ]
+"24
+[; ;application.c: 24:         _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"25
+[; ;application.c: 25:         ESUART_ASYNC_WRITE_BYTE_BLOCKING('*');
+[e ( _ESUART_ASYNC_WRITE_BYTE_BLOCKING (1 -> -> 42 `ui `uc ]
 "26
 [; ;application.c: 26:     }
 }
-[e :U 295 ]
-[e $U 296  ]
-[e :U 297 ]
+[e :U 298 ]
+[e $U 299  ]
+[e :U 300 ]
 "27
 [; ;application.c: 27:     return (0);
 [e ) -> 0 `i ]
-[e $UE 294  ]
+[e $UE 297  ]
 "28
 [; ;application.c: 28: }
-[e :UE 294 ]
+[e :UE 297 ]
 }
 "29
 [; ;application.c: 29: void application_initialize(){
@@ -562,5 +428,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ret ( _Ecu_initialize ..  ]
 "31
 [; ;application.c: 31: }
-[e :UE 298 ]
+[e :UE 301 ]
 }
