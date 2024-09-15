@@ -19,10 +19,11 @@
 #define TIMER1_INTERRUPT                INTERRUPT_ENABLED
 #define TIMER2_INTERRUPT                INTERRUPT_ENABLED
 #define TIMER3_INTERRUPT                INTERRUPT_ENABLED
-#define CCP1_INTERRUPT                INTERRUPT_ENABLED
-#define CCP2_INTERRUPT                INTERRUPT_ENABLED
-#define USART_TX_INTERRUPT                INTERRUPT_ENABLED
-#define USART_RX_INTERRUPT                INTERRUPT_ENABLED
+#define CCP1_INTERRUPT                  INTERRUPT_ENABLED
+#define CCP2_INTERRUPT                  INTERRUPT_ENABLED
+#define USART_TX_INTERRUPT              INTERRUPT_ENABLED
+#define USART_RX_INTERRUPT              INTERRUPT_ENABLED
+#define MSSP_INTERRUPT_ENABLED          INTERRUPT_ENABLED
 /* Section : Macro Functions Declarations */
 
 

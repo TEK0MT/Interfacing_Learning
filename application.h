@@ -18,6 +18,7 @@
 #include "MCAL_Layer/TIMERS/TIMER3/hal_timer3.h"
 #include "MCAL_Layer/CCP/hal_cpp.h"
 #include "MCAL_Layer/ESUART/hal_suart.h"
+#include "MCAL_Layer/I2C/hal_i2c.h"
 /* Section : Macro Declarations */
 
 

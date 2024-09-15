@@ -110,6 +110,21 @@
 #define RX_LOW_PRIORITY()             (IPR1bits.RCIP = 0)
 #endif
 #endif
+
+#if MSSP_INTERRUPT_ENABLED == INTERRUPT_ENABLED
+#define MSSP_INTERRUPT_ENABLE()       (PIE1bits.SSPIE = 1)
+#define MSSP_INTERRUPT_BUS_COLLISION_ENABLE()       (PIE2bits.BCLIE = 1)
+#define MSSP_INTERRUPT_DISABLE()       (PIE1bits.SSPIE = 0)
+#define MSSP_INTERRUPT_BUS_COLLISION_DISABLE()       (PIE2bits.BCLIE = 1)
+#define MSSP_CLEAR_FLAG()       (PIR1bits.SSPIF = 0)
+#define MSSP_INTERRUPT_BUS_COLLISION_CLEAR_FLAG()       (PIR2bits.BCLIF = 0)
+#if INETRRUPT_PRIORITY
+#define MSSP_HIGH_PRIORITY()             (IPR1bits.SSPIP = 1)
+#define MSSP_HIGH_BUS_COLLISION_PRIORITY()             (IPR2bits.BCLIP = 1)
+#define MSSP_LOW_PRIORITY()             (IPR1bits.SSPIP = 0)
+#define MSSP_LOW_BUS_COLLISION_PRIORITY()             (IPR2bits.BCLIP = 0)
+#endif
+#endif
 /* Section : Data Type Declarations */
 
 

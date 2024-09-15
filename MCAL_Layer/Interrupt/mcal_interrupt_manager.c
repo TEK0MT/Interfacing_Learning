@@ -125,5 +125,9 @@ void __interrupt() InterruptMangaer(){
         EUSART_RX_ISR();
     }
     else{ /* Nothing */ }
+    if((INTERRUPT_ENABLED == PIE1bits.SSPIE) && (INTERRUPT_OCCURED == PIR1bits.SSPIF)){
+        MSSP_I2C_ISR();
+    }
+    else{ /* Nothing */ }
 }
 #endif
