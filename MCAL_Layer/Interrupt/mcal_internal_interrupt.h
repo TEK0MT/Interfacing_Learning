@@ -125,6 +125,8 @@
 #define MSSP_LOW_BUS_COLLISION_PRIORITY()             (IPR2bits.BCLIP = 0)
 #endif
 #endif
+
+
 /* Section : Data Type Declarations */
 
 
